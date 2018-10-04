@@ -1,25 +1,18 @@
+namespace A0 {
 
-function writeHTML(): void {
+    var a: string;
 
-    var node: any = document.getElementById("main");
-    var childNodeHTML: string;
+    function Gruss() {
 
-    var input: string = prompt("Bitte geben Sie Ihren Namen ein:");
-    var b = String(input);
+        var a = prompt("Wie darf ich Sie Nennen?");
+        var node: any = document.getElementById("main");
 
-    if (b != null) {
-
-        childNodeHTML = "";
-        childNodeHTML += "<a>";
-        childNodeHTML += "Hallo: " + b;
-        childNodeHTML += "</a>";
-
-        node.innerHTML += childNodeHTML;
-
+        node.innerHTML = "Ah, Hallo ";
+        node.innerHTML += a;
+        node.innerHTML += "! Was machst du denn hier?";
+        console.log("Ah, Hallo", a, "! Was machst du denn hier?" );
     }
 
-    console.log("Name: " + b)
-    console.log("Hallo: " + b);
-}
+    document.addEventListener('DOMContentLoaded', Gruss);
 
-document.addEventListener('DOMContentLoaded', writeHTML);
+}

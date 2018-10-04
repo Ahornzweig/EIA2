@@ -1,17 +1,14 @@
-function writeHTML() {
-    var node = document.getElementById("main");
-    var childNodeHTML;
-    var input = prompt("Bitte geben Sie Ihren Namen ein:");
-    var b = String(input);
-    if (b != null) {
-        childNodeHTML = "";
-        childNodeHTML += "<a>";
-        childNodeHTML += "Hallo: " + b;
-        childNodeHTML += "</a>";
-        node.innerHTML += childNodeHTML;
+var A0;
+(function (A0) {
+    var a;
+    function Gruss() {
+        var a = prompt("Wie darf ich Sie Nennen?");
+        var node = document.getElementById("main");
+        node.innerHTML = "Ah, Hallo ";
+        node.innerHTML += a;
+        node.innerHTML += "! Was machst du denn hier?";
+        console.log("Ah, Hallo", a, "! Was machst du denn hier?");
     }
-    console.log("Name: " + b);
-    console.log("Hallo: " + b);
-}
-document.addEventListener('DOMContentLoaded', writeHTML);
+    document.addEventListener('DOMContentLoaded', Gruss);
+})(A0 || (A0 = {}));
 //# sourceMappingURL=A0.js.map
