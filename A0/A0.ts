@@ -7,10 +7,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace A0 {
 
-    var a: string;
-
     function Gruss() {
-
+        var a: string;
         var a = prompt("Wie darf ich Sie Nennen?");
         var node: any = document.getElementById("main");
 
