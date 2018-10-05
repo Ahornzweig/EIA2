@@ -1,3 +1,10 @@
+/*Aufgabe: Aufgabe 0
+Name: Sarah L�nnqvist
+Matrikel: (259116)
+Datum: 04.10.2018
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
 var A0;
 (function (A0) {
     var a;
