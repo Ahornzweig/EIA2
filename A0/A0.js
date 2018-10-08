@@ -9,11 +9,12 @@ var A0;
 (function (A0) {
     function Gruss() {
         var a;
-        var a = prompt("Wie darf ich Sie Nennen?");
-        var node = document.getElementById("main");
-        node.innerHTML = "Ah, Hallo ";
-        node.innerHTML += a;
-        node.innerHTML += "! Was machst du denn hier?";
+        var a = prompt("Wie darf ich dich Nennen?");
+        var b;
+        b = "Ah, Hallo ";
+        b += a;
+        b += "! Was machst du denn hier?";
+        document.getElementById("main").innerHTML += b;
         console.log("Ah, Hallo", a, "! Was machst du denn hier?");
     }
     document.addEventListener('DOMContentLoaded', Gruss);
