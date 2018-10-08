@@ -8,8 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace A0 {
 
     function Gruss() {
-        var a: string;
-        var a = prompt("Wie darf ich dich Nennen?");
+        var a: string = prompt("Wie darf ich dich Nennen?");
         var b:string;
 
         b = "Ah, Hallo ";

@@ -8,7 +8,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var A0;
 (function (A0) {
     function Gruss() {
-        var a;
         var a = prompt("Wie darf ich dich Nennen?");
         var b;
         b = "Ah, Hallo ";
