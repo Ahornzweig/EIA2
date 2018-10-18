@@ -128,7 +128,7 @@ namespace A2 {
 
     let c: string="";
 
-    function getRendom(n: number) {
+    function getRandom(n: number) {
         return Math.floor(Math.random() * Math.floor(n));
 
     }
@@ -162,11 +162,11 @@ namespace A2 {
     }
 
     let z: number;
-    let i: string = prompt();
+    let i: string = prompt("Wie viele Karten willst du?");
     z = Number(i);
 
     for (let d: number = 0; d < z; d++) {
-        let l = getRendom(15);
+        let l = getRandom(15);
 
 
         if (l == 13 && s1 > 0) {
@@ -192,7 +192,7 @@ namespace A2 {
                 continue;
             }
             else {
-                let m: number = getRendom(4);
+                let m: number = getRandom(4);
                 switch (m) {
                     case 0:
                         c = "#ff0000"

@@ -102,7 +102,7 @@ var A2;
     let s1 = 4;
     let s2 = 4;
     let c = "";
-    function getRendom(n) {
+    function getRandom(n) {
         return Math.floor(Math.random() * Math.floor(n));
     }
     function placeDiv(_color, _n, _x) {
@@ -127,10 +127,10 @@ var A2;
         }
     }
     let z;
-    let i = prompt();
+    let i = prompt("Wie viele Karten willst du?");
     z = Number(i);
     for (let d = 0; d < z; d++) {
-        let l = getRendom(15);
+        let l = getRandom(15);
         if (l == 13 && s1 > 0) {
             c = "#000000";
             s1--;
@@ -153,7 +153,7 @@ var A2;
                 continue;
             }
             else {
-                let m = getRendom(4);
+                let m = getRandom(4);
                 switch (m) {
                     case 0:
                         c = "#ff0000";
