@@ -1,3 +1,10 @@
+/*Aufgabe: Aufgabe 2
+Name: Sarah Lönnqvist
+Matrikel: 259116
+Datum: 18.10.2018
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
 namespace A2 {
 
     interface Karten {
