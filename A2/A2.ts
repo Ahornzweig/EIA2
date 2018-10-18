@@ -149,7 +149,7 @@ namespace A2 {
         s.backgroundColor = _color;
         s.width = 130+  "px";
         s.height = 200 +"px";
-        s.left = (_x +0.1) * 140 + "px";
+        s.left = (_x +0.5) * 140 + "px";
         s.bottom =  40 +"px";
         
     
@@ -246,8 +246,8 @@ namespace A2 {
         s.backgroundColor = "#8A4B08";
         s.width = 130 + "px";
         s.height = 200 + "px";
-        s.left = (n + 0.5)*20 + "px";
-        s.top = (n + 0.5) * 10 + "px";
+        s.left = (n + 5)*5 + "px";
+        s.top = 15 + "px";
         }
     
     function Ablage():void{
@@ -255,7 +255,7 @@ namespace A2 {
         document.body.appendChild(div);
         div.setAttribute("id", "Ablage")
         
-        document.getElementById("Ablage").innerHTML += "Tod";
+        document.getElementById("Ablage").innerHTML += "Ablage";
         
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
@@ -263,11 +263,11 @@ namespace A2 {
         s.backgroundColor = "#298A08";
         s.width = 130 + "px";
         s.height = 200 + "px";
-        s.right = 50 + "px";
-        s.top = 20 + "px";
+        s.right = 20 + "px";
+        s.top = 15 + "px";
         }
     
-    for(let i:number=0;i<108-z;i++){
+    for(let i:number=0;i<(107-z);i++){
         Stapel(i);
         }
     
