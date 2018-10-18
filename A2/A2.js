@@ -201,7 +201,7 @@ var A2;
         s.width = 130 + "px";
         s.height = 200 + "px";
         s.left = (n + 0.5) * 20 + "px";
-        s.top = (n + 0.5) * 50 + "px";
+        s.top = (n + 0.5) * 10 + "px";
     }
     function Ablage() {
         let div = document.createElement("div");
