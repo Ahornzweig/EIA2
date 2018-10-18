@@ -267,7 +267,7 @@ namespace A2 {
         s.top = 20 + "px";
         }
     
-    for(let i:number=0;i<3;i++){
+    for(let i:number=0;i<108-z;i++){
         Stapel(i);
         }
     

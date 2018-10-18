@@ -217,7 +217,7 @@ var A2;
         s.right = 50 + "px";
         s.top = 20 + "px";
     }
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 108 - z; i++) {
         Stapel(i);
     }
     Ablage();
