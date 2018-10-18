@@ -98,7 +98,7 @@ var A2;
         gruen: 2,
         gelb: 2,
     };
-    let arrey = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
+    let array = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
     let s1 = 4;
     let s2 = 4;
     let c = "";
@@ -157,30 +157,30 @@ var A2;
                 switch (m) {
                     case 0:
                         c = "#ff0000";
-                        if (arrey[l].rot > 0) {
-                            placeDiv(c, arrey[l].name, d);
-                            arrey[l].rot--;
+                        if (array[l].rot > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].rot--;
                             continue;
                         }
                     case 1:
                         c = "#00ff00";
-                        if (arrey[l].gruen > 0) {
-                            placeDiv(c, arrey[l].name, d);
-                            arrey[l].gruen--;
+                        if (array[l].gruen > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].gruen--;
                             continue;
                         }
                     case 2:
                         c = "#0000ff";
-                        if (arrey[l].blau > 0) {
-                            placeDiv(c, arrey[l].name, d);
-                            arrey[l].blau--;
+                        if (array[l].blau > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].blau--;
                             continue;
                         }
                     case 3:
                         c = "#ffff00";
-                        if (arrey[l].gelb > 0) {
-                            placeDiv(c, arrey[l].name, d);
-                            arrey[l].gelb--;
+                        if (array[l].gelb > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].gelb--;
                             continue;
                         }
                         else {

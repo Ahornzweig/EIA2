@@ -120,45 +120,45 @@ namespace A2 {
         gelb: 2,
     }
 
-    let arrey: Karten[] = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
+    let array: Karten[] = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
 
     let s1: number = 4;
 
     let s2: number = 4;
 
-    let c: string="";
+    let c: string = "";
 
     function getRandom(n: number) {
         return Math.floor(Math.random() * Math.floor(n));
 
     }
-    
-    function placeDiv ( _color:string,_n:string,_x:number): void{
-        
-        console.log(_color,_n,_x)
-        
-        
+
+    function placeDiv(_color: string, _n: string, _x: number): void {
+
+        console.log(_color, _n, _x)
+
+
         let div: HTMLDivElement = document.createElement("div");
         document.body.appendChild(div);
-        div.setAttribute("id", "a"+_x)
-        document.getElementById("a" + _x).innerHTML+= _n;
-        
+        div.setAttribute("id", "a" + _x)
+        document.getElementById("a" + _x).innerHTML += _n;
+
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
         s.position = "absolute";
         s.backgroundColor = _color;
-        s.width = 130+  "px";
-        s.height = 200 +"px";
-        s.left = (_x +0.5) * 140 + "px";
-        s.bottom =  40 +"px";
-        
-    
-        if(c=="#000000"){
-        s.color= "white";
-            }
-        if(c=="#0000ff"){
-        s.color= "white";
-            }
+        s.width = 130 + "px";
+        s.height = 200 + "px";
+        s.left = (_x + 0.5) * 140 + "px";
+        s.bottom = 40 + "px";
+
+
+        if (c == "#000000") {
+            s.color = "white";
+        }
+        if (c == "#0000ff") {
+            s.color = "white";
+        }
     }
 
     let z: number;
@@ -172,7 +172,7 @@ namespace A2 {
         if (l == 13 && s1 > 0) {
             c = "#000000";
             s1--;
-            placeDiv(c, "+4",d);
+            placeDiv(c, "+4", d);
             continue;
         }
         else if (l == 13 && s1 <= 0) {
@@ -196,30 +196,30 @@ namespace A2 {
                 switch (m) {
                     case 0:
                         c = "#ff0000"
-                        if (arrey[l].rot > 0) {
-                            placeDiv (c, arrey[l].name, d);
-                            arrey[l].rot--;
+                        if (array[l].rot > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].rot--;
                             continue;
                         }
                     case 1:
                         c = "#00ff00"
-                        if (arrey[l].gruen > 0) {
-                            placeDiv (c, arrey[l].name, d);
-                            arrey[l].gruen--;
+                        if (array[l].gruen > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].gruen--;
                             continue;
                         }
                     case 2:
                         c = "#0000ff"
-                        if (arrey[l].blau > 0) {
-                            placeDiv(c,arrey[l].name,d);
-                            arrey[l].blau--;
+                        if (array[l].blau > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].blau--;
                             continue;
                         }
                     case 3:
                         c = "#ffff00"
-                        if (arrey[l].gelb > 0) {
-                            placeDiv (c,arrey[l].name, d);
-                            arrey[l].gelb--;
+                        if (array[l].gelb > 0) {
+                            placeDiv(c, array[l].name, d);
+                            array[l].gelb--;
                             continue;
                         }
                         else {
@@ -236,27 +236,27 @@ namespace A2 {
 
         }
     }
-    function Stapel(n:number):void{
+    function Stapel(n: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.body.appendChild(div);
-       
+
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
         s.position = "absolute";
         s.backgroundColor = "#8A4B08";
         s.width = 130 + "px";
         s.height = 200 + "px";
-        s.left = (n + 5)*5 + "px";
+        s.left = (n + 5) * 5 + "px";
         s.top = 15 + "px";
-        }
-    
-    function Ablage():void{
+    }
+
+    function Ablage(): void {
         let div: HTMLDivElement = document.createElement("div");
         document.body.appendChild(div);
         div.setAttribute("id", "Ablage")
-        
+
         document.getElementById("Ablage").innerHTML += "Ablage";
-        
+
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
         s.position = "absolute";
@@ -265,11 +265,11 @@ namespace A2 {
         s.height = 200 + "px";
         s.right = 20 + "px";
         s.top = 15 + "px";
-        }
-    
-    for(let i:number=0;i<(107-z);i++){
-        Stapel(i);
-        }
-    
-    Ablage();
     }
+
+    for (let i: number = 0; i < (107 - z); i++) {
+        Stapel(i);
+    }
+
+    Ablage();
+}
