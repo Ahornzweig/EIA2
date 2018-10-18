@@ -140,13 +140,16 @@ namespace A2 {
         s.border = "thin solid black";
         s.position = "absolute";
         s.backgroundColor = _color;
-        s.width = 100+  "px";
+        s.width = 130+  "px";
         s.height = 200 +"px";
-        s.left = (_x +0.1) * 120 + "px";
+        s.left = (_x +0.1) * 140 + "px";
         s.bottom =  40 +"px";
         
     
         if(c=="#000000"){
+        s.color= "white";
+            }
+        if(c=="#0000ff"){
         s.color= "white";
             }
     }
@@ -226,4 +229,40 @@ namespace A2 {
 
         }
     }
+    function Stapel(n:number):void{
+        let div: HTMLDivElement = document.createElement("div");
+        document.body.appendChild(div);
+       
+        let s: CSSStyleDeclaration = div.style;
+        s.border = "thin solid black";
+        s.position = "absolute";
+        s.backgroundColor = "#8A4B08";
+        s.width = 130 + "px";
+        s.height = 200 + "px";
+        s.left = (n + 0.5)*20 + "px";
+        s.top = (n + 0.5) * 10 + "px";
+        }
+    
+    function Ablage():void{
+        let div: HTMLDivElement = document.createElement("div");
+        document.body.appendChild(div);
+        div.setAttribute("id", "Ablage")
+        
+        document.getElementById("Ablage").innerHTML += "Tod";
+        
+        let s: CSSStyleDeclaration = div.style;
+        s.border = "thin solid black";
+        s.position = "absolute";
+        s.backgroundColor = "#298A08";
+        s.width = 130 + "px";
+        s.height = 200 + "px";
+        s.right = 50 + "px";
+        s.top = 20 + "px";
+        }
+    
+    for(let i:number=0;i<3;i++){
+        Stapel(i);
+        }
+    
+    Ablage();
     }
