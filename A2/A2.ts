@@ -153,6 +153,7 @@ namespace A2 {
             s.height = 200 + "px";
             s.left = (_x + 0.5) * 140 + "px";
             s.bottom = 40 + "px";
+            s.borderRadius = 10+ "px";
 
 
             if (c == "#000000") {
@@ -251,6 +252,7 @@ namespace A2 {
             s.height = 200 + "px";
             s.left = (_n + 5) * 5 + "px";
             s.top = 15 + "px";
+            s.borderRadius = 10+ "px";
         }
         //Ablagestapel
         function Ablage(): void {
