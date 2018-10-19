@@ -136,7 +136,7 @@ namespace A2 {
         // Darstellung der Karten
         function placeDiv(_color: string, _n: string, _x: number): void {
 
-            console.log(_color, _n, _x)
+            //console.log(_color, _n, _x)
 
 
             let div: HTMLDivElement = document.createElement("div");

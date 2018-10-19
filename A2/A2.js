@@ -109,7 +109,7 @@ var A2;
         }
         // Darstellung der Karten
         function placeDiv(_color, _n, _x) {
-            console.log(_color, _n, _x);
+            //console.log(_color, _n, _x)
             let div = document.createElement("div");
             document.body.appendChild(div);
             div.setAttribute("id", "a" + _x);
