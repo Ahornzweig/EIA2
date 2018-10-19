@@ -103,9 +103,11 @@ var A2;
         let s1 = 4;
         let s2 = 4;
         let c = "";
+        // zuf�llige Zahlen wird generiert
         function getRandom(n) {
             return Math.floor(Math.random() * Math.floor(n));
         }
+        // Darstellung der Karten
         function placeDiv(_color, _n, _x) {
             console.log(_color, _n, _x);
             let div = document.createElement("div");
@@ -128,9 +130,11 @@ var A2;
                 s.color = "white";
             }
         }
+        //prompt
         let z;
         let i = prompt("Wie viele Karten willst du?");
         z = Number(i);
+        //Karten werte mit Random generiert 
         for (let d = 0; d < z; d++) {
             let l = getRandom(15);
             if (l == 13 && s1 > 0) {
@@ -193,6 +197,7 @@ var A2;
                 }
             }
         }
+        //Kartenstapel
         function Stapel(_n) {
             let div = document.createElement("div");
             document.body.appendChild(div);
@@ -205,6 +210,7 @@ var A2;
             s.left = (_n + 5) * 5 + "px";
             s.top = 15 + "px";
         }
+        //Ablagestapel
         function Ablage() {
             let div = document.createElement("div");
             document.body.appendChild(div);
