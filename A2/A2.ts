@@ -6,6 +6,7 @@ Datum: 18.10.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 namespace A2 {
+    function main(){
 
     interface Karten {
 
@@ -145,6 +146,7 @@ namespace A2 {
 
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
+        s.textAlign= "center";
         s.position = "absolute";
         s.backgroundColor = _color;
         s.width = 130 + "px";
@@ -236,7 +238,7 @@ namespace A2 {
 
         }
     }
-    function Stapel(n: number): void {
+    function Stapel(_n: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.body.appendChild(div);
 
@@ -246,7 +248,7 @@ namespace A2 {
         s.backgroundColor = "#8A4B08";
         s.width = 130 + "px";
         s.height = 200 + "px";
-        s.left = (n + 5) * 5 + "px";
+        s.left = (_n + 5) * 5 + "px";
         s.top = 15 + "px";
     }
 
@@ -258,6 +260,7 @@ namespace A2 {
         document.getElementById("Ablage").innerHTML += "Ablage";
 
         let s: CSSStyleDeclaration = div.style;
+        s.textAlign= "center";
         s.border = "thin solid black";
         s.position = "absolute";
         s.backgroundColor = "#298A08";
@@ -272,4 +275,6 @@ namespace A2 {
     }
 
     Ablage();
+}
+    document.addEventListener("DOMContentLoaded", (main));
 }
