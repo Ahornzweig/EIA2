@@ -227,6 +227,7 @@ var A2;
             s.height = 200 + "px";
             s.right = 20 + "px";
             s.top = 15 + "px";
+            s.color = "#F2F2F2";
         }
         for (let i = 0; i < (107 - z); i++) {
             Stapel(i);
