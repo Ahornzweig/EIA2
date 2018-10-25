@@ -23,7 +23,7 @@ namespace A2 {
             blau: 1,
             gruen: 1,
             gelb: 1,
-        }
+        };
 
         let k1: Karten = {
             name: "1",
@@ -31,7 +31,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k2: Karten = {
             name: "2",
@@ -39,7 +39,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k3: Karten = {
             name: "3",
@@ -47,7 +47,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k4: Karten = {
             name: "4",
@@ -55,7 +55,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k5: Karten = {
             name: "5",
@@ -63,7 +63,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k6: Karten = {
             name: "6",
@@ -71,7 +71,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k7: Karten = {
             name: "7",
@@ -79,7 +79,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k8: Karten = {
             name: "8",
@@ -87,7 +87,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let k9: Karten = {
             name: "9",
@@ -95,7 +95,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let kPluss2: Karten = {
             name: "+2",
@@ -103,7 +103,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let kAussetzen: Karten = {
             name: "Aussetzen",
@@ -111,7 +111,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let kReverse: Karten = {
             name: "Reverse",
@@ -119,7 +119,7 @@ namespace A2 {
             blau: 2,
             gruen: 2,
             gelb: 2,
-        }
+        };
 
         let array: Karten[] = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
 
@@ -128,9 +128,9 @@ namespace A2 {
         let s2: number = 4;
 
         let c: string = "";
-// zufällige Zahlen wird generiert
-        function getRandom(n: number) {
-            return Math.floor(Math.random() * Math.floor(n));
+// zufällige Zahlen werden generiert
+        function getRandom(_n: number) {
+            return Math.floor(Math.random() * Math.floor(_n));
 
         }
         // Darstellung der Karten
@@ -252,13 +252,13 @@ namespace A2 {
             s.height = 200 + "px";
             s.left = (_n + 5) * 5 + "px";
             s.top = 15 + "px";
-            s.borderRadius = 10+ "px";
+            s.borderRadius = 10 + "px";
         }
         //Ablagestapel
         function Ablage(): void {
             let div: HTMLDivElement = document.createElement("div");
             document.body.appendChild(div);
-            div.setAttribute("id", "Ablage")
+            div.setAttribute("id", "Ablage");
 
             document.getElementById("Ablage").innerHTML += "Ablage";
 

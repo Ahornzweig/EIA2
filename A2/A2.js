@@ -103,9 +103,9 @@ var A2;
         let s1 = 4;
         let s2 = 4;
         let c = "";
-        // zuf�llige Zahlen wird generiert
-        function getRandom(n) {
-            return Math.floor(Math.random() * Math.floor(n));
+        // zuf�llige Zahlen werden generiert
+        function getRandom(_n) {
+            return Math.floor(Math.random() * Math.floor(_n));
         }
         // Darstellung der Karten
         function placeDiv(_color, _n, _x) {
