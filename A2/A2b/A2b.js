@@ -38,7 +38,6 @@ var A2b;
             }
             let value = allCards[randomNum].substr(1);
             createCardas(color, value, i);
-            //console.log(allCards);
             allCards.splice(randomNum, 1);
         }
         function createCardas(_color, _n, _i) {

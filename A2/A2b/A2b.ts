@@ -47,9 +47,7 @@ namespace A2b {
             let value: string = allCards[randomNum].substr(1);
 
             createCardas(color, value, i);
-            //console.log(allCards);
             allCards.splice(randomNum, 1);
-            //console.log(allCards);
         }
 
         function createCardas(_color: string, _n: string, _i: number): void {
