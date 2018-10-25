@@ -1,21 +1,27 @@
 @charset "ISO-8859-1";
 
-
+body{
+	
+       background-Color: #298A08;
+}
 a{
 	display: block;
 	text-align: center;
+	line-height: 200px;
+	font-size: 1.8em;
 }
 
 div{
 	
 			border : thin solid black;
             text-Align : center;
-            position :absolute;
             width : 130px;
             height : 200px;
-            bottom: 40px;
             border-Radius: 10px;
-            font-size: 2em;
+            font-size: 1.5em;
+            float: left;
+            margin:5px;
+            line-height: 190px;
 }
 
 #Ablage{
@@ -37,6 +43,18 @@ div{
        width: 130px;
        height: 200px;
        left: 15%;
-       top: 10%;
+       top: 14%;
        border-Radius: 10px;
+}
+
+#Hand{
+	position :absolute;
+	border: thin dotted black;
+	width : 85%;
+	height:400px;
+	padding: 10px;
+	padding-bottom: 25px;
+	bottom: -120px;
+	left:7.5%;
+    margin:15px;
 }

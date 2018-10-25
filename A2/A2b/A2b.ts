@@ -53,13 +53,12 @@ namespace A2b {
         function createCardas(_color: string, _n: string, _i: number): void {
 
             let div: HTMLDivElement = document.createElement("div");
-            document.body.appendChild(div);
+            document.getElementById("Hand").appendChild(div);
             div.setAttribute("id", "a" + _i);
             document.getElementById("a" + _i).innerHTML += _n;
 
             let s: CSSStyleDeclaration = div.style;
             s.backgroundColor = _color;
-            s.left = (_i + 0.5) * 140 + "px";
 
             if (_color == "#000000" || _color == "#0000ff") {
                 s.color = "white";

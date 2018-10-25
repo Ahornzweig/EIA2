@@ -42,12 +42,11 @@ var A2b;
         }
         function createCardas(_color, _n, _i) {
             let div = document.createElement("div");
-            document.body.appendChild(div);
+            document.getElementById("Hand").appendChild(div);
             div.setAttribute("id", "a" + _i);
             document.getElementById("a" + _i).innerHTML += _n;
             let s = div.style;
             s.backgroundColor = _color;
-            s.left = (_i + 0.5) * 140 + "px";
             if (_color == "#000000" || _color == "#0000ff") {
                 s.color = "white";
             }
