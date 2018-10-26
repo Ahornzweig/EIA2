@@ -19,8 +19,8 @@ namespace A2b {
     
     function main(): void {
         let handCards: number = parseInt(prompt("Wie viele Karten?"));
-        if (handCards < 5 || handCards > 10) {
-            handCards = 7;
+        if (handCards > 10) {
+            handCards = 10;
         }
 
         for (let i: number = 0; i < handCards; i++) {

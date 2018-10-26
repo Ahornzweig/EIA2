@@ -17,8 +17,8 @@ var A2b;
     }
     function main() {
         let handCards = parseInt(prompt("Wie viele Karten?"));
-        if (handCards < 5 || handCards > 10) {
-            handCards = 7;
+        if (handCards > 10) {
+            handCards = 10;
         }
         for (let i = 0; i < handCards; i++) {
             let maxNumber = allCards.length;
