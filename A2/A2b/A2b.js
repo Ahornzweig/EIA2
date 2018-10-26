@@ -12,7 +12,6 @@ var A2b;
         "b0", "b1", "b1", "b2", "b2", "b3", "b3", "b4", "b4", "b5", "b5", "b6", "b6", "b7", "b7", "b8", "b8", "b9", "b9", "bR", "bR", "bA", "bA", "b+2", "b+2",
         "y0", "y1", "y1", "y2", "y2", "y3", "y3", "y4", "y4", "y5", "y5", "y6", "y6", "y7", "y7", "y8", "y8", "y9", "y9", "yR", "yR", "yA", "yA", "y+2", "y+2",
         "s+4", "s+4", "s+4", "s+4", "sWahl", "sWahl", "sWahl", "sWahl"];
-    console.log(allCards);
     function getRandom(_maxNum) {
         return Math.floor(Math.random() * Math.floor(_maxNum));
     }
