@@ -23,14 +23,20 @@ div {
 	line-height: 190px;
 }
 
+footer{
+	position: absolute;
+	top: 700px;
+	padding:5em;
+}
+
 #Ablage {
 	border: thin dotted black;
 	position: absolute;
 	background-Color: #F2F2F2;
 	width: 250px;
 	height: 250px;
-	right: 15%;
-	top: 1%;
+	right: 100px;
+	top: 10px;
 }
 
 #Nachzieh {
@@ -39,18 +45,19 @@ div {
 	background-Color: #8A0808;
 	width: 130px;
 	height: 200px;
-	left: 15%;
-	top: 6%;
+	left: 100px;
+	top: 35px;
 	border-Radius: 10px;
 }
 
 #Hand {
 	position: absolute;
 	border: thin dotted black;
-	width: 55%;
+	width: 730px;
 	height: 430px;
 	padding: 10px;
 	top: 300px;
 	left: 19%;
 	margin: 15px;
+	background-color:#0B610B;
 }
