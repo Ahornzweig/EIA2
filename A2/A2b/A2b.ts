@@ -18,7 +18,7 @@ namespace A2b {
     }
     
     function main(): void {
-        let handCards: number = parseInt(prompt("Wie viele Karten?"));
+        let handCards: number = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
         if (handCards > 10) {
             handCards = 10;
         }

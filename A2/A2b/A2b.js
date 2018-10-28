@@ -16,7 +16,7 @@ var A2b;
         return Math.floor(Math.random() * Math.floor(_maxNum));
     }
     function main() {
-        let handCards = parseInt(prompt("Wie viele Karten?"));
+        let handCards = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
         if (handCards > 10) {
             handCards = 10;
         }
