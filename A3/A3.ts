@@ -67,5 +67,9 @@ namespace A2b {
         }
     }
     document.addEventListener("DOMContentLoaded", (main));
-    document.addEventListener("click", ());
+    document.addEventListener("click", (init));
+     function init(_event: Event): void {
+         
+        console.log(_event);
+    }
 }

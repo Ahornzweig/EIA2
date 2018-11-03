@@ -56,6 +56,9 @@ var A2b;
         }
     }
     document.addEventListener("DOMContentLoaded", (main));
-    document.addEventListener("click", (main));
+    document.addEventListener("click", (init));
+    function init(_event) {
+        console.log(_event);
+    }
 })(A2b || (A2b = {}));
 //# sourceMappingURL=A3.js.map
