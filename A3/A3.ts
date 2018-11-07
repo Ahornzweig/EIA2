@@ -15,20 +15,7 @@ namespace A3 {
         "y0", "y1", "y1", "y2", "y2", "y3", "y3", "y4", "y4", "y5", "y5", "y6", "y6", "y7", "y7", "y8", "y8", "y9", "y9", "yR", "yR", "yA", "yA", "y+2", "y+2",
         "s+4", "s+4", "s+4", "s+4", "sWahl", "sWahl", "sWahl", "sWahl"];
 
-    function getRandom(_maxNum: number): number {
-        return Math.floor(Math.random() * Math.floor(_maxNum));
-    }
 
-    function setup(): void {
-        let node: HTMLElement = document.getElementById("Hand");
-        if (node.parentNode) {
-            node.parentNode.removeChild(node);
-        }
-        let div: HTMLElement = document.createElement("div");
-        div.setAttribute("id", "Hand");
-        document.getElementsByTagName("body")[0].appendChild(div);
-
-    }
 
     function main(): void {
 
@@ -84,6 +71,7 @@ namespace A3 {
 
                 let div: HTMLDivElement = document.createElement("div");
                 document.getElementById("Hand").appendChild(div);
+                div.setAttribute("class", "inHand");
                 div.setAttribute("id", "a" + i);
                 document.getElementById("a" + i).innerHTML += value;
 
@@ -109,6 +97,7 @@ namespace A3 {
             draw(1);
             setup();
             createCards(hand);
+            placeOnPile();
         }
 
         function space(_event: KeyboardEvent): void {
@@ -127,6 +116,7 @@ namespace A3 {
             hand.sort();
             setup();
             createCards(hand);
+            placeOnPile();
 
         }
         //Ablegen
@@ -143,9 +133,11 @@ namespace A3 {
             pile.push(card);
             setup();
             createCards(hand);
+            setup2();
             createPile(pile);
+            placeOnPile();
         }
-        
+
         function createPile(_values: string[]): void {
 
             for (let i: number = 0; i < _values.length; i++) {
@@ -172,12 +164,13 @@ namespace A3 {
 
                 let div: HTMLDivElement = document.createElement("div");
                 document.getElementById("Ablage").appendChild(div);
-                div.setAttribute("class", "onPile" );
+                div.setAttribute("class", "onPile");
                 div.setAttribute("id", "b" + i);
                 document.getElementById("b" + i).innerHTML += value;
 
                 let s: CSSStyleDeclaration = div.style;
                 s.backgroundColor = color;
+                s.zIndex = "0" + i;
 
                 if (color == "#000000" || color == "#0000ff") {
                     s.color = "white";
@@ -186,8 +179,33 @@ namespace A3 {
 
 
         }
-        }
+    }
+    function getRandom(_maxNum: number): number {
+        return Math.floor(Math.random() * Math.floor(_maxNum));
+    }
 
-        document.addEventListener("DOMContentLoaded", (main));
+    function setup(): void {
+        let node: HTMLElement = document.getElementById("Hand");
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+        let div: HTMLElement = document.createElement("div");
+        div.setAttribute("id", "Hand");
+        document.getElementsByTagName("body")[0].appendChild(div);
 
     }
+    
+    function setup2(): void {
+        let node: HTMLElement = document.getElementById("Ablage");
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+        let div: HTMLElement = document.createElement("div");
+        div.setAttribute("id", "Ablage");
+        document.getElementsByTagName("body")[0].appendChild(div);//Fragen
+
+    }
+
+    document.addEventListener("DOMContentLoaded", (main));
+
+}
