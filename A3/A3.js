@@ -16,9 +16,9 @@ var A3;
         "z+4", "z+4", "z+4", "z+4", "zWahl", "zWahl", "zWahl", "zWahl"];
     function main() {
         let handCards = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
-        /*if (handCards > 10) {
+        if (handCards > 10) {
             handCards = 10;
-        }*/
+        }
         for (let i = 0; i < handCards; i++) {
             let maxNumber = allCards.length;
             let randomNum = getRandom(maxNumber);

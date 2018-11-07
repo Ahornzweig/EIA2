@@ -20,9 +20,9 @@ namespace A3 {
     function main(): void {
 
         let handCards: number = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
-        /*if (handCards > 10) {
+        if (handCards > 10) {
             handCards = 10;
-        }*/
+        }
 
         for (let i: number = 0; i < handCards; i++) {
             let maxNumber: number = allCards.length;
