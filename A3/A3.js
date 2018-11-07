@@ -1,7 +1,7 @@
-/*Aufgabe: Aufgabe 2
+/*Aufgabe: Aufgabe 3
 Name: Sarah L�nnqvist
 Matrikel: 259116
-Datum: 26.10.2018
+Datum: 07.11.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -13,7 +13,7 @@ var A3;
         "g0", "g1", "g1", "g2", "g2", "g3", "g3", "g4", "g4", "g5", "g5", "g6", "g6", "g7", "g7", "g8", "g8", "g9", "g9", "gR", "gR", "gA", "gA", "g+2", "g+2",
         "b0", "b1", "b1", "b2", "b2", "b3", "b3", "b4", "b4", "b5", "b5", "b6", "b6", "b7", "b7", "b8", "b8", "b9", "b9", "bR", "bR", "bA", "bA", "b+2", "b+2",
         "y0", "y1", "y1", "y2", "y2", "y3", "y3", "y4", "y4", "y5", "y5", "y6", "y6", "y7", "y7", "y8", "y8", "y9", "y9", "yR", "yR", "yA", "yA", "y+2", "y+2",
-        "s+4", "s+4", "s+4", "s+4", "sWahl", "sWahl", "sWahl", "sWahl"];
+        "z+4", "z+4", "z+4", "z+4", "zWahl", "zWahl", "zWahl", "zWahl"];
     function main() {
         let handCards = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
         if (handCards > 10) {
@@ -49,7 +49,7 @@ var A3;
                 if (color == "y") {
                     color = "#ffff00";
                 }
-                if (color == "s") {
+                if (color == "z") {
                     color = "#000000";
                 }
                 let value = _values[i].substr(1);
@@ -98,21 +98,26 @@ var A3;
         }
         //Ablegen
         function placeOnPile() {
-            //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Hand");
             document.getElementById("Hand").addEventListener("click", placeOnPileEvent);
         }
         placeOnPile();
         function placeOnPileEvent(_event) {
+            console.log(_event);
+            let handcard = document.getElementById("Hand");
             let domCard = _event.target;
-            let index = parseInt(domCard.getAttribute("index"));
-            console.log(index);
-            let card = hand.splice(index, 1)[0];
-            pile.push(card);
-            setup();
-            createCards(hand);
-            setup2();
-            createPile(pile);
-            placeOnPile();
+            if (domCard != handcard) {
+                let index;
+                let domAttribute = domCard.getAttribute("id");
+                domAttribute = domAttribute.substr(1);
+                index = parseInt(domAttribute);
+                let card = hand.splice(index, 1)[0];
+                pile.push(card);
+                setup();
+                createCards(hand);
+                setup2();
+                createPile(pile);
+                placeOnPile();
+            }
         }
         function createPile(_values) {
             for (let i = 0; i < _values.length; i++) {
@@ -129,7 +134,7 @@ var A3;
                 if (color == "y") {
                     color = "#ffff00";
                 }
-                if (color == "s") {
+                if (color == "z") {
                     color = "#000000";
                 }
                 let value = _values[i].substr(1);
@@ -146,27 +151,30 @@ var A3;
                 }
             }
         }
-    }
-    function getRandom(_maxNum) {
-        return Math.floor(Math.random() * Math.floor(_maxNum));
-    }
-    function setup() {
-        let node = document.getElementById("Hand");
-        if (node.parentNode) {
-            node.parentNode.removeChild(node);
+        //math.random
+        function getRandom(_maxNum) {
+            return Math.floor(Math.random() * Math.floor(_maxNum));
         }
-        let div = document.createElement("div");
-        div.setAttribute("id", "Hand");
-        document.getElementsByTagName("body")[0].appendChild(div);
-    }
-    function setup2() {
-        let node = document.getElementById("Ablage");
-        if (node.parentNode) {
-            node.parentNode.removeChild(node);
+        //hand leeren
+        function setup() {
+            let node = document.getElementById("Hand");
+            if (node.parentNode) {
+                node.parentNode.removeChild(node);
+            }
+            let div = document.createElement("div");
+            div.setAttribute("id", "Hand");
+            document.getElementsByTagName("body")[0].appendChild(div);
         }
-        let div = document.createElement("div");
-        div.setAttribute("id", "Ablage");
-        document.getElementsByTagName("body")[0].appendChild(div); //Fragen
+        //ablage leeren
+        function setup2() {
+            let node = document.getElementById("Ablage");
+            if (node.parentNode) {
+                node.parentNode.removeChild(node);
+            }
+            let div = document.createElement("div");
+            div.setAttribute("id", "Ablage");
+            document.getElementsByTagName("body")[0].appendChild(div);
+        }
     }
     document.addEventListener("DOMContentLoaded", (main));
 })(A3 || (A3 = {}));
