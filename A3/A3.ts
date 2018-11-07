@@ -20,9 +20,9 @@ namespace A3 {
     function main(): void {
 
         let handCards: number = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
-        if (handCards > 10) {
+        /*if (handCards > 10) {
             handCards = 10;
-        }
+        }*/
 
         for (let i: number = 0; i < handCards; i++) {
             let maxNumber: number = allCards.length;
@@ -32,18 +32,6 @@ namespace A3 {
 
         }
         createCards(hand);
-
-        function draw(_cards: number): void {
-            for (let i: number = 0; i < _cards; i++) {
-                let maxNumber: number = allCards.length;
-                let randomNum: number = getRandom(maxNumber);
-                let card: string = allCards.splice(randomNum, 1)[0];
-                hand.push(card);
-
-            }
-        }
-
-
 
         function createCards(_values: string[]): void {
 
@@ -87,12 +75,22 @@ namespace A3 {
         }
 
         //Nachziehen
-        function nachziehen(): void {
+        function draw(_cards: number): void {
+            if (allCards.length > 0) {
+                for (let i: number = 0; i < _cards; i++) {
+                    let maxNumber: number = allCards.length;
+                    let randomNum: number = getRandom(maxNumber);
+                    let card: string = allCards.splice(randomNum, 1)[0];
+                    hand.push(card);
+                }
+            }
+        }
+        function drawListener(): void {
             //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Nachzieh");
             document.getElementById("Nachzieh").addEventListener("click", drawEvent);
             document.addEventListener("keydown", space);
         }
-        nachziehen();
+        drawListener();
         function drawEvent(): void {
             draw(1);
             setup();
@@ -210,8 +208,8 @@ namespace A3 {
             document.getElementsByTagName("body")[0].appendChild(div);
 
         }
-        }
-
-        document.addEventListener("DOMContentLoaded", (main));
-
     }
+
+    document.addEventListener("DOMContentLoaded", (main));
+
+}

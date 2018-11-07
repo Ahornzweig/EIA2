@@ -16,9 +16,9 @@ var A3;
         "z+4", "z+4", "z+4", "z+4", "zWahl", "zWahl", "zWahl", "zWahl"];
     function main() {
         let handCards = parseInt(prompt("Wie viele Karten willst du? (max 10)"));
-        if (handCards > 10) {
+        /*if (handCards > 10) {
             handCards = 10;
-        }
+        }*/
         for (let i = 0; i < handCards; i++) {
             let maxNumber = allCards.length;
             let randomNum = getRandom(maxNumber);
@@ -26,14 +26,6 @@ var A3;
             hand.push(card);
         }
         createCards(hand);
-        function draw(_cards) {
-            for (let i = 0; i < _cards; i++) {
-                let maxNumber = allCards.length;
-                let randomNum = getRandom(maxNumber);
-                let card = allCards.splice(randomNum, 1)[0];
-                hand.push(card);
-            }
-        }
         function createCards(_values) {
             for (let i = 0; i < _values.length; i++) {
                 let color = _values[i].substr(0, 1);
@@ -66,12 +58,22 @@ var A3;
             }
         }
         //Nachziehen
-        function nachziehen() {
+        function draw(_cards) {
+            if (allCards.length > 0) {
+                for (let i = 0; i < _cards; i++) {
+                    let maxNumber = allCards.length;
+                    let randomNum = getRandom(maxNumber);
+                    let card = allCards.splice(randomNum, 1)[0];
+                    hand.push(card);
+                }
+            }
+        }
+        function drawListener() {
             //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Nachzieh");
             document.getElementById("Nachzieh").addEventListener("click", drawEvent);
             document.addEventListener("keydown", space);
         }
-        nachziehen();
+        drawListener();
         function drawEvent() {
             draw(1);
             setup();
