@@ -100,7 +100,7 @@ namespace A3 {
 
         //Nachziehen
         function nachziehen(): void {
-            let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Nachzieh");
+            //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Nachzieh");
             document.getElementById("Nachzieh").addEventListener("click", drawEvent);
             document.addEventListener("keydown", space);
         }
@@ -131,18 +131,19 @@ namespace A3 {
         }
         //Ablegen
         function placeOnPile(): void {
-            let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Hand");
+            //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Hand");
             document.getElementById("Hand").addEventListener("click", placeOnPileEvent);
         }
         placeOnPile();
         function placeOnPileEvent(_event: Event): void {
             let domCard: HTMLElement = <HTMLElement>_event.target;
             let index: number = parseInt(domCard.getAttribute("index"));
+            console.log(index);
             let card: string = hand.splice(index, 1)[0];
             pile.push(card);
             setup();
             createCards(hand);
-            createPile(pile)
+            createPile(pile);
         }
         
         function createPile(_values: string[]): void {
@@ -171,8 +172,9 @@ namespace A3 {
 
                 let div: HTMLDivElement = document.createElement("div");
                 document.getElementById("Ablage").appendChild(div);
-                div.setAttribute("id", "a" + i);
-                document.getElementById("a" + i).innerHTML += value;
+                div.setAttribute("class", "onPile" );
+                div.setAttribute("id", "b" + i);
+                document.getElementById("b" + i).innerHTML += value;
 
                 let s: CSSStyleDeclaration = div.style;
                 s.backgroundColor = color;

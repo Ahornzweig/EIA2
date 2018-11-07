@@ -78,7 +78,7 @@ var A3;
         }
         //Nachziehen
         function nachziehen() {
-            let div = document.getElementById("Nachzieh");
+            //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Nachzieh");
             document.getElementById("Nachzieh").addEventListener("click", drawEvent);
             document.addEventListener("keydown", space);
         }
@@ -107,13 +107,14 @@ var A3;
         }
         //Ablegen
         function placeOnPile() {
-            let div = document.getElementById("Hand");
+            //let div: HTMLDivElement = <HTMLDivElement>document.getElementById("Hand");
             document.getElementById("Hand").addEventListener("click", placeOnPileEvent);
         }
         placeOnPile();
         function placeOnPileEvent(_event) {
             let domCard = _event.target;
             let index = parseInt(domCard.getAttribute("index"));
+            console.log(index);
             let card = hand.splice(index, 1)[0];
             pile.push(card);
             setup();
@@ -141,8 +142,9 @@ var A3;
                 let value = _values[i].substr(1);
                 let div = document.createElement("div");
                 document.getElementById("Ablage").appendChild(div);
-                div.setAttribute("id", "a" + i);
-                document.getElementById("a" + i).innerHTML += value;
+                div.setAttribute("class", "onPile");
+                div.setAttribute("id", "b" + i);
+                document.getElementById("b" + i).innerHTML += value;
                 let s = div.style;
                 s.backgroundColor = color;
                 if (color == "#000000" || color == "#0000ff") {

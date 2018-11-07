@@ -29,11 +29,23 @@ div {
 	margin: 7px;
 	line-height: 190px;
 }
+button{
+	position:relative;
+	top:260px;
+	left:20%;
+}
 
 footer{
 	position: absolute;
 	top: 700px;
 	padding:5em;
+}
+.onPile {
+	
+	clear: left;
+	position: relative;
+	top:-225px;
+	left:50px;
 }
 
 #Ablage {
