@@ -1,7 +1,7 @@
 /*Aufgabe: Aufgabe 3
 Name: Sarah Lönnqvist
 Matrikel: 259116
-Datum: 03.11.2018
+Datum: 08.11.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -71,12 +71,11 @@ footer{
 
 #Hand {
 	position: absolute;
-	border: thin dotted black;
+	border: none;
 	width: 730px;
 	height: 430px;
 	padding: 10px;
 	top: 300px;
 	left: 19%;
 	margin: 15px;
-	background-color:#0B610B;
 }
