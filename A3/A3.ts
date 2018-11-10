@@ -122,11 +122,11 @@ namespace A3 {
             document.getElementById("Hand").addEventListener("click", placeOnPileEvent);
         }
         placeOnPile();
-        function placeOnPileEvent(_event: MouseEvent): void {
+        function placeOnPileEvent(_event: Event): void {
             console.log(_event);
-            let handcard: HTMLElement = document.getElementById("Hand");
+            let handCard: HTMLElement = document.getElementById("Hand");
             let domCard: HTMLElement = <HTMLElement>_event.target;
-            if (domCard != handcard) {
+            if (domCard != handCard) {
                 let index: number;
                 let domAttribute: string = domCard.getAttribute("id");
                 domAttribute = domAttribute.substr(1);
