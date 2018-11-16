@@ -99,6 +99,7 @@ var A4;
             childNodeHTML += "<a>";
             childNodeHTML += checkoutAttribute;
             childNodeHTML += "</a>";
+            node.innerHTML += childNodeHTML;
         }
         //let checkout: HTMLElement = document.getElementById("div")
     }
