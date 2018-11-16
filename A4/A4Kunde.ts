@@ -11,19 +11,19 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='trees'>";
         for (let i: number = 0; i < treeSpecies.length; i++) {
 
-            childNodeHTML += "<option value='" + treeSpecies[i].name + "'>" + treeSpecies[i].name + "</option>";
+            childNodeHTML += "<option value='" + treeSpecies[i].name + " " +treeSpecies[i].price +  " Euro'>" + treeSpecies[i].name + " " +treeSpecies[i].price +  " Euro</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Halterung
         childNodeHTML += "Halterung";
         childNodeHTML += "<br>";
         for (let i: number = 0; i < holder.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroup' value='" +holder[i].name +"'  id='radio" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + holder[i].name + "</label>";
+            childNodeHTML += "<input type='radio' name='Radiogroup' value='" +holder[i].name + " " + holder[i].price +" Euro'  id='radio" + i + "' />";
+            childNodeHTML += "<label for='check" + i + "'>" + holder[i].name + " " + holder[i].price + " Euro</label>";
         }
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Glaskugeln
         childNodeHTML += "Glaskugeln";
@@ -31,7 +31,7 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='kugeln'>";
         for (let i: number = 0; i < christmasBall.length; i++) {
 
-            childNodeHTML += "<option value='" + christmasBall[i].name + "'>" + christmasBall[i].name + "</option>";
+            childNodeHTML += "<option value='" + christmasBall[i].name + " " + christmasBall[i].price +" Euro'>" + christmasBall[i].name + " " + christmasBall[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
@@ -41,10 +41,10 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='Menge1'>";
         for (let i: number = 1; i < 51; i++) {
 
-            childNodeHTML += "<option value='" + i + "'>" + i + "</option>";
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Lametta
         childNodeHTML += "Lametta";
@@ -52,7 +52,7 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='lametten'>";
         for (let i: number = 0; i < lametta.length; i++) {
 
-            childNodeHTML += "<option value='" + lametta[i].name + "'>" + lametta[i].name + "</option>";
+            childNodeHTML += "<option value='" + lametta[i].name + " " + lametta[i].price +" Euro'>" + lametta[i].name + " " + lametta[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
@@ -62,10 +62,10 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='Menge2'>";
         for (let i: number = 1; i < 6; i++) {
 
-            childNodeHTML += "<option value='" + i + "'>" + i + "</option>";
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Kerzen
         childNodeHTML += "Kerzen";
@@ -73,7 +73,7 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='candles'>";
         for (let i: number = 0; i < candleTyp.length; i++) {
 
-            childNodeHTML += "<option value='" + candleTyp[i].name + "'>" + candleTyp[i].name + "</option>";
+            childNodeHTML += "<option value='" + candleTyp[i].name + " " + candleTyp[i].price + " Euro'>" + candleTyp[i].name + " " + candleTyp[i].price +  " Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
@@ -83,10 +83,10 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='Menge3'>";
         for (let i: number = 1; i < 21; i++) {
 
-            childNodeHTML += "<option value='" + i + "'>" + i + "</option>";
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Lieferoptionen
         childNodeHTML += "Lieferoptionen";
@@ -94,7 +94,7 @@ namespace A4 {
         childNodeHTML += "<select name='Select' id='ship'>";
         for (let i: number = 0; i < shipment.length; i++) {
 
-            childNodeHTML += "<option value='" + shipment[i].name + "'>" + shipment[i].name + "</option>";
+            childNodeHTML += "<option value='" + shipment[i].name + " " + shipment[i].price +" Euro'>" + shipment[i].name + " " + shipment[i].price + "Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";

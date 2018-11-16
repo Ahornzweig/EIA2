@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+fieldset {
+	width: 300px;
+}
+
+br{
+	margin:2.5px;
+}
+
+div {
+	position: absolute;
+	top: 17px;
+	left: 380px;
+	width: 300px;
+	border: thin solid black;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+
+button {
+	position: absolute;
+	top: 350px;
+	left: 380px;
+}
+
+label::after {
+	content:"";
+	display: block;
+}

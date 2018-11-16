@@ -10,24 +10,24 @@ var A4;
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='trees'>";
         for (var i = 0; i < A4.treeSpecies.length; i++) {
-            childNodeHTML += "<option value='" + A4.treeSpecies[i].name + "'>" + A4.treeSpecies[i].name + "</option>";
+            childNodeHTML += "<option value='" + A4.treeSpecies[i].name + " " + A4.treeSpecies[i].price + " Euro'>" + A4.treeSpecies[i].name + " " + A4.treeSpecies[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Halterung
         childNodeHTML += "Halterung";
         childNodeHTML += "<br>";
         for (var i = 0; i < A4.holder.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroup' value='" + A4.holder[i].name + "'  id='radio" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + A4.holder[i].name + "</label>";
+            childNodeHTML += "<input type='radio' name='Radiogroup' value='" + A4.holder[i].name + " " + A4.holder[i].price + " Euro'  id='radio" + i + "' />";
+            childNodeHTML += "<label for='check" + i + "'>" + A4.holder[i].name + " " + A4.holder[i].price + " Euro</label>";
         }
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Glaskugeln
         childNodeHTML += "Glaskugeln";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='kugeln'>";
         for (var i = 0; i < A4.christmasBall.length; i++) {
-            childNodeHTML += "<option value='" + A4.christmasBall[i].name + "'>" + A4.christmasBall[i].name + "</option>";
+            childNodeHTML += "<option value='" + A4.christmasBall[i].name + " " + A4.christmasBall[i].price + " Euro'>" + A4.christmasBall[i].name + " " + A4.christmasBall[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
@@ -35,16 +35,16 @@ var A4;
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge1'>";
         for (var i = 1; i < 51; i++) {
-            childNodeHTML += "<option value='" + i + "'>" + i + "</option>";
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Lametta
         childNodeHTML += "Lametta";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='lametten'>";
         for (var i = 0; i < A4.lametta.length; i++) {
-            childNodeHTML += "<option value='" + A4.lametta[i].name + "'>" + A4.lametta[i].name + "</option>";
+            childNodeHTML += "<option value='" + A4.lametta[i].name + " " + A4.lametta[i].price + " Euro'>" + A4.lametta[i].name + " " + A4.lametta[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
@@ -52,16 +52,16 @@ var A4;
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge2'>";
         for (var i = 1; i < 6; i++) {
-            childNodeHTML += "<option value='" + i + "'>" + i + "</option>";
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Kerzen
         childNodeHTML += "Kerzen";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='candles'>";
         for (var i = 0; i < A4.candleTyp.length; i++) {
-            childNodeHTML += "<option value='" + A4.candleTyp[i].name + "'>" + A4.candleTyp[i].name + "</option>";
+            childNodeHTML += "<option value='" + A4.candleTyp[i].name + " " + A4.candleTyp[i].price + " Euro'>" + A4.candleTyp[i].name + " " + A4.candleTyp[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
@@ -69,16 +69,16 @@ var A4;
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge3'>";
         for (var i = 1; i < 21; i++) {
-            childNodeHTML += "<option value='" + i + "'>" + i + "</option>";
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Lieferoptionen
         childNodeHTML += "Lieferoptionen";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='ship'>";
         for (var i = 0; i < A4.shipment.length; i++) {
-            childNodeHTML += "<option value='" + A4.shipment[i].name + "'>" + A4.shipment[i].name + "</option>";
+            childNodeHTML += "<option value='" + A4.shipment[i].name + " " + A4.shipment[i].price + " Euro'>" + A4.shipment[i].name + " " + A4.shipment[i].price + "Euro</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
