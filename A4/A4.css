@@ -56,6 +56,15 @@ button {
 	font-size:1.2em;
 }
 
+#missing{
+	position: absolute;
+	top: 400px;
+	left: 380px;
+	width: 300px;
+	background-Color: #F2F2F2;
+	border: none;
+}
+
 label::after {
 	content:"";
 	display: block;

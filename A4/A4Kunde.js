@@ -23,8 +23,10 @@ var A4;
     var numberOfBalls = 0;
     var numberOfLametta = 0;
     var numberOfCandle = 0;
+    var adress = "";
     function fillFieldset() {
         var node = document.getElementById("fieldset");
+        document.getElementById("button").addEventListener("click", checkCheckout);
         var childNodeHTML;
         //B�ume
         childNodeHTML = "<h3>Baum</h3>";
@@ -227,6 +229,7 @@ var A4;
         //Adresse
         if (target.id == "ad") {
             var node_10 = document.getElementById("adress");
+            adress = target.value;
             var childNodeHTML_10;
             childNodeHTML_10 = "";
             childNodeHTML_10 += "<a>";
@@ -242,6 +245,14 @@ var A4;
         childNodeHTML += " Euro";
         childNodeHTML += "</a>";
         node.innerHTML = childNodeHTML;
+    }
+    function checkCheckout(_event) {
+        if (adress == "" || priceTree == 0 || priceHolder == 0 || priceBalls == 0 || priceLametta == 0 || priceCandle == 0 || priceShipping == 0 || numberOfBalls == 0 || numberOfLametta == 0 || numberOfCandle == 0) {
+            document.getElementById("missing").innerHTML = "fehlende Angaben";
+        }
+        else {
+            document.getElementById("missing").innerHTML = "";
+        }
     }
 })(A4 || (A4 = {}));
 //# sourceMappingURL=A4Kunde.js.map

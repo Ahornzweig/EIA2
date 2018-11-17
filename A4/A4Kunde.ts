@@ -8,6 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace A4 {
     document.addEventListener("DOMContentLoaded", fillFieldset);
     document.addEventListener("DOMContentLoaded", changeListener);
+
     //Change Listener
     function changeListener(_event: Event) {
         let fieldset: HTMLElement = document.getElementById("fieldset")
@@ -24,10 +25,12 @@ namespace A4 {
     let numberOfBalls: number = 0;
     let numberOfLametta: number = 0;
     let numberOfCandle: number = 0;
+    let adress: string="";
 
 
     function fillFieldset(): void {
         let node: HTMLElement = document.getElementById("fieldset");
+        document.getElementById("button").addEventListener("click", checkCheckout);
         let childNodeHTML: string;
         //Bäume
         childNodeHTML = "<h3>Baum</h3>";
@@ -272,8 +275,8 @@ namespace A4 {
         }
         //Adresse
         if (target.id == "ad") {
-            let node: HTMLElement = document.getElementById("adress")
-
+            let node: HTMLElement = document.getElementById("adress");
+            adress=target.value;
             let childNodeHTML: string;
 
             childNodeHTML = "";
@@ -292,6 +295,16 @@ namespace A4 {
         childNodeHTML += " Euro";
         childNodeHTML += "</a>";
         node.innerHTML = childNodeHTML;
+    }
+
+    function checkCheckout(_event: Event): void {
+        if (adress == ""||priceTree == 0 || priceHolder == 0 || priceBalls == 0 || priceLametta == 0 || priceCandle == 0 || priceShipping == 0 || numberOfBalls == 0 || numberOfLametta == 0 || numberOfCandle == 0) {
+            document.getElementById("missing").innerHTML = "fehlende Angaben";
+        }
+
+        else {
+            document.getElementById("missing").innerHTML = "";
+        }
     }
 
 }
