@@ -2,6 +2,11 @@ var A4;
 (function (A4) {
     document.addEventListener("DOMContentLoaded", fillFieldset);
     document.addEventListener("DOMContentLoaded", changeListener);
+    //Change Listener
+    function changeListener(_event) {
+        var fieldset = document.getElementById("fieldset");
+        fieldset.addEventListener("change", handleChange);
+    }
     var priceTree = 0;
     var priceHolder = 0;
     var priceBalls = 0;
@@ -40,7 +45,7 @@ var A4;
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
-        childNodeHTML += "Menge";
+        childNodeHTML += "Anzahl in Stueck";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge1'>";
         for (var i = 1; i < 51; i++) {
@@ -74,7 +79,7 @@ var A4;
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
-        childNodeHTML += "Menge";
+        childNodeHTML += "Anzahl in Stueck";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge3'>";
         for (var i = 1; i < 21; i++) {
@@ -96,11 +101,6 @@ var A4;
         childNodeHTML += "<br>";
         childNodeHTML += "<input id='ad' type='text' name='Text' placeholder='enter adress here' required/>";
         node.innerHTML += childNodeHTML;
-    }
-    //Change Listener
-    function changeListener(_event) {
-        var fieldset = document.getElementById("fieldset");
-        fieldset.addEventListener("change", handleChange);
     }
     function handleChange(_event) {
         var target = _event.target;

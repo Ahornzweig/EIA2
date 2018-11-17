@@ -1,6 +1,11 @@
 namespace A4 {
     document.addEventListener("DOMContentLoaded", fillFieldset);
     document.addEventListener("DOMContentLoaded", changeListener);
+    //Change Listener
+    function changeListener(_event: Event) {
+        let fieldset: HTMLElement = document.getElementById("fieldset")
+        fieldset.addEventListener("change", handleChange);
+    }
 
     let priceTree: number = 0;
     let priceHolder: number = 0;
@@ -48,7 +53,7 @@ namespace A4 {
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
 
-        childNodeHTML += "Menge";
+        childNodeHTML += "Anzahl in Stueck";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge1'>";
         for (let i: number = 1; i < 51; i++) {
@@ -90,7 +95,7 @@ namespace A4 {
         childNodeHTML += "</select>";
         childNodeHTML += "<br>";
 
-        childNodeHTML += "Menge";
+        childNodeHTML += "Anzahl in Stueck";
         childNodeHTML += "<br>";
         childNodeHTML += "<select name='Select' id='Menge3'>";
         for (let i: number = 1; i < 21; i++) {
@@ -118,14 +123,9 @@ namespace A4 {
 
         node.innerHTML += childNodeHTML;
     }
-    //Change Listener
-    function changeListener(_event: Event) {
-        let fieldset: HTMLElement = document.getElementById("fieldset")
-        fieldset.addEventListener("change", handleChange);
-    }
-    
+
     function handleChange(_event: Event) {
-     
+
         let target: HTMLInputElement = <HTMLInputElement>_event.target
         //trees
         if (target.id == "trees") {
@@ -291,7 +291,7 @@ namespace A4 {
 
         childNodeHTML2 = "";
         childNodeHTML2 += "<a>";
-        childNodeHTML2 += (priceTree + priceHolder + (priceBalls*numberOfBalls) + (priceLametta*numberOfLametta) + (priceCandle*numberOfCandle) + priceShipping );
+        childNodeHTML2 += (priceTree + priceHolder + (priceBalls * numberOfBalls) + (priceLametta * numberOfLametta) + (priceCandle * numberOfCandle) + priceShipping);
         childNodeHTML2 += " Euro";
         childNodeHTML2 += "</a>";
         node2.innerHTML = childNodeHTML2;
