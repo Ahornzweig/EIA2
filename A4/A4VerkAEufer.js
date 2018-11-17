@@ -14,4 +14,4 @@ var A4;
     A4.candleTyp = [{ name: "Keine ausgewaehlt", price: 0 }, { name: "Wachs", price: 3 }, { name: "LED", price: 5 }];
     A4.shipment = [{ name: "Keine ausgewaehlt", price: 0 }, { name: "DPD", price: 20 }, { name: "DHL", price: 25 }, { name: "UPS", price: 30 }];
 })(A4 || (A4 = {}));
-//# sourceMappingURL=A4Verkaeufer.js.map
+//# sourceMappingURL=A4VerkAEufer.js.map
