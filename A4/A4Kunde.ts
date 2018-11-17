@@ -29,6 +29,7 @@ namespace A4 {
 
 
     function fillFieldset(): void {
+              console.log("lul")
         let node: HTMLElement = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
         let childNodeHTML: string;
@@ -125,6 +126,7 @@ namespace A4 {
     }
 
     function handleChange(_event: Event) {
+  
 
         let target: HTMLInputElement = <HTMLInputElement>_event.target
         //trees

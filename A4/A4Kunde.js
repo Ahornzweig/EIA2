@@ -25,6 +25,7 @@ var A4;
     var numberOfCandle = 0;
     var adress = "";
     function fillFieldset() {
+        console.log("lul");
         var node = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
         var childNodeHTML;
