@@ -298,7 +298,7 @@ namespace A4 {
     }
 
     function checkCheckout(_event: Event): void {
-        if (adress == ""||priceTree == 0 || priceHolder == 0 || priceBalls == 0 || priceLametta == 0 || priceCandle == 0 || priceShipping == 0 || numberOfBalls == 0 || numberOfLametta == 0 || numberOfCandle == 0) {
+        if (adress == ""||priceTree == 0 || priceBalls == 0 || priceLametta == 0 || priceCandle == 0 || priceShipping == 0 || numberOfBalls == 0 || numberOfLametta == 0 || numberOfCandle == 0) {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
 
