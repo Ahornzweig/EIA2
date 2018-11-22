@@ -18,8 +18,10 @@ var A5;
     function displayAssoArray(_assoArray) {
         for (var key in _assoArray) {
             var value = _assoArray[key];
-            for (var i = 0; i < value.length; i++)
-                fillFieldset(value[i], i, key);
+            if (key != "treeSpecies" && key != "holder" && key != "shipment") {
+                for (var i = 0; i < value.length; i++)
+                    fillFieldset(value[i], i, key);
+            }
         }
     }
     //Change Listener
@@ -27,7 +29,7 @@ var A5;
         var fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
-    var items = [];
+    //let items: HTMLInputElement[]=[];
     /*let priceTree: number = 0;
     let priceHolder: number = 0;
     let priceBalls: number = 0;
@@ -69,7 +71,7 @@ var A5;
             var option = document.createElement("p");
             option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
             option.innerText = _products.name + " " + _products.price + " Euro";
-            document.getElementById(_products.typ).appendChild(option);
+            document.getElementById(key).appendChild(option);
             var steper = document.createElement("input");
             steper.setAttribute("type", "number");
             steper.setAttribute("name", i + " Stepper");
@@ -79,7 +81,7 @@ var A5;
             steper.setAttribute("value", "0");
             steper.setAttribute("title", _products.name);
             steper.setAttribute("id", _products.price.toFixed() + " Euro");
-            document.getElementById(_products.typ).appendChild(steper);
+            document.getElementById(key).appendChild(steper);
         }
         /*
                 //Halterung
@@ -103,13 +105,10 @@ var A5;
     function handleChange(_event) {
         var target = _event.target;
         var name = target.getAttribute("title");
-        //let targetNum:string= target.getAttribute("name")
-        //targetNum = targetNum.substr(0,1)
         if (target.title == name) {
             console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
             var div = document.getElementById("div");
             div.innerHTML = "";
-            //items.push(target)
             var p = document.createElement("p");
             p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
             div.appendChild(p);
@@ -120,17 +119,17 @@ var A5;
               let node: HTMLElement = document.getElementById("adress");
               adress=target.value;
               let childNodeHTML: string;
-  
+     
               childNodeHTML = "";
               childNodeHTML += "<a>";
               childNodeHTML += " " + target.value;
               childNodeHTML += "</a>";
-  
+     
               node.innerHTML = childNodeHTML;
           }
           let node: HTMLElement = document.getElementById("price");
           let childNodeHTML: string;
-  
+     
           childNodeHTML = "";
           childNodeHTML += "<a>";
           childNodeHTML += (priceTree + priceHolder + (priceBalls * numberOfBalls) + (priceLametta * numberOfLametta) + (priceCandle * numberOfCandle) + priceShipping);
