@@ -27,17 +27,7 @@ namespace A5 {
         let fieldset: HTMLElement = document.getElementById("fieldset")
         fieldset.addEventListener("change", handleChange);
     }
-    //let items: HTMLInputElement[]=[];
-    /*let priceTree: number = 0;
-    let priceHolder: number = 0;
-    let priceBalls: number = 0;
-    let priceLametta: number = 0;
-    let priceCandle: number = 0;
-    let priceShipping: number = 0;
-
-    let numberOfBalls: number = 0;
-    let numberOfLametta: number = 0;
-    let numberOfCandle: number = 0;*/
+    
     let adress: string = "";
 
 
@@ -49,41 +39,26 @@ namespace A5 {
         if (i == 0) {
             childNodeHTML = "<h3>" + _products.typ + "</h3>";
             childNodeHTML += "<hr>";
-            childNodeHTML += "<article name='Select' id='" + key + "'>";
-            childNodeHTML += "</article>";
+            childNodeHTML += "<section id='" + key + "'>";
+            childNodeHTML += "</section>";
             node.innerHTML += childNodeHTML;
-            let option: HTMLElement = document.createElement("p");
-            option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
-            option.innerText = _products.name + " " + _products.price + " Euro";
-            document.getElementById(key).appendChild(option)
-            let steper: HTMLElement = document.createElement("input");
-            steper.setAttribute("type", "number");
-            steper.setAttribute("name", i + " Stepper");
-            steper.setAttribute("step", "1");
-            steper.setAttribute("min", "0");
-            steper.setAttribute("max", "50");
-            steper.setAttribute("value", "0");
-            steper.setAttribute("title", _products.name);
-            steper.setAttribute("id", _products.price.toFixed() + " Euro");
-            document.getElementById(key).appendChild(steper);
+        }
 
-        }
-        else {
-            let option: HTMLElement = document.createElement("p");
-            option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
-            option.innerText = _products.name + " " + _products.price + " Euro";
-            document.getElementById(key).appendChild(option)
-            let steper: HTMLElement = document.createElement("input");
-            steper.setAttribute("type", "number");
-            steper.setAttribute("name", i + " Stepper");
-            steper.setAttribute("step", "1");
-            steper.setAttribute("min", "0");
-            steper.setAttribute("max", "50");
-            steper.setAttribute("value", "0");
-            steper.setAttribute("title", _products.name);
-            steper.setAttribute("id", _products.price.toFixed() + " Euro");
-            document.getElementById(key).appendChild(steper);
-        }
+        let option: HTMLElement = document.createElement("p");
+        option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
+        option.innerText = _products.name + " " + _products.price + " Euro";
+        document.getElementById(key).appendChild(option)
+        let steper: HTMLElement = document.createElement("input");
+        steper.setAttribute("type", "number");
+        steper.setAttribute("name", i + " Stepper");
+        steper.setAttribute("step", "1");
+        steper.setAttribute("min", "0");
+        steper.setAttribute("max", "50");
+        steper.setAttribute("value", "0");
+        steper.setAttribute("title", _products.name);
+        steper.setAttribute("id", _products.price.toFixed() + " Euro");
+        document.getElementById(key).appendChild(steper);
+
 
         /*
                 //Halterung
@@ -108,40 +83,18 @@ namespace A5 {
 
     function handleChange(_event: Event) {
 
-        let target: HTMLInputElement = <HTMLInputElement>_event.target
-        let name: string = target.getAttribute("title")
-        if (target.title == name) {
-            console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
-            let div: HTMLElement = document.getElementById("div");
-            div.innerHTML = "";
-            let p: HTMLElement = document.createElement("p");
-            p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
-            div.appendChild(p)
-        }
+        let articles: NodeListOf<HTMLSectionElement> = document.getElementsbyTagName("section")
 
-        /*
-          //Adresse
-          if (target.id == "ad") {
-              let node: HTMLElement = document.getElementById("adress");
-              adress=target.value;
-              let childNodeHTML: string;
-     
-              childNodeHTML = "";
-              childNodeHTML += "<a>";
-              childNodeHTML += " " + target.value;
-              childNodeHTML += "</a>";
-     
-              node.innerHTML = childNodeHTML;
-          }
-          let node: HTMLElement = document.getElementById("price");
-          let childNodeHTML: string;
-     
-          childNodeHTML = "";
-          childNodeHTML += "<a>";
-          childNodeHTML += (priceTree + priceHolder + (priceBalls * numberOfBalls) + (priceLametta * numberOfLametta) + (priceCandle * numberOfCandle) + priceShipping);
-          childNodeHTML += " Euro";
-          childNodeHTML += "</a>";
-          node.innerHTML = childNodeHTML;*/
+        /* let target: HTMLInputElement = <HTMLInputElement>_event.target
+         let name: string = target.getAttribute("title")
+         if (target.title == name) {
+             console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
+             let div: HTMLElement = document.getElementById("div");
+             div.innerHTML = "";
+             let p: HTMLElement = document.createElement("p");
+             p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
+             div.appendChild(p)
+         }*/
     }
 
     /*function checkCheckout(_event: Event): void {

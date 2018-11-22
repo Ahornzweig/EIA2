@@ -52,37 +52,21 @@ var A5;
             childNodeHTML += "<article name='Select' id='" + key + "'>";
             childNodeHTML += "</article>";
             node.innerHTML += childNodeHTML;
-            var option = document.createElement("p");
-            option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
-            option.innerText = _products.name + " " + _products.price + " Euro";
-            document.getElementById(key).appendChild(option);
-            var steper = document.createElement("input");
-            steper.setAttribute("type", "number");
-            steper.setAttribute("name", i + " Stepper");
-            steper.setAttribute("step", "1");
-            steper.setAttribute("min", "0");
-            steper.setAttribute("max", "50");
-            steper.setAttribute("value", "0");
-            steper.setAttribute("title", _products.name);
-            steper.setAttribute("id", _products.price.toFixed() + " Euro");
-            document.getElementById(key).appendChild(steper);
         }
-        else {
-            var option = document.createElement("p");
-            option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
-            option.innerText = _products.name + " " + _products.price + " Euro";
-            document.getElementById(key).appendChild(option);
-            var steper = document.createElement("input");
-            steper.setAttribute("type", "number");
-            steper.setAttribute("name", i + " Stepper");
-            steper.setAttribute("step", "1");
-            steper.setAttribute("min", "0");
-            steper.setAttribute("max", "50");
-            steper.setAttribute("value", "0");
-            steper.setAttribute("title", _products.name);
-            steper.setAttribute("id", _products.price.toFixed() + " Euro");
-            document.getElementById(key).appendChild(steper);
-        }
+        var option = document.createElement("p");
+        option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
+        option.innerText = _products.name + " " + _products.price + " Euro";
+        document.getElementById(key).appendChild(option);
+        var steper = document.createElement("input");
+        steper.setAttribute("type", "number");
+        steper.setAttribute("name", i + " Stepper");
+        steper.setAttribute("step", "1");
+        steper.setAttribute("min", "0");
+        steper.setAttribute("max", "50");
+        steper.setAttribute("value", "0");
+        steper.setAttribute("title", _products.name);
+        steper.setAttribute("id", _products.price.toFixed() + " Euro");
+        document.getElementById(key).appendChild(steper);
         /*
                 //Halterung
                 childNodeHTML += "<h3>Halterung</h3>";
@@ -103,39 +87,17 @@ var A5;
         document.getElementById("fieldset2").appendChild(input);
     }
     function handleChange(_event) {
-        var target = _event.target;
-        var name = target.getAttribute("title");
-        if (target.title == name) {
-            console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
-            var div = document.getElementById("div");
-            div.innerHTML = "";
-            var p = document.createElement("p");
-            p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
-            div.appendChild(p);
-        }
-        /*
-          //Adresse
-          if (target.id == "ad") {
-              let node: HTMLElement = document.getElementById("adress");
-              adress=target.value;
-              let childNodeHTML: string;
-     
-              childNodeHTML = "";
-              childNodeHTML += "<a>";
-              childNodeHTML += " " + target.value;
-              childNodeHTML += "</a>";
-     
-              node.innerHTML = childNodeHTML;
-          }
-          let node: HTMLElement = document.getElementById("price");
-          let childNodeHTML: string;
-     
-          childNodeHTML = "";
-          childNodeHTML += "<a>";
-          childNodeHTML += (priceTree + priceHolder + (priceBalls * numberOfBalls) + (priceLametta * numberOfLametta) + (priceCandle * numberOfCandle) + priceShipping);
-          childNodeHTML += " Euro";
-          childNodeHTML += "</a>";
-          node.innerHTML = childNodeHTML;*/
+        var selected = document.getElementById("fieldset");
+        /* let target: HTMLInputElement = <HTMLInputElement>_event.target
+         let name: string = target.getAttribute("title")
+         if (target.title == name) {
+             console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
+             let div: HTMLElement = document.getElementById("div");
+             div.innerHTML = "";
+             let p: HTMLElement = document.createElement("p");
+             p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
+             div.appendChild(p)
+         }*/
     }
 })(A5 || (A5 = {}));
 //# sourceMappingURL=A5Kunde.js.map
