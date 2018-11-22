@@ -19,7 +19,7 @@ var A5;
         for (var key in _assoArray) {
             var value = _assoArray[key];
             for (var i = 0; i < value.length; i++)
-                fillFieldset(value[i], i);
+                fillFieldset(value[i], i, key);
         }
     }
     //Change Listener
@@ -27,7 +27,7 @@ var A5;
         var fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
-    //let price: number[]=[];
+    var items = [];
     /*let priceTree: number = 0;
     let priceHolder: number = 0;
     let priceBalls: number = 0;
@@ -39,7 +39,7 @@ var A5;
     let numberOfLametta: number = 0;
     let numberOfCandle: number = 0;*/
     var adress = "";
-    function fillFieldset(_products, i) {
+    function fillFieldset(_products, i, key) {
         var node = document.getElementById("fieldset");
         //document.getElementById("button").addEventListener("click", checkCheckout);
         var childNodeHTML;
@@ -47,11 +47,23 @@ var A5;
         if (i == 0) {
             childNodeHTML = "<h3>" + _products.typ + "</h3>";
             childNodeHTML += "<hr>";
-            childNodeHTML += "<article name='Select' id='" + _products.typ + "'>";
-            childNodeHTML += "<p value='" + i + _products.name + " " + _products.price + " Euro'>" + _products.name + " " + _products.price + " Euro</p";
-            childNodeHTML += "<input type='number' name='Stepper' step='1' min='0' max='50' value='0'/>";
+            childNodeHTML += "<article name='Select' id='" + key + "'>";
             childNodeHTML += "</article>";
             node.innerHTML += childNodeHTML;
+            var option = document.createElement("p");
+            option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
+            option.innerText = _products.name + " " + _products.price + " Euro";
+            document.getElementById(key).appendChild(option);
+            var steper = document.createElement("input");
+            steper.setAttribute("type", "number");
+            steper.setAttribute("name", i + " Stepper");
+            steper.setAttribute("step", "1");
+            steper.setAttribute("min", "0");
+            steper.setAttribute("max", "50");
+            steper.setAttribute("value", "0");
+            steper.setAttribute("title", _products.name);
+            steper.setAttribute("id", _products.price.toFixed() + " Euro");
+            document.getElementById(key).appendChild(steper);
         }
         else {
             var option = document.createElement("p");
@@ -60,7 +72,7 @@ var A5;
             document.getElementById(_products.typ).appendChild(option);
             var steper = document.createElement("input");
             steper.setAttribute("type", "number");
-            steper.setAttribute("name", "Stepper");
+            steper.setAttribute("name", i + " Stepper");
             steper.setAttribute("step", "1");
             steper.setAttribute("min", "0");
             steper.setAttribute("max", "50");
@@ -90,16 +102,16 @@ var A5;
     }
     function handleChange(_event) {
         var target = _event.target;
-        if (target.name == "Stepper") {
+        var name = target.getAttribute("title");
+        //let targetNum:string= target.getAttribute("name")
+        //targetNum = targetNum.substr(0,1)
+        if (target.title == name) {
             console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
             var div = document.getElementById("div");
-            /*let childNodeHTML: string;
-            let childNodeHTML: string;
-            childNodeHTML = "";
-            childNodeHTML += "<p>"+target.title +" "+(parseInt(target.value) * parseInt(target.id))+" Euro</p>";
-            div.innerHTML=childNodeHTML*/
+            div.innerHTML = "";
+            //items.push(target)
             var p = document.createElement("p");
-            p.innerText = target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
+            p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
             div.appendChild(p);
         }
         /*
