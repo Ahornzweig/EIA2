@@ -18,6 +18,10 @@ var A5;
     function displayAssoArray(_assoArray) {
         for (var key in _assoArray) {
             var value = _assoArray[key];
+            if (key == "treeSpecies" || key == "holder" || key == "shipment") {
+                for (var i = 0; i < value.length; i++)
+                    fillFieldsetCheck(value[i], i, key);
+            }
             if (key != "treeSpecies" && key != "holder" && key != "shipment") {
                 for (var i = 0; i < value.length; i++)
                     fillFieldset(value[i], i, key);
@@ -29,18 +33,33 @@ var A5;
         var fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
-    //let items: HTMLInputElement[]=[];
-    /*let priceTree: number = 0;
-    let priceHolder: number = 0;
-    let priceBalls: number = 0;
-    let priceLametta: number = 0;
-    let priceCandle: number = 0;
-    let priceShipping: number = 0;
-
-    let numberOfBalls: number = 0;
-    let numberOfLametta: number = 0;
-    let numberOfCandle: number = 0;*/
     var adress = "";
+    function fillFieldsetCheck(_products, i, key) {
+        var node = document.getElementById("fieldset");
+        //document.getElementById("button").addEventListener("click", checkCheckout);
+        var childNodeHTML;
+        //Waren
+        if (i == 0) {
+            childNodeHTML = "<h3>" + _products.typ + "</h3>";
+            childNodeHTML += "<hr>";
+            childNodeHTML += "<section id='" + key + "'>";
+            childNodeHTML += "</section>";
+            node.innerHTML += childNodeHTML;
+        }
+        var radio = document.createElement("input");
+        radio.setAttribute("type", "radio");
+        radio.setAttribute("name", _products.typ);
+        radio.setAttribute("value", "0");
+        radio.setAttribute("title", _products.name);
+        radio.setAttribute("price", _products.price.toFixed());
+        radio.setAttribute("item", _products.typ);
+        radio.setAttribute("id", _products.name);
+        document.getElementById(key).appendChild(radio);
+        var radioLabel = document.createElement("label");
+        radioLabel.setAttribute("for", _products.name);
+        radioLabel.innerText = _products.name + " " + _products.price.toFixed() + " Euro";
+        document.getElementById(key).appendChild(radioLabel);
+    }
     function fillFieldset(_products, i, key) {
         var node = document.getElementById("fieldset");
         //document.getElementById("button").addEventListener("click", checkCheckout);
@@ -49,36 +68,29 @@ var A5;
         if (i == 0) {
             childNodeHTML = "<h3>" + _products.typ + "</h3>";
             childNodeHTML += "<hr>";
-            childNodeHTML += "<article name='Select' id='" + key + "'>";
-            childNodeHTML += "</article>";
+            childNodeHTML += "<section id='" + key + "'>";
+            childNodeHTML += "</section>";
             node.innerHTML += childNodeHTML;
         }
         var option = document.createElement("p");
-        option.setAttribute("value", i + _products.name + " " + _products.price + " Euro");
+        option.setAttribute("value", _products.name + " " + _products.price + " Euro");
         option.innerText = _products.name + " " + _products.price + " Euro";
         document.getElementById(key).appendChild(option);
         var steper = document.createElement("input");
         steper.setAttribute("type", "number");
-        steper.setAttribute("name", i + " Stepper");
+        steper.setAttribute("name", " Stepper");
         steper.setAttribute("step", "1");
         steper.setAttribute("min", "0");
         steper.setAttribute("max", "50");
         steper.setAttribute("value", "0");
+        steper.setAttribute("item", _products.typ);
         steper.setAttribute("title", _products.name);
-        steper.setAttribute("id", _products.price.toFixed() + " Euro");
+        steper.setAttribute("price", _products.price.toFixed());
         document.getElementById(key).appendChild(steper);
-        /*
-                //Halterung
-                childNodeHTML += "<h3>Halterung</h3>";
-                for (let i: number = 0; i < holder.length; i++) {
-                    childNodeHTML += "<input type='radio' name='Radiogroup' value='" + i + holder[i].name + " " + holder[i].price + " Euro'  id='radio" + i + "' />";
-                    childNodeHTML += "<label for='check" + i + "'>" + holder[i].name + " " + holder[i].price + " Euro</label>";
-                }
-                childNodeHTML += "<hr>";
-        */
     }
     //Adresse
     function fillFieldset2() {
+        //document.getElementById("button").addEventListener("click", checkCheckout);
         var h3 = document.createElement("h3");
         h3.innerText = "Adresse";
         document.getElementById("fieldset2").appendChild(h3);
@@ -87,17 +99,42 @@ var A5;
         document.getElementById("fieldset2").appendChild(input);
     }
     function handleChange(_event) {
-        var selected = document.getElementById("fieldset");
-        /* let target: HTMLInputElement = <HTMLInputElement>_event.target
-         let name: string = target.getAttribute("title")
-         if (target.title == name) {
-             console.log("Changed " + target.name + " to " + target.value + " " + target.title + " " + (parseInt(target.value) * parseInt(target.id) + " Euro"));
-             let div: HTMLElement = document.getElementById("div");
-             div.innerHTML = "";
-             let p: HTMLElement = document.createElement("p");
-             p.innerText = target.value + target.title + " " + (parseInt(target.value) * parseInt(target.id)) + " Euro";
-             div.appendChild(p)
-         }*/
+        var target = _event.target;
+        console.log(target);
+        var articles = document.getElementsByTagName("input");
+        var div = document.getElementById("div");
+        div.innerHTML = "";
+        var h2 = document.createElement("h2");
+        h2.innerText = "Uebersicht";
+        div.appendChild(h2);
+        for (var i = 0; i < articles.length - 1; i++) {
+            var article = articles[i];
+            var div_1 = document.getElementById("div");
+            var p = document.createElement("p");
+            var articleTyp = article.getAttribute("item");
+            var articleName = article.getAttribute("title");
+            var articlePrice = parseInt(article.getAttribute("price"));
+            var DomAmount = target.value;
+            target.setAttribute("value", DomAmount);
+            var articleAmount = parseInt(article.getAttribute("value"));
+            if (articleAmount > 0) {
+                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + (articlePrice * articleAmount).toFixed() + " Euro";
+            }
+            if (target.type == "radio") {
+                //abfrage ob angew�hlt
+                if (target.checked == true) {
+                    target.setAttribute("value", "1");
+                }
+                if (target.checked == false) {
+                    target.setAttribute("value", "0");
+                }
+                var articleAmount_1 = parseInt(article.getAttribute("value"));
+                if (articleAmount_1 > 0) {
+                    p.innerText = articleTyp + ": " + articleAmount_1 + " " + articleName + " " + (articlePrice * articleAmount_1).toFixed() + " Euro";
+                }
+            }
+            div_1.appendChild(p);
+        }
     }
 })(A5 || (A5 = {}));
 //# sourceMappingURL=A5Kunde.js.map
