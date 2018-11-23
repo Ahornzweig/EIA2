@@ -148,7 +148,7 @@ var A5;
         calcPrice();
     }
     function calcPrice() {
-        var checkout = document.getElementById("div");
+        var checkout = document.getElementById("selectedArticle");
         var price = 0;
         for (var i = 0; i < checkout.childNodes.length; i++) {
             var articlePrice = Number(document.getElementsByTagName("p")[i].getAttribute("price"));

@@ -159,7 +159,7 @@ namespace A5 {
     }
     
      function calcPrice(): void {
-        let checkout: HTMLElement = document.getElementById("div");
+        let checkout: HTMLElement = document.getElementById("selectedArticle");
         let price: number = 0;
         for (let i: number = 0; i < checkout.childNodes.length; i++) {
             let articlePrice: number = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
