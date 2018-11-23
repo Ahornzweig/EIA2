@@ -34,7 +34,9 @@ var A5;
         fieldset.addEventListener("change", handleChange);
     }
     var adress = "";
-    var price = [];
+    var checkTree = 0;
+    var checkHolder = 0;
+    var checkShipping = 0;
     function fillFieldsetCheck(_products, i, key) {
         var node = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
@@ -115,26 +117,34 @@ var A5;
             var articleTyp = article.getAttribute("item");
             var articleName = article.getAttribute("title");
             var articlePrice = parseInt(article.getAttribute("price"));
+            if (article.type == "radio") {
+                //console.log(target.getAttribute("value"));
+                //abfrage ob angew�hlt
+                if (article.checked == true) {
+                    article.setAttribute("value", "1");
+                    if (target.name == "Baum") {
+                        checkTree = 1;
+                    }
+                    if (target.name == "Halterung") {
+                        checkHolder = 1;
+                    }
+                    if (target.name == "Lieferoptionen") {
+                        checkShipping = 1;
+                    }
+                }
+                else if (article.checked == false) {
+                    article.setAttribute("value", "0");
+                }
+                var articleAmount_1 = parseInt(article.getAttribute("value"));
+                console.log(articleAmount_1);
+            }
             var DomAmount = target.value;
             target.setAttribute("value", DomAmount);
             var articleAmount = parseInt(article.getAttribute("value"));
-            var price_1 = articlePrice * articleAmount;
-            p.setAttribute("price", price_1.toString());
+            var price = articlePrice * articleAmount;
+            p.setAttribute("price", price.toString());
             if (articleAmount > 0) {
-                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price_1 + " Euro";
-            }
-            if (target.type == "radio") {
-                //abfrage ob angew�hlt
-                if (target.checked == true) {
-                    target.setAttribute("value", "1");
-                }
-                if (target.checked == false) {
-                    target.setAttribute("value", "0");
-                }
-                var articleAmount_1 = parseInt(article.getAttribute("value"));
-                if (articleAmount_1 > 0) {
-                    p.innerText = articleTyp + ": " + articleAmount_1 + " " + articleName + " " + price_1 + " Euro";
-                }
+                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price + " Euro";
             }
             section_1.appendChild(p);
         }
@@ -160,7 +170,7 @@ var A5;
         console.log(price);
     }
     function checkCheckout(_event) {
-        if (adress == "") {
+        if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0) {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
         else {

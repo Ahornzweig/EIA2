@@ -33,7 +33,9 @@ namespace A5 {
     }
 
     let adress: string = "";
-    let price: number[] = [];
+    let checkTree: number=0;
+    let checkHolder: number=0;
+    let checkShipping: number=0;
     
     function fillFieldsetCheck(_products: products, i, key): void {
         let node: HTMLElement = document.getElementById("fieldset");
@@ -111,18 +113,42 @@ namespace A5 {
     function handleChange(_event: Event) {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         console.log(target)
-        let articles: NodeListOf<HTMLElement> = document.getElementsByTagName("input");
+        let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let div: HTMLElement = document.getElementById("div")
         let section: HTMLElement = document.getElementById("selectedArticle")
         section.innerHTML = ""
         
         for (let i: number = 0; i < articles.length - 1; i++) {
-            let article: HTMLElement = articles[i];
+            let article: HTMLInputElement = articles[i];
             let section: HTMLElement = document.getElementById("selectedArticle")
             let p: HTMLElement = document.createElement("p")
             let articleTyp: string = article.getAttribute("item");
             let articleName: string = article.getAttribute("title");
             let articlePrice: number = parseInt(article.getAttribute("price"));
+            if (article.type == "radio") {
+               //console.log(target.getAttribute("value"));
+                //abfrage ob angewählt
+                if (article.checked == true) {
+                    article.setAttribute("value", "1")
+                    if (target.name == "Baum" ){
+                        checkTree=1
+                    }
+                    if (target.name == "Halterung" ){
+                        checkHolder=1
+                    }
+                    if (target.name == "Lieferoptionen" ){
+                        checkShipping=1
+                    }
+                    
+                }
+                else if (article.checked == false) {
+                    article.setAttribute("value", "0")
+                }
+                let articleAmount: number = parseInt(article.getAttribute("value"))
+                console.log(articleAmount)
+                
+            }
+            
             let DomAmount: string = target.value
             target.setAttribute("value", DomAmount)
             let articleAmount: number = parseInt(article.getAttribute("value"))
@@ -132,19 +158,6 @@ namespace A5 {
                 p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price + " Euro";
             }
 
-            if (target.type == "radio") {
-                //abfrage ob angewählt
-                if (target.checked == true) {
-                    target.setAttribute("value", "1")
-                }
-                if (target.checked == false) {
-                    target.setAttribute("value", "0")
-                }
-                let articleAmount: number = parseInt(article.getAttribute("value"))
-                if (articleAmount > 0) {
-                    p.innerText = articleTyp + ": " + articleAmount + " " + articleName + " " + price + " Euro";
-                }
-            }
             section.appendChild(p)
         }
         
@@ -173,9 +186,10 @@ namespace A5 {
 
 
     function checkCheckout(_event: Event): void {
-        if (adress == "") {
+        if (adress == ""||checkTree == 0||checkHolder == 0 ||checkShipping == 0 ) {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
+        
 // falls eine radiogroup nicht angewählt ist
         else {
             document.getElementById("missing").innerHTML = "";
