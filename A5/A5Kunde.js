@@ -34,9 +34,10 @@ var A5;
         fieldset.addEventListener("change", handleChange);
     }
     var adress = "";
+    var price = [];
     function fillFieldsetCheck(_products, i, key) {
         var node = document.getElementById("fieldset");
-        //document.getElementById("button").addEventListener("click", checkCheckout);
+        document.getElementById("button").addEventListener("click", checkCheckout);
         var childNodeHTML;
         //Waren
         if (i == 0) {
@@ -62,7 +63,7 @@ var A5;
     }
     function fillFieldset(_products, i, key) {
         var node = document.getElementById("fieldset");
-        //document.getElementById("button").addEventListener("click", checkCheckout);
+        document.getElementById("button").addEventListener("click", checkCheckout);
         var childNodeHTML;
         //Waren
         if (i == 0) {
@@ -90,10 +91,12 @@ var A5;
     }
     //Adresse
     function fillFieldset2() {
-        //document.getElementById("button").addEventListener("click", checkCheckout);
-        var h3 = document.createElement("h3");
-        h3.innerText = "Adresse";
-        document.getElementById("fieldset2").appendChild(h3);
+        document.getElementById("button").addEventListener("click", checkCheckout);
+        var fieldset = document.getElementById("fieldset2");
+        fieldset.addEventListener("change", handleChange);
+        //let h3: HTMLElement = document.createElement("h3");
+        //h3.innerText = "Adresse";
+        //document.getElementById("fieldset2").appendChild(h3);
         var input = document.createElement("input");
         input.setAttribute("id", "ad");
         document.getElementById("fieldset2").appendChild(input);
@@ -103,13 +106,11 @@ var A5;
         console.log(target);
         var articles = document.getElementsByTagName("input");
         var div = document.getElementById("div");
-        div.innerHTML = "";
-        var h2 = document.createElement("h2");
-        h2.innerText = "Uebersicht";
-        div.appendChild(h2);
+        var section = document.getElementById("selectedArticle");
+        section.innerHTML = "";
         for (var i = 0; i < articles.length - 1; i++) {
             var article = articles[i];
-            var div_1 = document.getElementById("div");
+            var section_1 = document.getElementById("selectedArticle");
             var p = document.createElement("p");
             var articleTyp = article.getAttribute("item");
             var articleName = article.getAttribute("title");
@@ -117,8 +118,10 @@ var A5;
             var DomAmount = target.value;
             target.setAttribute("value", DomAmount);
             var articleAmount = parseInt(article.getAttribute("value"));
+            var price_1 = articlePrice * articleAmount;
+            p.setAttribute("price", price_1.toString());
             if (articleAmount > 0) {
-                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + (articlePrice * articleAmount).toFixed() + " Euro";
+                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price_1 + " Euro";
             }
             if (target.type == "radio") {
                 //abfrage ob angew�hlt
@@ -130,10 +133,38 @@ var A5;
                 }
                 var articleAmount_1 = parseInt(article.getAttribute("value"));
                 if (articleAmount_1 > 0) {
-                    p.innerText = articleTyp + ": " + articleAmount_1 + " " + articleName + " " + (articlePrice * articleAmount_1).toFixed() + " Euro";
+                    p.innerText = articleTyp + ": " + articleAmount_1 + " " + articleName + " " + price_1 + " Euro";
                 }
             }
-            div_1.appendChild(p);
+            section_1.appendChild(p);
+        }
+        if (target.id == "ad") {
+            var adresse = document.createElement("p");
+            adresse.setAttribute("id", "adress");
+            adresse.innerText = "Adresse: " + target.value;
+            adress = target.value;
+            div.appendChild(adresse);
+        }
+        calcPrice();
+    }
+    function calcPrice() {
+        var checkout = document.getElementById("div");
+        var price = 0;
+        for (var i = 0; i < checkout.childNodes.length; i++) {
+            var articlePrice = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
+            price += articlePrice;
+            var showPrice = document.createElement("div");
+            document.getElementById("div").appendChild(showPrice);
+            showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
+        }
+        console.log(price);
+    }
+    function checkCheckout(_event) {
+        if (adress == "") {
+            document.getElementById("missing").innerHTML = "fehlende Angaben";
+        }
+        else {
+            document.getElementById("missing").innerHTML = "";
         }
     }
 })(A5 || (A5 = {}));
