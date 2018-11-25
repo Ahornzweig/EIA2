@@ -8,13 +8,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 body {
-	background-size: 100% 100%;
+	background-Color: #ffffff;
 	
 }
 
 h1 {
 	margin:0.3em 0.3em 0.3em 0em;
-	color: white;
+	color: green;
 	
 }
 
@@ -76,7 +76,7 @@ button {
 	background-Color: transparent;
 	border: none;
 	padding-left: 0px;
-	color:white;
+	color:red;
 	font-weight:bold;
 }
 
