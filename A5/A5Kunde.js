@@ -161,7 +161,7 @@ var A5;
         console.log(checkout.childNodes);
         for (var i = 0; i < checkout.childNodes.length; i++) {
             var articlePrice = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
-            //console.log(Number(document.getElementsByTagName("p")[i].getAttribute("price")));
+            console.log(articlePrice);
             price += articlePrice;
             var showPrice = document.createElement("div");
             showPrice.setAttribute("id", "box");

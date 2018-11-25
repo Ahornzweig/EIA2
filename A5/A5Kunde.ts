@@ -177,10 +177,10 @@ namespace A5 {
         console.log(checkout.childNodes);
         for (let i: number = 0; i < checkout.childNodes.length; i++) {
             let articlePrice: number = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
-            //console.log(Number(document.getElementsByTagName("p")[i].getAttribute("price")));
+            console.log(articlePrice);
             price += articlePrice;
             let showPrice: HTMLElement = document.createElement("div");
-            showPrice.setAttribute("id", "box")
+            showPrice.setAttribute("id", "box");
             document.getElementById("div").appendChild(showPrice);
             showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
         }
