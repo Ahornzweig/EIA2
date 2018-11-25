@@ -36,8 +36,8 @@ namespace A5 {
     let checkTree: number = 0;
     let checkHolder: number = 0;
     let checkShipping: number = 0;
-    
-    function fillFieldsetCheck(_products: products, i: number, key: string ): void {
+
+    function fillFieldsetCheck(_products: products, i: number, key: string): void {
         let node: HTMLElement = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
         let childNodeHTML: string;
@@ -65,7 +65,7 @@ namespace A5 {
         document.getElementById(key).appendChild(radioLabel);
     }
 
-    function fillFieldset(_products: products, i: number, key: string ): void {
+    function fillFieldset(_products: products, i: number, key: string): void {
         let node: HTMLElement = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
         let childNodeHTML: string;
@@ -117,7 +117,7 @@ namespace A5 {
         let div: HTMLElement = document.getElementById("div");
         let section: HTMLElement = document.getElementById("selectedArticle");
         section.innerHTML = "";
-        
+
         for (let i: number = 0; i < articles.length - 1; i++) {
             let article: HTMLInputElement = articles[i];
             let section: HTMLElement = document.getElementById("selectedArticle");
@@ -126,29 +126,29 @@ namespace A5 {
             let articleName: string = article.getAttribute("title");
             let articlePrice: number = parseInt(article.getAttribute("price"));
             if (article.type == "radio") {
-               //console.log(target.getAttribute("value"));
+                //console.log(target.getAttribute("value"));
                 //abfrage ob angewählt
                 if (article.checked == true) {
                     article.setAttribute("value", "1");
-                    if (target.name == "Baum" ) {
+                    if (target.name == "Baum") {
                         checkTree = 1;
                     }
-                    if (target.name == "Halterung" ) {
+                    if (target.name == "Halterung") {
                         checkHolder = 1;
                     }
-                    if (target.name == "Lieferoptionen" ) {
+                    if (target.name == "Lieferoptionen") {
                         checkShipping = 1;
                     }
-                    
+
                 }
                 else if (article.checked == false) {
                     article.setAttribute("value", "0");
                 }
-                let articleAmount: number = parseInt(article.getAttribute("value"));
-                console.log(articleAmount);
-                
+                //let articleAmount: number = parseInt(article.getAttribute("value"));
+                //console.log(articleAmount);
+
             }
-            
+
             let domAmount: string = target.value;
             target.setAttribute("value", domAmount);
             let articleAmount: number = parseInt(article.getAttribute("value"));
@@ -160,7 +160,7 @@ namespace A5 {
 
             section.appendChild(p);
         }
-        
+
         if (target.id == "ad") {
             let adresse: HTMLElement = document.createElement("p");
             adresse.setAttribute("id", "adress");
@@ -170,31 +170,29 @@ namespace A5 {
         }
         calcPrice();
     }
-    
-     function calcPrice(): void {
+
+    function calcPrice(): void {
         let checkout: HTMLElement = document.getElementById("selectedArticle");
         let price: number = 0;
+        console.log(checkout.childNodes);
         for (let i: number = 0; i < checkout.childNodes.length; i++) {
             let articlePrice: number = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
+            //console.log(Number(document.getElementsByTagName("p")[i].getAttribute("price")));
             price += articlePrice;
             let showPrice: HTMLElement = document.createElement("div");
+            showPrice.setAttribute("id", "box")
             document.getElementById("div").appendChild(showPrice);
             showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
         }
-        console.log(price);
-}
-
+        //console.log(price);
+    }
 
     function checkCheckout(_event: Event): void {
-        if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0 ) {
+        if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0) {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
-        
-// falls eine radiogroup nicht angewählt ist
         else {
             document.getElementById("missing").innerHTML = "";
         }
     }
-
-
 }

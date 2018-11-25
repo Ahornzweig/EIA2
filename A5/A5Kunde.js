@@ -135,8 +135,6 @@ var A5;
                 else if (article.checked == false) {
                     article.setAttribute("value", "0");
                 }
-                var articleAmount_1 = parseInt(article.getAttribute("value"));
-                console.log(articleAmount_1);
             }
             var domAmount = target.value;
             target.setAttribute("value", domAmount);
@@ -160,14 +158,17 @@ var A5;
     function calcPrice() {
         var checkout = document.getElementById("selectedArticle");
         var price = 0;
+        console.log(checkout.childNodes);
         for (var i = 0; i < checkout.childNodes.length; i++) {
             var articlePrice = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
+            //console.log(Number(document.getElementsByTagName("p")[i].getAttribute("price")));
             price += articlePrice;
             var showPrice = document.createElement("div");
+            showPrice.setAttribute("id", "box");
             document.getElementById("div").appendChild(showPrice);
             showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
         }
-        console.log(price);
+        //console.log(price);
     }
     function checkCheckout(_event) {
         if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0) {

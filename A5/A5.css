@@ -48,18 +48,24 @@ div {
 
 button {
 	position: absolute;
-	top: 350px;
-	left: 380px;
+	top: 200px;
+	left: 760px;
 }
 
 .text{
 	font-size:1.2em;
 }
 
+#box{
+	border: thin dotted red;
+	width: 90px;
+	background-Color: #ffffff;
+}
+
 #missing{
 	position: absolute;
-	top: 400px;
-	left: 380px;
+	top: 250px;
+	left: 760px;
 	width: 300px;
 	background-Color: #F2F2F2;
 	border: none;
