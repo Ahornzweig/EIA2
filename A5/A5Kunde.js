@@ -105,7 +105,7 @@ var A5;
     }
     function handleChange(_event) {
         var target = _event.target;
-        console.log(target);
+        //console.log(target);
         var articles = document.getElementsByTagName("input");
         var div = document.getElementById("div");
         var section = document.getElementById("selectedArticle");
@@ -138,8 +138,8 @@ var A5;
                 var articleAmount_1 = parseInt(article.getAttribute("value"));
                 console.log(articleAmount_1);
             }
-            var DomAmount = target.value;
-            target.setAttribute("value", DomAmount);
+            var domAmount = target.value;
+            target.setAttribute("value", domAmount);
             var articleAmount = parseInt(article.getAttribute("value"));
             var price = articlePrice * articleAmount;
             p.setAttribute("price", price.toString());
