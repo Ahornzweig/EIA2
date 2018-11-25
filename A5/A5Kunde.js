@@ -1,7 +1,7 @@
 /*Aufgabe: Aufgabe 5
 Name: Sarah L�nnqvist
 Matrikel: 259116
-Datum: 21.11.2018
+Datum: 25.11.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -160,7 +160,8 @@ var A5;
         var price = 0;
         console.log(checkout.childNodes);
         for (var i = 0; i < checkout.childNodes.length; i++) {
-            var articlePrice = Number(document.getElementsByTagName("p")[i].getAttribute("price"));
+            var article = checkout.childNodes[i];
+            var articlePrice = Number(article.getAttribute("price"));
             console.log(articlePrice);
             price += articlePrice;
             var showPrice = document.createElement("div");
