@@ -107,6 +107,7 @@ namespace A5 {
         //document.getElementById("fieldset2").appendChild(h3);
         let input: HTMLElement = document.createElement("input");
         input.setAttribute("id", "ad");
+        input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
     }
 

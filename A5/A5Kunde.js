@@ -101,6 +101,7 @@ var A5;
         //document.getElementById("fieldset2").appendChild(h3);
         var input = document.createElement("input");
         input.setAttribute("id", "ad");
+        input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
     }
     function handleChange(_event) {
