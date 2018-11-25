@@ -193,7 +193,7 @@ namespace A5 {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
         else {
-            document.getElementById("missing").innerHTML = "";
+            document.getElementById("missing").innerHTML = "Alle Angaben vorhanden!";
         }
     }
 }
