@@ -16,4 +16,4 @@ var A5;
         "shipment": [{ typ: "Lieferoptionen", name: "DPD", price: 20 }, { typ: "Lieferoptionen", name: "DHL", price: 25 }, { typ: "Lieferoptionen", name: "UPS", price: 30 }]
     };
 })(A5 || (A5 = {}));
-//# sourceMappingURL=A5Verkaeufer.js.map
+//# sourceMappingURL=A6Verkaeufer.js.map
