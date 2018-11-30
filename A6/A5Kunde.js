@@ -1,46 +1,46 @@
 /*Aufgabe: Aufgabe 5
-Name: Sarah Lönnqvist
+Name: Sarah Lï¿½nnqvist
 Matrikel: 259116
 Datum: 25.11.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace A5 {
+var A5;
+(function (A5) {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
-    document.addEventListener("DOMContentLoaded", changeListener);
-    function init(_event: Event): void {
-        console.log(assoProducts);
-        displayAssoArray(assoProducts);
-    };
-
-    function displayAssoArray(_assoArray: assoArray): void {
-
+    document.addEventListener("DOMContentLoaded", changeListener);
+    function init(_event) {
+        console.log(A5.assoProducts);
+        displayAssoArray(A5.assoProducts);
+    }
+    ;
+    function displayAssoArray(_assoArray) {
         for (let key in _assoArray) {
-            let value: products[] = _assoArray[key];
-            if (key == "treeSpecies" || key == "holder" || key == "shipment") { for (let i: number = 0; i < value.length; i++) fillFieldsetCheck(value[i], i, key); }
-            if (key != "treeSpecies" && key != "holder" && key != "shipment") { for (let i: number = 0; i < value.length; i++) fillFieldset(value[i], i, key); }
-
+            let value = _assoArray[key];
+            if (key == "treeSpecies" || key == "holder" || key == "shipment") {
+                for (let i = 0; i < value.length; i++)
+                    fillFieldsetCheck(value[i], i, key);
+            }
+            if (key != "treeSpecies" && key != "holder" && key != "shipment") {
+                for (let i = 0; i < value.length; i++)
+                    fillFieldset(value[i], i, key);
+            }
         }
     }
-
     //Change Listener
-    function changeListener(_event: Event): void {
-        let fieldset: HTMLElement = document.getElementById("fieldset");
-
+    function changeListener(_event) {
+        let fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
-
     }
-
-    let adress: string = "";
-    let checkTree: number = 0;
-    let checkHolder: number = 0;
-    let checkShipping: number = 0;
-
-    function fillFieldsetCheck(_products: products, i: number, key: string): void {
-        let node: HTMLElement = document.getElementById("fieldset");
+    let adress = "";
+    let checkTree = 0;
+    let checkHolder = 0;
+    let checkShipping = 0;
+    function fillFieldsetCheck(_products, i, key) {
+        let node = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
-        let childNodeHTML: string;
+        let childNodeHTML;
         //Waren
         if (i == 0) {
             childNodeHTML = "<h3>" + _products.typ + "</h3>";
@@ -49,26 +49,24 @@ namespace A5 {
             childNodeHTML += "</section>";
             node.innerHTML += childNodeHTML;
         }
-
-        let radio: HTMLElement = document.createElement("input");
+        let radio = document.createElement("input");
         radio.setAttribute("type", "radio");
-        radio.setAttribute("name", _products.typ);
+        radio.setAttribute("name", _products.typ + " " + _products.name);
         radio.setAttribute("value", "0");
         radio.setAttribute("title", _products.name);
         radio.setAttribute("price", _products.price.toFixed());
         radio.setAttribute("item", _products.typ);
         radio.setAttribute("id", _products.name);
         document.getElementById(key).appendChild(radio);
-        let radioLabel: HTMLElement = document.createElement("label");
+        let radioLabel = document.createElement("label");
         radioLabel.setAttribute("for", _products.name);
         radioLabel.innerText = _products.name + " " + _products.price.toFixed() + " Euro";
         document.getElementById(key).appendChild(radioLabel);
     }
-
-    function fillFieldset(_products: products, i: number, key: string): void {
-        let node: HTMLElement = document.getElementById("fieldset");
+    function fillFieldset(_products, i, key) {
+        let node = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
-        let childNodeHTML: string;
+        let childNodeHTML;
         //Waren
         if (i == 0) {
             childNodeHTML = "<h3>" + _products.typ + "</h3>";
@@ -77,14 +75,13 @@ namespace A5 {
             childNodeHTML += "</section>";
             node.innerHTML += childNodeHTML;
         }
-
-        let option: HTMLElement = document.createElement("p");
+        let option = document.createElement("p");
         option.setAttribute("value", _products.name + " " + _products.price + " Euro");
         option.innerText = _products.name + " " + _products.price + " Euro";
         document.getElementById(key).appendChild(option);
-        let steper: HTMLElement = document.createElement("input");
+        let steper = document.createElement("input");
         steper.setAttribute("type", "number");
-        steper.setAttribute("name", " Stepper");
+        steper.setAttribute("name", _products.typ + " " + _products.name);
         steper.setAttribute("step", "1");
         steper.setAttribute("min", "0");
         steper.setAttribute("max", "50");
@@ -93,42 +90,39 @@ namespace A5 {
         steper.setAttribute("title", _products.name);
         steper.setAttribute("price", _products.price.toFixed());
         document.getElementById(key).appendChild(steper);
-
     }
-
     //Adresse
-    function fillFieldset2(): void {
+    function fillFieldset2() {
         document.getElementById("button").addEventListener("click", checkCheckout);
-        let fieldset: HTMLElement = document.getElementById("fieldset2");
-
+        let fieldset = document.getElementById("fieldset2");
         fieldset.addEventListener("change", handleChange);
         //let h3: HTMLElement = document.createElement("h3");
         //h3.innerText = "Adresse";
         //document.getElementById("fieldset2").appendChild(h3);
-        let input: HTMLElement = document.createElement("input");
+        let input = document.createElement("input");
         input.setAttribute("id", "ad");
+        input.setAttribute("name", "pattern");
+        input.setAttribute("required", "");
         input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
     }
-
-    function handleChange(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+    function handleChange(_event) {
+        let target = _event.target;
         //console.log(target);
-        let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let div: HTMLElement = document.getElementById("div");
-        let section: HTMLElement = document.getElementById("selectedArticle");
+        let articles = document.getElementsByTagName("input");
+        let div = document.getElementById("div");
+        let section = document.getElementById("selectedArticle");
         section.innerHTML = "";
-
-        for (let i: number = 0; i < articles.length - 1; i++) {
-            let article: HTMLInputElement = articles[i];
-            let section: HTMLElement = document.getElementById("selectedArticle");
-            let p: HTMLElement = document.createElement("p");
-            let articleTyp: string = article.getAttribute("item");
-            let articleName: string = article.getAttribute("title");
-            let articlePrice: number = parseInt(article.getAttribute("price"));
+        for (let i = 0; i < articles.length - 1; i++) {
+            let article = articles[i];
+            let section = document.getElementById("selectedArticle");
+            let p = document.createElement("p");
+            let articleTyp = article.getAttribute("item");
+            let articleName = article.getAttribute("title");
+            let articlePrice = parseInt(article.getAttribute("price"));
             if (article.type == "radio") {
                 //console.log(target.getAttribute("value"));
-                //abfrage ob angewählt
+                //abfrage ob angewï¿½hlt
                 if (article.checked == true) {
                     article.setAttribute("value", "1");
                     if (target.name == "Baum") {
@@ -140,30 +134,23 @@ namespace A5 {
                     if (target.name == "Lieferoptionen") {
                         checkShipping = 1;
                     }
-
                 }
                 else if (article.checked == false) {
                     article.setAttribute("value", "0");
                 }
-                //let articleAmount: number = parseInt(article.getAttribute("value"));
-                //console.log(articleAmount);
-
             }
-
-            let domAmount: string = target.value;
+            let domAmount = target.value;
             target.setAttribute("value", domAmount);
-            let articleAmount: number = parseInt(article.getAttribute("value"));
-            let price: number = articlePrice * articleAmount;
+            let articleAmount = parseInt(article.getAttribute("value"));
+            let price = articlePrice * articleAmount;
             p.setAttribute("price", price.toString());
             if (articleAmount > 0) {
                 p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price + " Euro";
             }
-
             section.appendChild(p);
         }
-
         if (target.id == "ad") {
-            let adresse: HTMLElement = document.createElement("p");
+            let adresse = document.createElement("p");
             adresse.setAttribute("id", "adress");
             adresse.innerText = "Adresse: " + target.value;
             adress = target.value;
@@ -171,25 +158,23 @@ namespace A5 {
         }
         calcPrice();
     }
-
-    function calcPrice(): void {
-        let checkout: HTMLElement = document.getElementById("selectedArticle");
-        let price: number = 0;
+    function calcPrice() {
+        let checkout = document.getElementById("selectedArticle");
+        let price = 0;
         console.log(checkout.childNodes);
-        for (let i: number = 0; i < checkout.childNodes.length; i++) {
-            let article: any = checkout.childNodes[i]
-            let articlePrice: number = Number(article.getAttribute("price"));
+        for (let i = 0; i < checkout.childNodes.length; i++) {
+            let article = checkout.childNodes[i];
+            let articlePrice = Number(article.getAttribute("price"));
             console.log(articlePrice);
             price += articlePrice;
-            let showPrice: HTMLElement = document.createElement("div");
+            let showPrice = document.createElement("div");
             showPrice.setAttribute("id", "box");
             document.getElementById("div").appendChild(showPrice);
             showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
         }
         //console.log(price);
     }
-
-    function checkCheckout(_event: Event): void {
+    function checkCheckout(_event) {
         if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0) {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
@@ -197,4 +182,5 @@ namespace A5 {
             document.getElementById("missing").innerHTML = "Alle Angaben vorhanden!";
         }
     }
-}
+})(A5 || (A5 = {}));
+//# sourceMappingURL=A5Kunde.js.map
