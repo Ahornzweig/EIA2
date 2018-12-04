@@ -28,7 +28,7 @@ namespace L06_SendData {
         
         let url: string = _request.url;
         console.log(Url.parse(url, true).query);
-        _response.write(Url.parse(url, true).query);
+        _response.write(Url.parse(url, true).toString());
         //_response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
         //"The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
         

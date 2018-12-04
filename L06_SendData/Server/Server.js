@@ -24,7 +24,7 @@ var L06_SendData;
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zus�tzlich in den header gesetzt
         let url = _request.url;
         console.log(Url.parse(url, true).query);
-        _response.write(Url.parse(url, true).query);
+        _response.write(Url.parse(url, true).toString());
         //_response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
         //"The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
         _response.end(); // response wird beendet. 
