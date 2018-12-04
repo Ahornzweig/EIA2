@@ -71,6 +71,8 @@ div {
 }
 
 #box{
+	position: absolute;
+	top: 50px;
 	border: thin solid red;
 	width: 90px;
 	background-Color: #ffffff;
