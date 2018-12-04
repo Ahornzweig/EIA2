@@ -1,7 +1,7 @@
 "use strict";
 const Http = require("http"); //Node.d.ts Datei wird importiert. Mit HTTP from "http" wird auf die HTTP objekte aus Node.d.ts zugegriffen.
 //Forlesung: "http" Objekte werden als HTTP Objekte deklariert. Es importiert das Modul HTTP aus der Node.ts-Datei. HTTP hat Unterklassen. Ist ein Objekt(mit mehreren Eigenschaften), das in der Lage ist Server zu erstellen.
-const URL = require("url");
+const Url = require("url");
 var L06_SendData;
 (function (L06_SendData) {
     console.log("Starting server"); // "Starting server" wird auf der Console ausgegeben
@@ -18,14 +18,14 @@ var L06_SendData;
     function handleRequest(_request, _response) {
         //parameter _request (An IncomingMessage object is created by http.Server or http.ClientRequest and passed as the first argument to the 'request' and 'response' event respectively. It may be used to access response status, headers and data.) und _response (This object is created internally by an HTTP server � not by the user. It is passed as the second parameter to the 'request' event.) werden �bergeben.
         console.log("I hear voices!"); //"I hear voices!" wird auf der Konsole ausgegeben
-        console.log(_request.url);
+        //console.log(_request.url);
         _response.setHeader("content-type", "text/html; charset=utf-8"); // "content-type", "text/html; charset=utf-8" wird mit _response.setHeader in den header gesetzt
         //Forlesung: Sets a single header value for implicit headers. If this header already exists in the to-be-sent headers, its value will be replaced.
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zus�tzlich in den header gesetzt
-        let url = URL.parse(_request.url, true);
-        let name = url.query;
-        console.log(name);
-        _response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
+        let url = _request.url;
+        console.log(Url.parse(url, true).query);
+        _response.write(Url.parse(url, true).toString());
+        //_response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
         //"The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
         _response.end(); // response wird beendet. 
         //"This method signals to the server that all of the response headers and body have been sent; that server should consider this message complete."
