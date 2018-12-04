@@ -1,15 +1,16 @@
-import * as Http from "http"; //Node.d.ts Datei wird importiert. Mit HTTP from "http" wird auf die HTTP objekte aus Node.d.ts zugegriffen
+import * as Http from "http"; //Node.d.ts Datei wird importiert. Mit HTTP from "http" wird auf die HTTP objekte aus Node.d.ts zugegriffen.
+//Forlesung: "http" Objekte werden als HTTP Objekte deklariert. Es importiert das Modul HTTP aus der Node.ts-Datei. HTTP hat Unterklassen. Ist ein Objekt(mit mehreren Eigenschaften), das in der Lage ist Server zu erstellen.
   
 namespace L06_SendData {
     console.log("Starting server"); // "Starting server" wird auf der Console ausgegeben
-    let port: number = process.env.PORT; //Die Variable port wird als number deklariert. welchen den Wert des ports des Heruku Servers hat
-    if (port == undefined) //falls port undefiniert ist. (dient als Sicherung)
-        port = 8100; //wird port zu 8100 gesetzt
+    let port: number = process.env.PORT; //Die Variable port wird als number deklariert, welche den Wert des ports des Heruku Servers hat.
+    if (port == undefined) //Falls port undefiniert ist. (Dient als Sicherung).
+        port = 8100; //Port wird zu 8100 gesetzt.
 
-    let server: Http.Server = Http.createServer(); //server wird als Http.Server deffiniert und erstellt einen lokalen Server
-    server.addListener("request", handleRequest); //server bekommt einen listener. falls der Server einen call/request bekommt, wird handleRequest ausgeführt
-    server.addListener("listening", handleListen); //server bekommt einen listener. solande der nutzer darauf zugreift wird handleListen ausgeführt
-    server.listen(port); //spezifizerung, dass der server auf den port 8100 hört
+    let server: Http.Server = Http.createServer(); //server wird als Http.Server deffiniert und erstellt einen Server.
+    server.addListener("request", handleRequest); //server bekommt einen listener. Falls der Server einen call/request bekommt, wird handleRequest ausgeführt.
+    server.addListener("listening", handleListen); //server bekommt einen listener. Solange der Nutzer darauf zugreift wird handleListen ausgeführt.
+    server.listen(port); //spezifizerung, dass der server auf den port hört.
 
     function handleListen(): void {
         console.log("Listening"); // "Listening" wird auf der Konsole ausgegeben

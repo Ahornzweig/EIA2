@@ -1,15 +1,16 @@
 "use strict";
-const Http = require("http"); //Node.d.ts Datei wird importiert. Mit HTTP from "http" wird auf die HTTP objekte aus Node.d.ts zugegriffen
+const Http = require("http"); //Node.d.ts Datei wird importiert. Mit HTTP from "http" wird auf die HTTP objekte aus Node.d.ts zugegriffen.
+//Forlesung: "http" Objekte werden als HTTP Objekte deklariert. Es importiert das Modul HTTP aus der Node.ts-Datei. HTTP hat Unterklassen. Ist ein Objekt(mit mehreren Eigenschaften), das in der Lage ist Server zu erstellen.
 var L06_SendData;
 (function (L06_SendData) {
     console.log("Starting server"); // "Starting server" wird auf der Console ausgegeben
-    let port = process.env.PORT; //Die Variable port wird als number deklariert. welchen den Wert des ports des Heruku Servers hat
+    let port = process.env.PORT; //Die Variable port wird als number deklariert, welche den Wert des ports des Heruku Servers hat.
     if (port == undefined)
-        port = 8100; //wird port zu 8100 gesetzt
-    let server = Http.createServer(); //server wird als Http.Server deffiniert und erstellt einen lokalen Server
-    server.addListener("request", handleRequest); //server bekommt einen listener. falls der Server einen call/request bekommt, wird handleRequest ausgef�hrt
-    server.addListener("listening", handleListen); //server bekommt einen listener. solande der nutzer darauf zugreift wird handleListen ausgef�hrt
-    server.listen(port); //spezifizerung, dass der server auf den port 8100 h�rt
+        port = 8100; //Port wird zu 8100 gesetzt.
+    let server = Http.createServer(); //server wird als Http.Server deffiniert und erstellt einen Server.
+    server.addListener("request", handleRequest); //server bekommt einen listener. Falls der Server einen call/request bekommt, wird handleRequest ausgef�hrt.
+    server.addListener("listening", handleListen); //server bekommt einen listener. Solange der Nutzer darauf zugreift wird handleListen ausgef�hrt.
+    server.listen(port); //spezifizerung, dass der server auf den port h�rt.
     function handleListen() {
         console.log("Listening"); // "Listening" wird auf der Konsole ausgegeben
     }
