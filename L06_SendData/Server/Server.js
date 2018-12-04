@@ -21,8 +21,10 @@ var L06_SendData;
         _response.setHeader("content-type", "text/html; charset=utf-8"); // "content-type", "text/html; charset=utf-8" wird mit _response.setHeader in den header gesetzt
         //Forlesung: Sets a single header value for implicit headers. If this header already exists in the to-be-sent headers, its value will be replaced.
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zus�tzlich in den header gesetzt
-        _response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. "The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
-        _response.end(); // response wird beendet. "This method signals to the server that all of the response headers and body have been sent; that server should consider this message complete."
+        _response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
+        //"The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
+        _response.end(); // response wird beendet. 
+        //"This method signals to the server that all of the response headers and body have been sent; that server should consider this message complete."
     }
 })(L06_SendData || (L06_SendData = {}));
 //# sourceMappingURL=Server.js.map
