@@ -8,7 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace A5 {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
-    document.addEventListener("DOMContentLoaded", changeListener);
+    document.addEventListener("DOMContentLoaded", changeListener);
+    
     function init(_event: Event): void {
         console.log(assoProducts);
         displayAssoArray(assoProducts);
