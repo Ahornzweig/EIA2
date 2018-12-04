@@ -13,13 +13,15 @@ namespace L06_SendData {
     server.listen(port); //spezifizerung, dass der server auf den port hört.
 
     function handleListen(): void {
-        console.log("Listening"); // "Listening" wird auf der Konsole ausgegeben
+        console.log("Listening"); // "Listening" wird auf der Konsole ausgegeben.
     }
  
-    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {//parameter _request (An IncomingMessage object is created by http.Server or http.ClientRequest and passed as the first argument to the 'request' and 'response' event respectively. It may be used to access response status, headers and data.) und _response werden übergeben
+    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+        //parameter _request (An IncomingMessage object is created by http.Server or http.ClientRequest and passed as the first argument to the 'request' and 'response' event respectively. It may be used to access response status, headers and data.) und _response (This object is created internally by an HTTP server — not by the user. It is passed as the second parameter to the 'request' event.) werden übergeben.
         console.log("I hear voices!"); //"I hear voices!" wird auf der Konsole ausgegeben
         console.log(_request.url); 
         _response.setHeader("content-type", "text/html; charset=utf-8"); // "content-type", "text/html; charset=utf-8" wird mit _response.setHeader in den header gesetzt
+        //Forlesung: Sets a single header value for implicit headers. If this header already exists in the to-be-sent headers, its value will be replaced.
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zusätzlich in den header gesetzt
 
         _response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. "The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
