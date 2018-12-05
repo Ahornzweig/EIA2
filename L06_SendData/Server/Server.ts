@@ -29,7 +29,7 @@ namespace L06_SendData {
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zusätzlich in den header gesetzt
         let url: string = _request.url;
         if (url != "/favicon.ico") {
-            let urlSection: string = Url.parse(url).query;
+            let urlSection: string = Url.parse(url).search.substr(1);
             let childNodeHTML: string = "<br>";
             for (let i: number = 0; i < urlSection.length; i++) {
                 if (urlSection[i] == "&") {
