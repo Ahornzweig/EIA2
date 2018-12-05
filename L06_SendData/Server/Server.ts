@@ -45,7 +45,7 @@ namespace L06_SendData {
             for (let i: number = 0; i < articles.length; i++) {
                 _response.write(articles[i]);
             }
-            console.log(articles);
+            //console.log(articles);
         }
 
         //_response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
