@@ -14,8 +14,6 @@ namespace L06_SendData {
     server.addListener("listening", handleListen); //server bekommt einen listener. Solange der Nutzer darauf zugreift wird handleListen ausgeführt.
     server.listen(port); //spezifizerung, dass der server auf den port hört.
 
-    //let articles: string[] = [];
-
     interface articles {
         [key: string]: number;
     }
@@ -31,27 +29,7 @@ namespace L06_SendData {
         _response.setHeader("content-type", "text/html; charset=utf-8"); // "content-type", "text/html; charset=utf-8" wird mit _response.setHeader in den header gesetzt
         //Forlesung: Sets a single header value for implicit headers. If this header already exists in the to-be-sent headers, its value will be replaced.
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zusätzlich in den header gesetzt
-        /*let url: string = _request.url;
-        if (url != "/favicon.ico") {
-            let urlSection: string = Url.parse(url).search.substr(1);
-            let childNodeHTML: string = "";
-            for (let i: number = 0; i < urlSection.length; i++) {
-                if (urlSection[i] == "&") {
-                    articles.push(childNodeHTML);
-                    childNodeHTML = "<br>";
-                }
-                else {
-                    childNodeHTML += urlSection[i];
-                }
-            }
-            articles.push(childNodeHTML);
-
-            for (let i: number = 0; i < articles.length; i++) {
-                _response.write(articles[i]);
-            }
-            console.log(articles);
-
-        }*/
+        
         let url: articles = Url.parse(_request.url, true).query;
         for (let key in url) {
             _response.write(key + " = " + url[key] + "<br>");
