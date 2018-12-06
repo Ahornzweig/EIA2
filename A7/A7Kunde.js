@@ -191,32 +191,26 @@ var A7;
     }
     function handleClickOnAsync(_event) {
         let articles = document.getElementsByTagName("input");
-        for (let i = 0; i < articles.length - 1; i++) {
+        let show = [];
+        for (let i = 0; i < articles.length; i++) {
             let article = articles[i];
             if (article.checked == true) {
                 let color = article.name + " " + article.getAttribute("price") + " Euro";
                 sendRequestWithCustomData(color);
+                show.push(color);
             }
             else {
                 if (Number(article.value) > 0) {
-                    let color = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value));
+                    let color = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
                     sendRequestWithCustomData(color);
+                    show.push(color);
                 }
             }
         }
+        alert(show);
     }
     function sendRequestWithCustomData(_color) {
         let xhr = new XMLHttpRequest();
-        /*let co: HTMLElement = document.getElementById("fieldset");
-        let checkout: string = "";
-        for (let i: number = 0; i < co.childNodes.length; i++) {
-            let value: string = document.getElementsByTagName("p")[i].getAttribute("value");
-            let name: string = document.getElementsByTagName("p")[i].getAttribute("name");
-            checkout += name + ":" + value + "<br/>";
-        }
-        alert(checkout);
-        console.log(checkout);*/
-        alert(_color);
         xhr.open("GET", address + "?article=" + _color, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
