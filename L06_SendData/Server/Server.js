@@ -12,7 +12,6 @@ var L06_SendData;
     server.addListener("request", handleRequest); //server bekommt einen listener. Falls der Server einen call/request bekommt, wird handleRequest ausgef�hrt.
     server.addListener("listening", handleListen); //server bekommt einen listener. Solange der Nutzer darauf zugreift wird handleListen ausgef�hrt.
     server.listen(port); //spezifizerung, dass der server auf den port h�rt.
-    let articles = [];
     function handleListen() {
         console.log("Listening"); // "Listening" wird auf der Konsole ausgegeben.
     }
@@ -23,11 +22,11 @@ var L06_SendData;
         _response.setHeader("content-type", "text/html; charset=utf-8"); // "content-type", "text/html; charset=utf-8" wird mit _response.setHeader in den header gesetzt
         //Forlesung: Sets a single header value for implicit headers. If this header already exists in the to-be-sent headers, its value will be replaced.
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zus�tzlich in den header gesetzt
-        let url = _request.url;
+        /*let url: string = _request.url;
         if (url != "/favicon.ico") {
-            let urlSection = Url.parse(url).search.substr(1);
-            let childNodeHTML = "";
-            for (let i = 0; i < urlSection.length; i++) {
+            let urlSection: string = Url.parse(url).search.substr(1);
+            let childNodeHTML: string = "";
+            for (let i: number = 0; i < urlSection.length; i++) {
                 if (urlSection[i] == "&") {
                     articles.push(childNodeHTML);
                     childNodeHTML = "<br>";
@@ -37,10 +36,16 @@ var L06_SendData;
                 }
             }
             articles.push(childNodeHTML);
-            for (let i = 0; i < articles.length; i++) {
+
+            for (let i: number = 0; i < articles.length; i++) {
                 _response.write(articles[i]);
             }
             console.log(articles);
+
+        }*/
+        let url = Url.parse(_request.url, true).query;
+        for (let key in url) {
+            _response.write(key + " = " + url[key] + "<br>");
         }
         //_response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 
         //"The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body."
