@@ -210,7 +210,7 @@ namespace A7 {
 
     function handleClickOnAsync(_event: Event): void {
         let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let show: string[]= []
+        let show: string[] = [];
         for (let i: number = 0; i < articles.length ; i++) {
             let article: HTMLInputElement = articles[i];
             if (article.checked == true) {
