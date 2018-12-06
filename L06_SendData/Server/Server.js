@@ -24,6 +24,8 @@ var L06_SendData;
         _response.setHeader("Access-Control-Allow-Origin", "*"); // "Access-Control-Allow-Origin" wierd in den header gesetzt und dient dazu das die antwort des servers mit dem abgerufenen code der quelle geteilt wird.  "*" wird zus�tzlich in den header gesetzt
         let url = Url.parse(_request.url, true).query;
         for (let key in url) {
+            console.log(key);
+            console.log(url[key]);
             _response.write(key + " = " + url[key] + "<br>");
         }
         //_response.write(_request.url); //Informationen(_request.url) werden an den header gesendet. 

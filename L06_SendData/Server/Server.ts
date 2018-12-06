@@ -32,6 +32,8 @@ namespace L06_SendData {
         
         let url: articles = Url.parse(_request.url, true).query;
         for (let key in url) {
+            console.log(key);
+            console.log(url[key]);
             _response.write(key + " = " + url[key] + "<br>");
         }
 
