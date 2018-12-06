@@ -9,10 +9,11 @@ namespace A7 {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
     document.addEventListener("DOMContentLoaded", changeListener);
-    
+
     function init(_event: Event): void {
         console.log(assoProducts);
         displayAssoArray(assoProducts);
+        setupAsyncForm();
     };
 
     function displayAssoArray(_assoArray: assoArray): void {
@@ -178,11 +179,11 @@ namespace A7 {
     function calcPrice(): void {
         let checkout: HTMLElement = document.getElementById("selectedArticle");
         let price: number = 0;
-        console.log(checkout.childNodes);
+        //console.log(checkout.childNodes);
         for (let i: number = 0; i < checkout.childNodes.length; i++) {
             let article: any = checkout.childNodes[i]
             let articlePrice: number = Number(article.getAttribute("price"));
-            console.log(articlePrice);
+            //console.log(articlePrice);
             price += articlePrice;
             let showPrice: HTMLElement = document.createElement("div");
             showPrice.setAttribute("id", "box");
@@ -200,4 +201,54 @@ namespace A7 {
             document.getElementById("missing").innerHTML = "Alle Angaben vorhanden!";
         }
     }
+    //A7
+    let address: string = "https://eia2-ahornzeig.herokuapp.com/";
+    function setupAsyncForm(): void {
+        let button: Element = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+
+    function handleClickOnAsync(_event: Event): void {
+        let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        for (let i: number = 0; i < articles.length - 1; i++) {
+            let article: HTMLInputElement = articles[i];
+            if (article.checked == true) {
+                let color: string = article.name + " " + article.getAttribute("price") + " Euro";
+                sendRequestWithCustomData(color);
+            }
+            else {
+                if (Number(article.value) > 0) {
+                    let color: string = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value));
+                    sendRequestWithCustomData(color);
+                }
+            }
+        }
+    }
+
+    function sendRequestWithCustomData(_color: string): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+
+        /*let co: HTMLElement = document.getElementById("fieldset");
+        let checkout: string = "";
+        for (let i: number = 0; i < co.childNodes.length; i++) {
+            let value: string = document.getElementsByTagName("p")[i].getAttribute("value");
+            let name: string = document.getElementsByTagName("p")[i].getAttribute("name");
+            checkout += name + ":" + value + "<br/>";
+        }
+        alert(checkout);
+        console.log(checkout);*/
+        alert(_color);
+        xhr.open("GET", address + "?article=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
+    }
+
 }

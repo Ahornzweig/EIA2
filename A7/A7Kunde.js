@@ -13,6 +13,7 @@ var A7;
     function init(_event) {
         console.log(A7.assoProducts);
         displayAssoArray(A7.assoProducts);
+        setupAsyncForm();
     }
     ;
     function displayAssoArray(_assoArray) {
@@ -161,11 +162,11 @@ var A7;
     function calcPrice() {
         let checkout = document.getElementById("selectedArticle");
         let price = 0;
-        console.log(checkout.childNodes);
+        //console.log(checkout.childNodes);
         for (let i = 0; i < checkout.childNodes.length; i++) {
             let article = checkout.childNodes[i];
             let articlePrice = Number(article.getAttribute("price"));
-            console.log(articlePrice);
+            //console.log(articlePrice);
             price += articlePrice;
             let showPrice = document.createElement("div");
             showPrice.setAttribute("id", "box");
@@ -180,6 +181,51 @@ var A7;
         }
         else {
             document.getElementById("missing").innerHTML = "Alle Angaben vorhanden!";
+        }
+    }
+    //A7
+    let address = "https://eia2-ahornzeig.herokuapp.com/";
+    function setupAsyncForm() {
+        let button = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event) {
+        let articles = document.getElementsByTagName("input");
+        for (let i = 0; i < articles.length - 1; i++) {
+            let article = articles[i];
+            if (article.checked == true) {
+                let color = article.name + " " + article.getAttribute("price") + " Euro";
+                sendRequestWithCustomData(color);
+            }
+            else {
+                if (Number(article.value) > 0) {
+                    let color = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value));
+                    sendRequestWithCustomData(color);
+                }
+            }
+        }
+    }
+    function sendRequestWithCustomData(_color) {
+        let xhr = new XMLHttpRequest();
+        /*let co: HTMLElement = document.getElementById("fieldset");
+        let checkout: string = "";
+        for (let i: number = 0; i < co.childNodes.length; i++) {
+            let value: string = document.getElementsByTagName("p")[i].getAttribute("value");
+            let name: string = document.getElementsByTagName("p")[i].getAttribute("name");
+            checkout += name + ":" + value + "<br/>";
+        }
+        alert(checkout);
+        console.log(checkout);*/
+        alert(_color);
+        xhr.open("GET", address + "?article=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
         }
     }
 })(A7 || (A7 = {}));
