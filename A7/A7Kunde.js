@@ -201,7 +201,7 @@ var A7;
             }
             else {
                 if (Number(article.value) > 0) {
-                    let attribute = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                    let attribute = article.name + ": " + article.value + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
                     sendRequestWithCustomData(attribute);
                     show.push(attribute);
                 }
