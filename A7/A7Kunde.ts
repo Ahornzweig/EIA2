@@ -226,6 +226,10 @@ namespace A7 {
                 }
             }
         }
+        let adress: HTMLInputElement = <HTMLInputElement>document.getElementById("ad");
+        let showAdress: string = adress.value;
+        sendRequestWithCustomData(showAdress);
+        show.push(showAdress);
         alert(show);
     }
 

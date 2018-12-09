@@ -207,6 +207,10 @@ var A7;
                 }
             }
         }
+        let adress = document.getElementById("ad");
+        let showAdress = adress.value;
+        sendRequestWithCustomData(showAdress);
+        show.push(showAdress);
         alert(show);
     }
     function sendRequestWithCustomData(_color) {
