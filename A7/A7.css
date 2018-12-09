@@ -64,12 +64,6 @@ div {
 	font-size:1.2em;
 }
 
-#placeShow{
-	position: absolute;
-	bottom: 50px;
-	left: 350px;
-}
-
 #submit{
 	position: absolute;
 	bottom: 50px;
@@ -94,6 +88,12 @@ div {
 	padding-left: 0px;
 	color:red;
 	font-weight:bold;
+}
+
+#placeShow{
+	position: absolute;
+	bottom: 50px;
+	left: 350px;
 }
 
 label::after {
