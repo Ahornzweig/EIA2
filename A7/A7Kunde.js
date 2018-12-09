@@ -52,7 +52,9 @@ var A7;
         }
         let radio = document.createElement("input");
         radio.setAttribute("type", "radio");
-        radio.setAttribute("name", _products.typ + " " + _products.name);
+        radio.setAttribute("name", "Radiogroup" + key);
+        radio.setAttribute("name2", _products.typ + " " + _products.name);
+        // _products.typ + " " + _products.name
         radio.setAttribute("value", "0");
         radio.setAttribute("title", _products.name);
         radio.setAttribute("price", _products.price.toFixed());
@@ -195,7 +197,7 @@ var A7;
         for (let i = 0; i < articles.length; i++) {
             let article = articles[i];
             if (article.checked == true) {
-                let attribute = article.name + ": " + article.getAttribute("price") + " Euro";
+                let attribute = article.getAttribute("name2") + ": " + article.getAttribute("price") + " Euro";
                 sendRequestWithCustomData(attribute);
                 show.push(attribute);
             }
