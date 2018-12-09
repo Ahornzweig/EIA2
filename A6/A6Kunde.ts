@@ -53,7 +53,7 @@ namespace A5 {
 
         let radio: HTMLElement = document.createElement("input");
         radio.setAttribute("type", "radio");
-        radio.setAttribute("name", _products.typ + " " + _products.name);
+        radio.setAttribute("name", "Radiogroup " + _products.typ + " " + _products.name);
         radio.setAttribute("value", "0");
         radio.setAttribute("title", _products.name);
         radio.setAttribute("price", _products.price.toFixed());
