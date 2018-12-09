@@ -214,15 +214,15 @@ namespace A7 {
         for (let i: number = 0; i < articles.length ; i++) {
             let article: HTMLInputElement = articles[i];
             if (article.checked == true) {
-                let color: string = article.name + " " + article.getAttribute("price") + " Euro";
-                sendRequestWithCustomData(color);
-                show.push(color);
+                let attribute: string = article.name + " " + article.getAttribute("price") + " Euro";
+                sendRequestWithCustomData(attribute);
+                show.push(attribute);
             }
             else {
                 if (Number(article.value) > 0) {
-                    let color: string = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
-                    sendRequestWithCustomData(color);
-                    show.push(color);
+                    let attribute: string = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                    sendRequestWithCustomData(attribute);
+                    show.push(attribute);
                 }
             }
         }
@@ -240,9 +240,9 @@ namespace A7 {
         document.getElementById("content").appendChild(placeShow);
     }
 
-    function sendRequestWithCustomData(_color: string): void {
+    function sendRequestWithCustomData(_attribute: string): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?article=" + _color, true);
+        xhr.open("GET", address + "?article=" + _attribute, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }

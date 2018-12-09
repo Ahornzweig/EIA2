@@ -195,15 +195,15 @@ var A7;
         for (let i = 0; i < articles.length; i++) {
             let article = articles[i];
             if (article.checked == true) {
-                let color = article.name + " " + article.getAttribute("price") + " Euro";
-                sendRequestWithCustomData(color);
-                show.push(color);
+                let attribute = article.name + " " + article.getAttribute("price") + " Euro";
+                sendRequestWithCustomData(attribute);
+                show.push(attribute);
             }
             else {
                 if (Number(article.value) > 0) {
-                    let color = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
-                    sendRequestWithCustomData(color);
-                    show.push(color);
+                    let attribute = article.name + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                    sendRequestWithCustomData(attribute);
+                    show.push(attribute);
                 }
             }
         }
@@ -220,9 +220,9 @@ var A7;
         }
         document.getElementById("content").appendChild(placeShow);
     }
-    function sendRequestWithCustomData(_color) {
+    function sendRequestWithCustomData(_attribute) {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?article=" + _color, true);
+        xhr.open("GET", address + "?article=" + _attribute, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
