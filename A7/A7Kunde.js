@@ -217,7 +217,7 @@ var A7;
         for (let i = 0; i < show.length; i++) {
             placeShow.innerText += show[i];
         }
-        document.getElementsByTagName[1]("body").appendChild(placeShow);
+        document.getElementById("content").appendChild(placeShow);
     }
     function sendRequestWithCustomData(_color) {
         let xhr = new XMLHttpRequest();
