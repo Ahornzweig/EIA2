@@ -231,7 +231,7 @@ namespace A7 {
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
         let placeShow: HTMLElement = document.createElement("div");
-        placeShow.innerText = "send to server";
+        placeShow.innerText = "Send to Server";
         placeShow.setAttribute("id", "placeShow");
         for (let i: number = 0; i < show.length; i++) {
             let p: HTMLElement = document.createElement("p");

@@ -212,7 +212,7 @@ var A7;
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
         let placeShow = document.createElement("div");
-        placeShow.innerText = "send to server";
+        placeShow.innerText = "Send to Server";
         placeShow.setAttribute("id", "placeShow");
         for (let i = 0; i < show.length; i++) {
             let p = document.createElement("p");
