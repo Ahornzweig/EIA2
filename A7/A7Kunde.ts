@@ -109,7 +109,7 @@ namespace A7 {
         //document.getElementById("fieldset2").appendChild(h3);
         let input: HTMLElement = document.createElement("input");
         input.setAttribute("id", "ad");
-        input.setAttribute("name", "pattern");
+        input.setAttribute("name", "Adresse");
         input.setAttribute("required", "");
         input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
@@ -227,14 +227,15 @@ namespace A7 {
             }
         }
         let adress: HTMLInputElement = <HTMLInputElement>document.getElementById("ad");
-        let showAdress: string = adress.value;
+        let showAdress: string = adress.name + ": " + adress.value;
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
-        //alert(show);
         let placeShow: HTMLElement = document.createElement("div");
         placeShow.setAttribute("id", "placeShow");
         for (let i: number = 0; i < show.length; i++) {
-            placeShow.innerText += show[i] ;
+            let p: HTMLElement = document.createElement("p");
+            p.innerText += show[i] ;
+            placeShow.appendChild(p);
         }
         document.getElementById("content").appendChild(placeShow);
     }

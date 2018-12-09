@@ -92,8 +92,9 @@ div {
 
 #placeShow{
 	position: absolute;
-	bottom: 50px;
-	left: 350px;
+	top: 450px;
+	left: 760px;
+	width: 200px;
 }
 
 label::after {

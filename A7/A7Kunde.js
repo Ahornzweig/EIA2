@@ -102,7 +102,7 @@ var A7;
         //document.getElementById("fieldset2").appendChild(h3);
         let input = document.createElement("input");
         input.setAttribute("id", "ad");
-        input.setAttribute("name", "pattern");
+        input.setAttribute("name", "Adresse");
         input.setAttribute("required", "");
         input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
@@ -208,14 +208,15 @@ var A7;
             }
         }
         let adress = document.getElementById("ad");
-        let showAdress = adress.value;
+        let showAdress = adress.name + ": " + adress.value;
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
-        //alert(show);
         let placeShow = document.createElement("div");
         placeShow.setAttribute("id", "placeShow");
         for (let i = 0; i < show.length; i++) {
-            placeShow.innerText += show[i];
+            let p = document.createElement("p");
+            p.innerText += show[i];
+            placeShow.appendChild(p);
         }
         document.getElementById("content").appendChild(placeShow);
     }
