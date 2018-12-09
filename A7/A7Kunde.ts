@@ -214,13 +214,13 @@ namespace A7 {
         for (let i: number = 0; i < articles.length ; i++) {
             let article: HTMLInputElement = articles[i];
             if (article.checked == true) {
-                let attribute: string = article.name + " " + article.getAttribute("price") + " Euro";
+                let attribute: string = article.name + ": " + article.getAttribute("price") + " Euro";
                 sendRequestWithCustomData(attribute);
                 show.push(attribute);
             }
             else {
                 if (Number(article.value) > 0) {
-                    let attribute: string = article.name + ": " + article.value + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                    let attribute: string = article.name + " " + article.value + ": " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
                     sendRequestWithCustomData(attribute);
                     show.push(attribute);
                 }

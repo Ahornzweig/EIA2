@@ -195,13 +195,13 @@ var A7;
         for (let i = 0; i < articles.length; i++) {
             let article = articles[i];
             if (article.checked == true) {
-                let attribute = article.name + " " + article.getAttribute("price") + " Euro";
+                let attribute = article.name + ": " + article.getAttribute("price") + " Euro";
                 sendRequestWithCustomData(attribute);
                 show.push(attribute);
             }
             else {
                 if (Number(article.value) > 0) {
-                    let attribute = article.name + ": " + article.value + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                    let attribute = article.name + " " + article.value + ": " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
                     sendRequestWithCustomData(attribute);
                     show.push(attribute);
                 }
