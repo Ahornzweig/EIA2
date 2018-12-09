@@ -95,6 +95,7 @@ div {
 	top: 450px;
 	left: 760px;
 	width: 200px;
+	border: 5px dotted red;
 }
 
 label::after {
