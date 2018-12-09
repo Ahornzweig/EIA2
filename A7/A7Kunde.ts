@@ -230,7 +230,7 @@ namespace A7 {
         let showAdress: string = adress.value;
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
-        alert(show);
+        //alert(show);
         let placeShow: HTMLElement = document.createElement("div");
         placeShow.setAttribute("id", "placeShow");
         for (let i: number = 0; i < show.length; i++) {

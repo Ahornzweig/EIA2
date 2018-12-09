@@ -211,7 +211,7 @@ var A7;
         let showAdress = adress.value;
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
-        alert(show);
+        //alert(show);
         let placeShow = document.createElement("div");
         placeShow.setAttribute("id", "placeShow");
         for (let i = 0; i < show.length; i++) {
