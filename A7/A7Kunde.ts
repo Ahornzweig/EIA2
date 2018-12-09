@@ -231,6 +231,11 @@ namespace A7 {
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
         alert(show);
+        let placeShow: HTMLElement = document.createElement("div");
+        placeShow.setAttribute("id", "placeShow");
+        for (let i: number = 0; i < show.length; i++) {
+            placeShow.innerText += show[i] ;
+        }
     }
 
     function sendRequestWithCustomData(_color: string): void {

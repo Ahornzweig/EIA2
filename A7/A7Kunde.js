@@ -212,6 +212,11 @@ var A7;
         sendRequestWithCustomData(showAdress);
         show.push(showAdress);
         alert(show);
+        let placeShow = document.createElement("div");
+        placeShow.setAttribute("id", "placeShow");
+        for (let i = 0; i < show.length; i++) {
+            placeShow.innerText += show[i];
+        }
     }
     function sendRequestWithCustomData(_color) {
         let xhr = new XMLHttpRequest();
