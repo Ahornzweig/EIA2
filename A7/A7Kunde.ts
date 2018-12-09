@@ -236,6 +236,7 @@ namespace A7 {
         for (let i: number = 0; i < show.length; i++) {
             placeShow.innerText += show[i] ;
         }
+        document.getElementsByTagName[1]("body").appendChild(placeShow);
     }
 
     function sendRequestWithCustomData(_color: string): void {
