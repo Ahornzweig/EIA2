@@ -1,7 +1,7 @@
 var DatabaseClient;
 (function (DatabaseClient) {
     window.addEventListener("load", init);
-    let serverAddress = "https://eia2-ahornzeig.herokuapp.com/";
+    let serverAddress = "https://database-eia2.herokuapp.com/";
     //let serverAddress: string = "https://<your>.herokuapp.com/";    
     function init(_event) {
         console.log("Init");
