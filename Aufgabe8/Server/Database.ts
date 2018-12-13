@@ -5,7 +5,7 @@
 import * as Mongo from "mongodb";
 console.log("Database starting");
 
-let databaseURL: string = "mongodb://<Ahornzweig>:<sieheNicoHerrmann99>@ds163667.mlab.com:63667/eia2";
+let databaseURL: string = "mongodb://Ahornzweig:sieheNicoHerrmann99@ds163667.mlab.com:63667/eia2";
 let databaseName: string = "eia2";
 let db: Mongo.Db;
 let students: Mongo.Collection;
@@ -13,7 +13,7 @@ let students: Mongo.Collection;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
-    databaseURL = "mongodb://<Ahornzweig>:<sieheNicoHerrmann99>@ds163667.mlab.com:63667/eia2";
+    databaseURL = "mongodb://Ahornzweig:sieheNicoHerrmann99@ds163667.mlab.com:63667/eia2";
     databaseName = "eia2";
 }
 
