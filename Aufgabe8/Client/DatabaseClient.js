@@ -7,8 +7,10 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
+        let searchButton = document.getElementById("checkSearch");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        searchButton.addEventListener("click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -42,6 +44,23 @@ var DatabaseClient;
             output.value = xhr.response;
             let responseAsJson = JSON.parse(xhr.response);
             console.log(responseAsJson);
+        }
+    }
+    function search(_event) {
+        let getMartrikelNumber = document.getElementById("search");
+        let mNumber = getMartrikelNumber.value;
+        console.log(mNumber);
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", serverAddress + "?command=search&searchFor=" + mNumber, true);
+        xhr.addEventListener("readystatechange", handleStateChangeSearch);
+        xhr.send();
+    }
+    function handleStateChangeSearch(_event) {
+        let output = document.getElementsByTagName("textarea")[1];
+        output.value = "";
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            output.value += xhr.response;
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));
