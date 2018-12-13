@@ -2,7 +2,6 @@
  * Simple server managing between client and database
  * @author: Jirka Dell'Oro-Friedl
  */
-
 import * as Http from "http";
 import * as Url from "url";
 import * as Database from "./Database";
@@ -41,7 +40,10 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             respond(_response, "storing data");
             break;
         case "refresh":
-            Database.findAll(findCallback);
+            Database.findAll(findCallback); 
+            break;
+        case "search": 
+            _response.write(Database.search(query["martrikelnummer"]));
             break;
         default:
             respond(_response, "unknown command: " + command);

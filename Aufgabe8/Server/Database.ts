@@ -57,4 +57,10 @@ export function findAll(_callback: Function): void {
             // stringify creates a json-string, passed it back to _callback
             _callback(JSON.stringify(studentArray));
     }
+    
+    
+ 
 }
+  export function search (_string: string): any{
+        return students.findOne(_string);
+    }

@@ -1,150 +1,120 @@
 /*Aufgabe: Aufgabe 2
-Name: Sarah Lönnqvist
+Name: Sarah Lï¿½nnqvist
 Matrikel: 259116
 Datum: 18.10.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace A2 {
+var A2;
+(function (A2) {
     function main() {
-
-        interface Karten {
-
-            name: string;
-            rot: number;
-            blau: number;
-            gruen: number;
-            gelb: number;
-        }
-
-        let k0: Karten = {
+        let k0 = {
             name: "0",
             rot: 1,
             blau: 1,
             gruen: 1,
             gelb: 1,
         };
-
-        let k1: Karten = {
+        let k1 = {
             name: "1",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k2: Karten = {
+        let k2 = {
             name: "2",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k3: Karten = {
+        let k3 = {
             name: "3",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k4: Karten = {
+        let k4 = {
             name: "4",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k5: Karten = {
+        let k5 = {
             name: "5",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k6: Karten = {
+        let k6 = {
             name: "6",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k7: Karten = {
+        let k7 = {
             name: "7",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k8: Karten = {
+        let k8 = {
             name: "8",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let k9: Karten = {
+        let k9 = {
             name: "9",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let kPluss2: Karten = {
+        let kPluss2 = {
             name: "+2",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let kAussetzen: Karten = {
+        let kAussetzen = {
             name: "Aussetzen",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let kReverse: Karten = {
+        let kReverse = {
             name: "Reverse",
             rot: 2,
             blau: 2,
             gruen: 2,
             gelb: 2,
         };
-
-        let array: Karten[] = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
-
-        let s1: number = 4;
-
-        let s2: number = 4;
-
-        let c: string = "";
-// zufällige Zahlen werden generiert
-        function getRandom(_n: number) {
+        let array = [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, kPluss2, kAussetzen, kReverse];
+        let s1 = 4;
+        let s2 = 4;
+        let c = "";
+        // zufï¿½llige Zahlen werden generiert
+        function getRandom(_n) {
             return Math.floor(Math.random() * Math.floor(_n));
-
         }
         // Darstellung der Karten
-        function placeDiv(_color: string, _n: string, _x: number): void {
-
+        function placeDiv(_color, _n, _x) {
             //console.log(_color, _n, _x)
-
-
-            let div: HTMLDivElement = document.createElement("div");
+            let div = document.createElement("div");
             document.body.appendChild(div);
-            div.setAttribute("id", "a" + _x)
+            div.setAttribute("id", "a" + _x);
             document.getElementById("a" + _x).innerHTML += _n;
-
-            let s: CSSStyleDeclaration = div.style;
+            let s = div.style;
             s.border = "thin solid black";
             s.textAlign = "center";
             s.position = "absolute";
@@ -153,9 +123,7 @@ namespace A2 {
             s.height = 200 + "px";
             s.left = (_x + 0.5) * 140 + "px";
             s.bottom = 40 + "px";
-            s.borderRadius = 10+ "px";
-
-
+            s.borderRadius = 10 + "px";
             if (c == "#000000") {
                 s.color = "white";
             }
@@ -164,14 +132,12 @@ namespace A2 {
             }
         }
         //prompt
-        let z: number;
-        let i: string = prompt("Wie viele Karten willst du?");
+        let z;
+        let i = prompt("Wie viele Karten willst du?");
         z = Number(i);
         //Karten werte mit Random generiert 
-        for (let d: number = 0; d < z; d++) {
+        for (let d = 0; d < z; d++) {
             let l = getRandom(15);
-
-
             if (l == 13 && s1 > 0) {
                 c = "#000000";
                 s1--;
@@ -184,8 +150,7 @@ namespace A2 {
             }
             else {
                 if (l == 14 && s2 > 0) {
-
-                    c = "#000000"
+                    c = "#000000";
                     s2--;
                     placeDiv(c, "Farbwahl", d);
                     continue;
@@ -195,10 +160,10 @@ namespace A2 {
                     continue;
                 }
                 else {
-                    let m: number = getRandom(4);
+                    let m = getRandom(4);
                     switch (m) {
                         case 0:
-                            c = "#ff0000"
+                            c = "#ff0000";
                             if (array[l].rot > 0) {
                                 placeDiv(c, array[l].name, d);
                                 array[l].rot--;
@@ -206,7 +171,7 @@ namespace A2 {
                             }
                             break;
                         case 1:
-                            c = "#00ff00"
+                            c = "#00ff00";
                             if (array[l].gruen > 0) {
                                 placeDiv(c, array[l].name, d);
                                 array[l].gruen--;
@@ -214,7 +179,7 @@ namespace A2 {
                             }
                             break;
                         case 2:
-                            c = "#0000ff"
+                            c = "#0000ff";
                             if (array[l].blau > 0) {
                                 placeDiv(c, array[l].name, d);
                                 array[l].blau--;
@@ -222,7 +187,7 @@ namespace A2 {
                             }
                             break;
                         case 3:
-                            c = "#ffff00"
+                            c = "#ffff00";
                             if (array[l].gelb > 0) {
                                 placeDiv(c, array[l].name, d);
                                 array[l].gelb--;
@@ -232,22 +197,15 @@ namespace A2 {
                                 d--;
                                 continue;
                             }
-
                     }
-
-
-
                 }
-
-
             }
         }
         //Kartenstapel
-        function Stapel(_n: number): void {
-            let div: HTMLDivElement = document.createElement("div");
+        function Stapel(_n) {
+            let div = document.createElement("div");
             document.body.appendChild(div);
-
-            let s: CSSStyleDeclaration = div.style;
+            let s = div.style;
             s.border = "thin solid black";
             s.position = "absolute";
             s.backgroundColor = "#8A4B08";
@@ -258,14 +216,12 @@ namespace A2 {
             s.borderRadius = 10 + "px";
         }
         //Ablagestapel
-        function Ablage(): void {
-            let div: HTMLDivElement = document.createElement("div");
+        function Ablage() {
+            let div = document.createElement("div");
             document.body.appendChild(div);
             div.setAttribute("id", "Ablage");
-
             document.getElementById("Ablage").innerHTML += "Ablage";
-
-            let s: CSSStyleDeclaration = div.style;
+            let s = div.style;
             s.textAlign = "center";
             s.border = "thin solid black";
             s.position = "absolute";
@@ -274,14 +230,13 @@ namespace A2 {
             s.height = 200 + "px";
             s.right = 20 + "px";
             s.top = 15 + "px";
-            s.color= "#F2F2F2"
+            s.color = "#F2F2F2";
         }
-
-        for (let i: number = 0; i < (107 - z); i++) {
+        for (let i = 0; i < (107 - z); i++) {
             Stapel(i);
         }
-
         Ablage();
     }
     document.addEventListener("DOMContentLoaded", (main));
-}
+})(A2 || (A2 = {}));
+//# sourceMappingURL=A2.js.map

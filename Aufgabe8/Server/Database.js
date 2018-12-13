@@ -53,4 +53,8 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
+function search(_string) {
+    return students.findOne(_string);
+}
+exports.search = search;
 //# sourceMappingURL=Database.js.map

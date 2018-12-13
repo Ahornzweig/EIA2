@@ -1,8 +1,8 @@
+"use strict";
 /**
  * Simple server managing between client and database
  * @author: Jirka Dell'Oro-Friedl
  */
-"use strict";
 const Http = require("http");
 const Url = require("url");
 const Database = require("./Database");
@@ -33,6 +33,9 @@ function handleRequest(_request, _response) {
             break;
         case "refresh":
             Database.findAll(findCallback);
+            break;
+        case "search":
+            _response.write(Database.search(query["martrikelnummer"]));
             break;
         default:
             respond(_response, "unknown command: " + command);

@@ -53,7 +53,7 @@ namespace DatabaseClient {
     }
     
     
-    function search(_event: Event): void {
+   export function search(_event: Event): void {
         let getMartrikelNumber: HTMLInputElement = <HTMLInputElement>document.getElementById("search");
         let mNumber: string = getMartrikelNumber.value;
         console.log(mNumber);

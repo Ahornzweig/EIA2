@@ -55,6 +55,7 @@ var DatabaseClient;
         xhr.addEventListener("readystatechange", handleStateChangeSearch);
         xhr.send();
     }
+    DatabaseClient.search = search;
     function handleStateChangeSearch(_event) {
         let output = document.getElementsByTagName("textarea")[1];
         output.value = "";
