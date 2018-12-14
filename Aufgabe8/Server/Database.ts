@@ -41,7 +41,7 @@ function handleInsert(_e: Mongo.MongoError): void {
     console.log("Database insertion returned -> " + _e);
 }
 
-export function search(_callback: Function, _matrikel: string): void {
+/*export function search(_callback: Function, _matrikel: string): void {
     var cursor: Mongo.Cursor = students.find();
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
@@ -55,7 +55,7 @@ export function search(_callback: Function, _matrikel: string): void {
                 }
             }
     }
-}
+}*/
 
 // try to fetch all documents from database, then activate callback
 export function findAll(_callback: Function): void {

@@ -7,10 +7,9 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkSearch");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        document.getElementById("search").addEventListener("input", search);
+        //document.getElementById("search").addEventListener("input", search);
     }
 
     function insert(_event: Event): void {
@@ -26,25 +25,6 @@ namespace DatabaseClient {
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
-    }
-
-
-    function search(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        let matrikel: number = parseInt(target.value);
-        console.log("test");
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", serverAddress + "?command=search&matrikel=" + matrikel, true);
-        xhr.addEventListener("readystatechange", handleSearch);
-        xhr.send();
-    }
-
-    function handleSearch(_event: ProgressEvent): void {
-        let output: HTMLElement = document.getElementById("result");
-        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            output.innerHTML = xhr.response;
-        }
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {

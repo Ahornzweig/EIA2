@@ -34,9 +34,6 @@ function handleRequest(_request, _response) {
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search":
-            _response.write(Database.search(query["martrikelnummer"]));
-            break;
         default:
             respond(_response, "unknown command: " + command);
             break;
