@@ -40,10 +40,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             respond(_response, "storing data");
             break;
         case "refresh":
-            Database.findAll(findCallback); 
+            Database.findAll(findCallback);
             break;
-        case "search": 
-            _response.write(Database.search(query["martrikelnummer"]));
+        case "search":
+            console.log(query["matrikel"]);
+            Database.search(findCallback, query["matrikel"]);
             break;
         default:
             respond(_response, "unknown command: " + command);

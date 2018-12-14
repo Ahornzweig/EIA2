@@ -10,7 +10,7 @@ namespace DatabaseClient {
         let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkSearch");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
+        document.getElementById("search").addEventListener("input", search);
     }
 
     function insert(_event: Event): void {
@@ -26,6 +26,25 @@ namespace DatabaseClient {
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
+    }
+
+
+    function search(_event: Event): void {
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        let matrikel: number = parseInt(target.value);
+        console.log("test");
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", serverAddress + "?command=search&matrikel=" + matrikel, true);
+        xhr.addEventListener("readystatechange", handleSearch);
+        xhr.send();
+    }
+
+    function handleSearch(_event: ProgressEvent): void {
+        let output: HTMLElement = document.getElementById("result");
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            output.innerHTML = xhr.response;
+        }
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {
@@ -51,25 +70,4 @@ namespace DatabaseClient {
             console.log(responseAsJson);
         }
     }
-    
-    
-   export function search(_event: Event): void {
-        let getMartrikelNumber: HTMLInputElement = <HTMLInputElement>document.getElementById("search");
-        let mNumber: string = getMartrikelNumber.value;
-        console.log(mNumber);
-        
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", serverAddress + "?command=search&searchFor=" + mNumber, true);
-        xhr.addEventListener("readystatechange", handleStateChangeSearch);
-        xhr.send();    
-    }
-    
-    function handleStateChangeSearch(_event: ProgressEvent): void {
-        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
-        output.value = "";
-        var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            output.value += xhr.response;
-        }           
-}
 }

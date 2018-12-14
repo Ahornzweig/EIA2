@@ -10,7 +10,7 @@ var DatabaseClient;
         let searchButton = document.getElementById("checkSearch");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
+        document.getElementById("search").addEventListener("input", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -24,6 +24,22 @@ var DatabaseClient;
     function refresh(_event) {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
+    }
+    function search(_event) {
+        let target = _event.target;
+        let matrikel = parseInt(target.value);
+        console.log("test");
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", serverAddress + "?command=search&matrikel=" + matrikel, true);
+        xhr.addEventListener("readystatechange", handleSearch);
+        xhr.send();
+    }
+    function handleSearch(_event) {
+        let output = document.getElementById("result");
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            output.innerHTML = xhr.response;
+        }
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -44,24 +60,6 @@ var DatabaseClient;
             output.value = xhr.response;
             let responseAsJson = JSON.parse(xhr.response);
             console.log(responseAsJson);
-        }
-    }
-    function search(_event) {
-        let getMartrikelNumber = document.getElementById("search");
-        let mNumber = getMartrikelNumber.value;
-        console.log(mNumber);
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", serverAddress + "?command=search&searchFor=" + mNumber, true);
-        xhr.addEventListener("readystatechange", handleStateChangeSearch);
-        xhr.send();
-    }
-    DatabaseClient.search = search;
-    function handleStateChangeSearch(_event) {
-        let output = document.getElementsByTagName("textarea")[1];
-        output.value = "";
-        var xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            output.value += xhr.response;
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));
