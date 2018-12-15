@@ -28,13 +28,14 @@ namespace DatabaseClient {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
-    
-        function search(_event: Event): void {
-        let commandFind: string = "command=search";
+
+    function search(_event: Event): void {
+        let commandSearch: string = "command=search";
+        console.log("test1");
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
-        commandFind += "&Matrikelnummer=" + input.value;
-        sendRequest(commandFind, handleFindResponse);
-}
+        commandSearch += "&Matrikelnummer=" + input.value;
+        sendRequest(commandSearch, handleSearchResponse);
+    }
 
     function sendRequest(_query: string, _callback: EventListener): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
@@ -54,6 +55,16 @@ namespace DatabaseClient {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+            output.value = xhr.response;
+            let responseAsJson: JSON = JSON.parse(xhr.response);
+            console.log(responseAsJson);
+        }
+    }
+    
+       function handleSearchResponse(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
             output.value = xhr.response;
             let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
