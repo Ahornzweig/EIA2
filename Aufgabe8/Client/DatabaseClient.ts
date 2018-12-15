@@ -7,8 +7,10 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let findButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("find");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        findButton.addEventListener("click", find);
         //document.getElementById("search").addEventListener("input", search);
     }
 
@@ -26,6 +28,15 @@ namespace DatabaseClient {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
+    
+        function find(_event: Event): void {
+        let query: string = "command=find";
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
+        console.log(input.value);
+        query += "&Matrikelnummer=" + input.value;
+        console.log(query);
+        sendRequest(query, handleFindResponse);
+}
 
     function sendRequest(_query: string, _callback: EventListener): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
