@@ -53,7 +53,7 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-function findMatrikel(_mat, _callback) {
+function searchMatrikelnumber(_mat, _callback) {
     // cursor points to the retreived set of documents in memory
     var cursor = students.find({ matrikel: _mat });
     // try to convert to array, then activate callback "prepareAnswer"
@@ -68,5 +68,5 @@ function findMatrikel(_mat, _callback) {
             _callback(JSON.stringify(studentArray));
     }
 }
-exports.findMatrikel = findMatrikel;
+exports.searchMatrikelnumber = searchMatrikelnumber;
 //# sourceMappingURL=Database.js.map

@@ -7,10 +7,10 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let findButton = document.getElementById("find");
+        let findButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        findButton.addEventListener("click", find);
+        findButton.addEventListener("click", search);
         //document.getElementById("search").addEventListener("input", search);
     }
     function insert(_event) {
@@ -26,8 +26,8 @@ var DatabaseClient;
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
-    function find(_event) {
-        let query = "command=find";
+    function search(_event) {
+        let query = "command=search";
         let input = document.getElementById("matrikelnummer");
         console.log(input.value);
         query += "&Matrikelnummer=" + input.value;
