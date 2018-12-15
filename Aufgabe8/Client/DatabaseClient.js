@@ -27,12 +27,12 @@ var DatabaseClient;
         sendRequest(query, handleFindResponse);
     }
     function search(_event) {
-        let query = "command=find";
+        let commandFind = "command=find";
         let input = document.getElementById("matrikelnummer");
         console.log(input.value);
-        query += "&Matrikelnummer=" + input.value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
+        commandFind += "&Matrikelnummer=" + input.value;
+        console.log(commandFind);
+        sendRequest(commandFind, handleFindResponse);
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();

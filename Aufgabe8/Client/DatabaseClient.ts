@@ -30,12 +30,12 @@ namespace DatabaseClient {
     }
     
         function search(_event: Event): void {
-        let query: string = "command=find";
+        let commandFind: string = "command=find";
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
         console.log(input.value);
-        query += "&Matrikelnummer=" + input.value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
+        commandFind += "&Matrikelnummer=" + input.value;
+        console.log(commandFind);
+        sendRequest(commandFind, handleFindResponse);
 }
 
     function sendRequest(_query: string, _callback: EventListener): void {
