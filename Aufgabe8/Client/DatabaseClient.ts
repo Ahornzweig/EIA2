@@ -7,10 +7,10 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let findButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
+        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        findButton.addEventListener("click", search);
+        searchButton.addEventListener("click", search);
         //document.getElementById("search").addEventListener("input", search);
     }
 
@@ -32,9 +32,7 @@ namespace DatabaseClient {
         function search(_event: Event): void {
         let commandFind: string = "command=search";
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
-        console.log(input.value);
         commandFind += "&Matrikelnummer=" + input.value;
-        console.log(commandFind);
         sendRequest(commandFind, handleFindResponse);
 }
 

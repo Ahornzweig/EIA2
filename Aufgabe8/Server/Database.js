@@ -53,9 +53,9 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-function searchMatrikelnumber(_mat, _callback) {
+function searchMatrikelnumber(_matNumber, _callback) {
     // cursor points to the retreived set of documents in memory
-    var cursor = students.find({ matrikel: _mat });
+    var cursor = students.find({ matrikel: _matNumber });
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
     // toArray-handler receives two standard parameters, an error object and the array

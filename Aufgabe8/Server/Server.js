@@ -35,8 +35,8 @@ function handleRequest(_request, _response) {
             Database.findAll(findCallback);
             break;
         case "search":
-            let mat = parseInt(query["Matrikelnummer"]);
-            Database.searchMatrikelnumber(mat, findCallback);
+            let martrikelNumber = parseInt(query["Matrikelnummer"]);
+            Database.searchMatrikelnumber(martrikelNumber, findCallback);
             break;
         default:
             respond(_response, "unknown command: " + command);
