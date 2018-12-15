@@ -27,7 +27,7 @@ var DatabaseClient;
         sendRequest(query, handleFindResponse);
     }
     function search(_event) {
-        let commandFind = "command=find";
+        let commandFind = "command=search";
         let input = document.getElementById("matrikelnummer");
         console.log(input.value);
         commandFind += "&Matrikelnummer=" + input.value;

@@ -42,7 +42,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "find":
+        case "search":
             let mat: number = parseInt(query["Matrikelnummer"]);
             Database.searchMatrikelnumber(mat, findCallback);
             break;
