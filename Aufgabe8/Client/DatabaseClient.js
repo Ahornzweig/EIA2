@@ -11,7 +11,6 @@ var DatabaseClient;
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
-        //document.getElementById("search").addEventListener("input", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
