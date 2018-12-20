@@ -1,10 +1,10 @@
-namespace Boxes {
-    let n: number = 5;
-    let c: string;
-    let x: number = 0;
-    let y: number = 0;
-
-    for (let i: number = 0; i < n; i++) {
+var Boxes;
+(function (Boxes) {
+    let n = 5;
+    let c;
+    let x = 0;
+    let y = 0;
+    for (let i = 0; i < n; i++) {
         y += (i == 2) ? 20 : 50;
         x = (x + 170) % 400;
         switch (i) {
@@ -21,19 +21,16 @@ namespace Boxes {
                 c = "#0000ff";
                 break;
         }
-        for (let a: number = 50; a > 0; a -= 20) {
+        for (let a = 50; a > 0; a -= 20) {
             placeDiv(c, x, y, a, a);
             if (i == 4)
                 break;
         }
     }
-
-
-    function placeDiv(_color: string, _x: number, _y: number, _width: number, _height: number): void {
-        let div: HTMLDivElement = document.createElement("div");
+    function placeDiv(_color, _x, _y, _width, _height) {
+        let div = document.createElement("div");
         document.body.appendChild(div);
-        
-        let s: CSSStyleDeclaration = div.style;
+        let s = div.style;
         s.border = "thin solid black";
         s.position = "absolute";
         s.backgroundColor = _color;
@@ -42,4 +39,5 @@ namespace Boxes {
         s.left = _x + "px";
         s.top = _y + "px";
     }
-}
+})(Boxes || (Boxes = {}));
+//# sourceMappingURL=A1.js.map
