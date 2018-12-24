@@ -7,6 +7,4 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 @charset "ISO-8859-1";
 canvas {
-	border: 2px solid black;
-	background-color: lightblue;
 }

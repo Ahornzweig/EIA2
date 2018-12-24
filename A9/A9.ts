@@ -13,8 +13,8 @@ namespace A9Canvas {
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-
-        drawBezierCurve();
+        drawSky();
+        drawHill();
         drawSun();
         drawCloud();
         drawCloud2();
@@ -26,7 +26,26 @@ namespace A9Canvas {
         drawChild2();
     }
 
-    function drawBezierCurve(): void {
+    function drawSky(): void {
+        let start = { x: 0, y: 600 };
+        let cp1 = { x: 110, y: 500 };
+        let cp2 = { x: 220, y: 410 };
+        let end = { x: 360, y: 330 };
+
+        crc2.fillStyle = "#9fc1f9";
+        crc2.beginPath();
+        crc2.moveTo(start.x, start.y);
+        crc2.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, end.x, end.y);
+        crc2.lineTo(360, 0);
+        crc2.lineTo(0, 0);
+        crc2.closePath();
+        crc2.lineWidth = 2;
+        crc2.stroke();
+        crc2.fill();
+        
+    }
+    
+    function drawHill(): void {
         console.log("curve");
         let start = { x: 0, y: 600 };
         let cp1 = { x: 110, y: 500 };
@@ -47,7 +66,7 @@ namespace A9Canvas {
 
     function drawSun(): void {
         console.log("sun");
-        crc2.fillStyle = "#ff6000";
+        crc2.fillStyle = "#f46542";
         crc2.lineWidth = 1;
         crc2.beginPath();
         crc2.arc(100, 75, 50, 0, 2 * Math.PI);
