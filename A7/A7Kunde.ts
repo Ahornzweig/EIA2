@@ -139,6 +139,7 @@ namespace A7 {
                     article.setAttribute("value", "1");
                     if (target.name == "Baum") {
                         checkTree = 1;
+                        
                     }
                     if (target.name == "Halterung") {
                         checkHolder = 1;
