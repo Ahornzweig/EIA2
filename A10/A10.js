@@ -18,8 +18,6 @@ var A10;
         drawCloud();
         drawCloud2();
         snowflakeRandom();
-        drawSled();
-        drawSled2();
         treeRandom();
         drawChild();
         drawChild2();
@@ -108,42 +106,6 @@ var A10;
         crc2.fill();
         crc2.stroke();
     }
-    function drawSled() {
-        for (let i = 0; i < 2; i++) {
-            console.log("Nico" + i);
-            crc2.strokeStyle = "#8B4513";
-            crc2.lineWidth = 2;
-            crc2.beginPath();
-            crc2.moveTo((i * 100) + 100, 610);
-            crc2.lineTo((i * 100) + 130, 585);
-            crc2.moveTo((i * 100) + 110, 603);
-            crc2.lineTo((i * 100) + 100, 590);
-            crc2.moveTo((i * 100) + 120, 594);
-            crc2.lineTo((i * 100) + 111, 581);
-            crc2.moveTo((i * 100) + 90, 598);
-            crc2.lineTo((i * 100) + 120, 573);
-            crc2.moveTo((i * 100) + 100, 610);
-            crc2.quadraticCurveTo((i * 100) + 80, 630, (i * 100) + 90, 605);
-            crc2.stroke();
-        }
-    }
-    function drawSled2() {
-        console.log("Julia");
-        crc2.strokeStyle = "#8B4513";
-        crc2.lineWidth = 2;
-        crc2.beginPath();
-        crc2.moveTo(200, 510);
-        crc2.lineTo(230, 485);
-        crc2.moveTo(210, 503);
-        crc2.lineTo(200, 490);
-        crc2.moveTo(220, 494);
-        crc2.lineTo(211, 481);
-        crc2.moveTo(190, 498);
-        crc2.lineTo(220, 473);
-        crc2.moveTo(230, 485);
-        crc2.quadraticCurveTo(250, 470, 230, 470);
-        crc2.stroke();
-    }
     function treeRandom() {
         for (let i = 0; i < 7; i++) {
             let x = Math.random() * crc2.canvas.width;
@@ -194,6 +156,23 @@ var A10;
         crc2.stroke();
     }
     function drawChild() {
+        for (let i = 0; i < 2; i++) {
+            console.log("Nico" + i);
+            crc2.strokeStyle = "#8B4513";
+            crc2.lineWidth = 2;
+            crc2.beginPath();
+            crc2.moveTo((i * 100) + 100, 610);
+            crc2.lineTo((i * 100) + 130, 585);
+            crc2.moveTo((i * 100) + 110, 603);
+            crc2.lineTo((i * 100) + 100, 590);
+            crc2.moveTo((i * 100) + 120, 594);
+            crc2.lineTo((i * 100) + 111, 581);
+            crc2.moveTo((i * 100) + 90, 598);
+            crc2.lineTo((i * 100) + 120, 573);
+            crc2.moveTo((i * 100) + 100, 610);
+            crc2.quadraticCurveTo((i * 100) + 80, 630, (i * 100) + 90, 605);
+            crc2.stroke();
+        }
         //console.log("hiSebastian");
         for (let i = 0; i < 2; i++) {
             crc2.strokeStyle = "#000000";
@@ -219,6 +198,21 @@ var A10;
         }
     }
     function drawChild2() {
+        console.log("Julia");
+        crc2.strokeStyle = "#8B4513";
+        crc2.lineWidth = 2;
+        crc2.beginPath();
+        crc2.moveTo(200, 510);
+        crc2.lineTo(230, 485);
+        crc2.moveTo(210, 503);
+        crc2.lineTo(200, 490);
+        crc2.moveTo(220, 494);
+        crc2.lineTo(211, 481);
+        crc2.moveTo(190, 498);
+        crc2.lineTo(220, 473);
+        crc2.moveTo(230, 485);
+        crc2.quadraticCurveTo(250, 470, 230, 470);
+        crc2.stroke();
         //console.log("hi");
         crc2.strokeStyle = "#000000";
         crc2.lineWidth = 2.25;
