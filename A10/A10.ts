@@ -7,7 +7,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace A10 {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
+    export let crc2: CanvasRenderingContext2D;
 
     function init(_event: Event): void {
 
@@ -132,7 +132,7 @@ namespace A10 {
             crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
 
             if (crc2.isPointInPath(x, y)) {
-                drawTrees(x, y);
+                draw();
             }
             else {
                 i--;
@@ -140,7 +140,7 @@ namespace A10 {
         }
     }
 
-    function drawTrees(_x: number, _y: number): void {
+    /*function drawTrees(_x: number, _y: number): void {
         console.log("Trees", _x, _y);
 
         crc2.fillStyle = "#A52A2A";
@@ -179,7 +179,7 @@ namespace A10 {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-    }
+    }*/
 
     function drawChild(): void {
 
