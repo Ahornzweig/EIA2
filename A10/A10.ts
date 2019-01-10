@@ -1,11 +1,11 @@
-/*Aufgabe: Aufgabe 9
+/*Aufgabe: Aufgabe 10
 Name: Sarah Lönnqvist
 Matrikel: 259116
 Datum: 24.12.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace A9Canvas {
+namespace A10 {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
 

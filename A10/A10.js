@@ -1,12 +1,12 @@
-/*Aufgabe: Aufgabe 9
+/*Aufgabe: Aufgabe 10
 Name: Sarah L�nnqvist
 Matrikel: 259116
 Datum: 24.12.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var A9Canvas;
-(function (A9Canvas) {
+var A10;
+(function (A10) {
     window.addEventListener("load", init);
     let crc2;
     function init(_event) {
@@ -242,5 +242,5 @@ var A9Canvas;
         crc2.fill();
         crc2.stroke();
     }
-})(A9Canvas || (A9Canvas = {}));
+})(A10 || (A10 = {}));
 //# sourceMappingURL=A10.js.map
