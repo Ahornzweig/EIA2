@@ -24,7 +24,6 @@ namespace A10 {
         }
 
         draw(): void {
-            console.log("Julia");
 
             crc2.strokeStyle = "#8B4513";
             crc2.lineWidth = 2;

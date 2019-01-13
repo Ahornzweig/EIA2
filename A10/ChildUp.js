@@ -18,7 +18,6 @@ var A10;
             this.draw();
         }
         draw() {
-            console.log("Julia");
             A10.crc2.strokeStyle = "#8B4513";
             A10.crc2.lineWidth = 2;
             A10.crc2.beginPath();
