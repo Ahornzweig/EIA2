@@ -1,3 +1,10 @@
+/*Aufgabe: Aufgabe 10
+Name: Sarah L�nnqvist
+Matrikel: 259116
+Datum: 13.01.2019
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
 var A10;
 (function (A10) {
     class Snowflake {

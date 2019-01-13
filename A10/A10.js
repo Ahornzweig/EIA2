@@ -1,7 +1,7 @@
 /*Aufgabe: Aufgabe 10
 Name: Sarah L�nnqvist
 Matrikel: 259116
-Datum: 24.12.2018
+Datum: 13.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
