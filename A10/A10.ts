@@ -13,6 +13,7 @@ namespace A10 {
     let trees: Tree[] = [];
     let snowflakes: Snowflake[] = [];
     let childrenDown: ChildDown[] = [];
+    let childrenUp: ChildUp[] = [];
 
     function init(_event: Event): void {
 
@@ -54,6 +55,17 @@ namespace A10 {
 
         }
 
+        for (let i: number = 0; i < 6; i++) {
+            let child: ChildUp = new ChildUp();
+            child.x = 0;
+            child.y = Math.random() * 100 + 750;
+            child.dx = Math.random() * 3 ;
+            child.dy = - child.dx;
+
+            childrenUp.push(child);
+
+        }
+
         for (let i: number = 0; i < 222; i++) {
             let snow: Snowflake = new Snowflake();
             console.log("randomJan");
@@ -84,6 +96,13 @@ namespace A10 {
             child.draw();
         }
 
+        for (let i: number = 0; i < 6; i++) {
+            let child: ChildUp = childrenUp[i];
+
+            child.move();
+            child.draw();
+        }
+        
         for (let i: number = 0; i < 222; i++) {
             let snowflake: Snowflake = snowflakes[i];
             snowflake.move();
@@ -93,7 +112,7 @@ namespace A10 {
         console.log("Update");
     }
 
-    
+
     //Hintergrund
     function drawSky(): void {
 
@@ -145,7 +164,7 @@ namespace A10 {
         crc2.quadraticCurveTo(30, 350, 150, 300);
         crc2.closePath();
         crc2.fill();
-        
+
         console.log("cloud2");
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
@@ -157,6 +176,4 @@ namespace A10 {
         crc2.closePath();
         crc2.fill();
     }
-
-
 }

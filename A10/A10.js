@@ -13,6 +13,7 @@ var A10;
     let trees = [];
     let snowflakes = [];
     let childrenDown = [];
+    let childrenUp = [];
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         A10.crc2 = canvas.getContext("2d");
@@ -43,6 +44,14 @@ var A10;
             child.dy = -child.dx;
             childrenDown.push(child);
         }
+        for (let i = 0; i < 6; i++) {
+            let child = new A10.ChildUp();
+            child.x = 0;
+            child.y = Math.random() * 100 + 750;
+            child.dx = Math.random() * 3;
+            child.dy = -child.dx;
+            childrenUp.push(child);
+        }
         for (let i = 0; i < 222; i++) {
             let snow = new A10.Snowflake();
             console.log("randomJan");
@@ -63,6 +72,11 @@ var A10;
         }
         for (let i = 0; i < 6; i++) {
             let child = childrenDown[i];
+            child.move();
+            child.draw();
+        }
+        for (let i = 0; i < 6; i++) {
+            let child = childrenUp[i];
             child.move();
             child.draw();
         }
