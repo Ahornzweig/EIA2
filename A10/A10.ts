@@ -24,7 +24,7 @@ namespace A10 {
         drawSun();
         drawCloud();
         drawCloud2();
-        image= crc2.getImageData(0,0,360,700);
+        image = crc2.getImageData(0, 0, 360, 700);
 
         for (let i: number = 0; i < 7; i++) {
             let tree: Tree = new Tree();
@@ -66,7 +66,7 @@ namespace A10 {
             }
         }
 
-        for (let i: number = 0; i < 300; i++) {
+        for (let i: number = 0; i < 222; i++) {
             let snow: Snowflake = new Snowflake();
             console.log("randomJan");
             snow.x = Math.random() * crc2.canvas.width;
@@ -81,7 +81,7 @@ namespace A10 {
     }
 
     function update(): void {
-        window.setTimeout(update, 1000 / fps);
+        //window.setTimeout(update, 1000 / fps);
         crc2.putImageData(image, 0, 0);
 
         for (let i: number = 0; i < 7; i++) {
@@ -89,14 +89,14 @@ namespace A10 {
             tree.draw();
         }
 
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 1; i++) {
             let child: ChildDown = childrenDown[i];
             
             child.move();
             child.draw();
         }
 
-        for (let i: number = 0; i < 300; i++) {
+        for (let i: number = 0; i < 222; i++) {
             let snowflake: Snowflake = snowflakes[i];
             snowflake.move();
             snowflake.draw();

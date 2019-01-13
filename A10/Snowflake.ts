@@ -7,6 +7,11 @@ namespace A10 {
 
         move(): void {
             this.y += this.dy;
+            
+            if (this.y > 700) {
+                this.y = 0;
+            }
+            this.draw();
         }
 
         draw(): void {

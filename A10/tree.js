@@ -2,7 +2,6 @@ var A10;
 (function (A10) {
     class Tree {
         draw() {
-            console.log("Trees", this.x, this.y);
             A10.crc2.fillStyle = "#A52A2A";
             A10.crc2.strokeStyle = "#A52A2A";
             A10.crc2.lineWidth = 1;

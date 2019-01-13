@@ -3,6 +3,10 @@ var A10;
     class Snowflake {
         move() {
             this.y += this.dy;
+            if (this.y > 700) {
+                this.y = 0;
+            }
+            this.draw();
         }
         draw() {
             A10.crc2.fillStyle = this.color;

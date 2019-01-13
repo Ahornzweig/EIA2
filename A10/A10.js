@@ -55,7 +55,7 @@ var A10;
                 i--;
             }
         }
-        for (let i = 0; i < 300; i++) {
+        for (let i = 0; i < 222; i++) {
             let snow = new A10.Snowflake();
             console.log("randomJan");
             snow.x = Math.random() * A10.crc2.canvas.width;
@@ -67,18 +67,18 @@ var A10;
         update();
     }
     function update() {
-        window.setTimeout(update, 1000 / fps);
+        //window.setTimeout(update, 1000 / fps);
         A10.crc2.putImageData(image, 0, 0);
         for (let i = 0; i < 7; i++) {
             let tree = trees[i];
             tree.draw();
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let child = childrenDown[i];
             child.move();
             child.draw();
         }
-        for (let i = 0; i < 300; i++) {
+        for (let i = 0; i < 222; i++) {
             let snowflake = snowflakes[i];
             snowflake.move();
             snowflake.draw();

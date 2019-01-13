@@ -6,7 +6,6 @@ namespace A10 {
  
         draw(): void {
 
-            console.log("Trees", this.x, this.y);
 
             crc2.fillStyle = "#A52A2A";
             crc2.strokeStyle = "#A52A2A";
