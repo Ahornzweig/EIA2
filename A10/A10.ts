@@ -22,8 +22,7 @@ namespace A10 {
         drawSky();
         drawHill();
         drawSun();
-        drawCloud();
-        drawCloud2();
+        drawClouds();
         image = crc2.getImageData(0, 0, 360, 700);
 
         for (let i: number = 0; i < 7; i++) {
@@ -44,26 +43,15 @@ namespace A10 {
             }
         }
 
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 6; i++) {
             let child: ChildDown = new ChildDown();
-            child.x = Math.random() * crc2.canvas.width;
-            child.y = Math.random() * crc2.canvas.height;
+            child.x = 360;
+            child.y = Math.random() * 370 + 330;
             child.dx = Math.random() * 3 - 5;
-            child.dy = Math.random() * 4;
-            
-            crc2.beginPath();
-            crc2.moveTo(200, 600);
-            crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
-            crc2.lineTo(360, 600);
-            crc2.lineTo(200, 600);
-            crc2.closePath();
-            
-            if (crc2.isPointInPath(child.x, child.y)) {
-                childrenDown.push(child);
-            }
-            else {
-                i--;
-            }
+            child.dy = - child.dx;
+
+            childrenDown.push(child);
+
         }
 
         for (let i: number = 0; i < 222; i++) {
@@ -72,7 +60,7 @@ namespace A10 {
             snow.x = Math.random() * crc2.canvas.width;
             snow.y = Math.random() * crc2.canvas.height;
             snow.dy = Math.random() * 3;
-            snow.color = "#5050ff";
+            snow.color = "#ffffff";
 
             snowflakes.push(snow);
         }
@@ -89,9 +77,9 @@ namespace A10 {
             tree.draw();
         }
 
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 6; i++) {
             let child: ChildDown = childrenDown[i];
-            
+
             child.move();
             child.draw();
         }
@@ -105,6 +93,8 @@ namespace A10 {
         console.log("Update");
     }
 
+    
+    //Hintergrund
     function drawSky(): void {
 
         crc2.fillStyle = "#9fc1f9";
@@ -144,7 +134,7 @@ namespace A10 {
         crc2.fill();
     }
 
-    function drawCloud(): void {
+    function drawClouds(): void {
         console.log("cloud1");
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
@@ -155,9 +145,7 @@ namespace A10 {
         crc2.quadraticCurveTo(30, 350, 150, 300);
         crc2.closePath();
         crc2.fill();
-    }
-
-    function drawCloud2(): void {
+        
         console.log("cloud2");
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
@@ -171,50 +159,4 @@ namespace A10 {
     }
 
 
-    function drawChild2(): void {
-
-        console.log("Julia");
-
-        crc2.strokeStyle = "#8B4513";
-        crc2.lineWidth = 2;
-
-        crc2.beginPath();
-        crc2.moveTo(200, 510);
-        crc2.lineTo(230, 485);
-        crc2.moveTo(210, 503);
-        crc2.lineTo(200, 490);
-        crc2.moveTo(220, 494);
-        crc2.lineTo(211, 481);
-        crc2.moveTo(190, 498);
-        crc2.lineTo(220, 473);
-        crc2.moveTo(230, 485);
-        crc2.quadraticCurveTo(250, 470, 230, 470);
-        crc2.stroke();
-        //console.log("hi");
-
-        crc2.strokeStyle = "#000000";
-        crc2.lineWidth = 2.25;
-
-        crc2.beginPath();
-        crc2.moveTo(250, 470);
-        crc2.lineTo(252, 450);
-        crc2.lineTo(262, 465);
-        crc2.moveTo(252, 450);
-        crc2.lineTo(252, 430);
-        crc2.lineTo(247, 450);
-        crc2.lineTo(230, 470);
-        crc2.moveTo(252, 430);
-        crc2.lineTo(260, 450);
-        crc2.stroke();
-
-        crc2.strokeStyle = "#000000";
-        crc2.fillStyle = "#000000";
-        crc2.lineWidth = 2;
-        crc2.beginPath();
-        crc2.moveTo(252, 430);
-        crc2.arc(252, 422, 6, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.stroke();
-
-    }
 }

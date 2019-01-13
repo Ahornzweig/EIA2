@@ -19,8 +19,7 @@ var A10;
         drawSky();
         drawHill();
         drawSun();
-        drawCloud();
-        drawCloud2();
+        drawClouds();
         image = A10.crc2.getImageData(0, 0, 360, 700);
         for (let i = 0; i < 7; i++) {
             let tree = new A10.Tree();
@@ -36,24 +35,13 @@ var A10;
                 i--;
             }
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 6; i++) {
             let child = new A10.ChildDown();
-            child.x = Math.random() * A10.crc2.canvas.width;
-            child.y = Math.random() * A10.crc2.canvas.height;
+            child.x = 360;
+            child.y = Math.random() * 370 + 330;
             child.dx = Math.random() * 3 - 5;
-            child.dy = Math.random() * 4;
-            A10.crc2.beginPath();
-            A10.crc2.moveTo(200, 600);
-            A10.crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
-            A10.crc2.lineTo(360, 600);
-            A10.crc2.lineTo(200, 600);
-            A10.crc2.closePath();
-            if (A10.crc2.isPointInPath(child.x, child.y)) {
-                childrenDown.push(child);
-            }
-            else {
-                i--;
-            }
+            child.dy = -child.dx;
+            childrenDown.push(child);
         }
         for (let i = 0; i < 222; i++) {
             let snow = new A10.Snowflake();
@@ -61,7 +49,7 @@ var A10;
             snow.x = Math.random() * A10.crc2.canvas.width;
             snow.y = Math.random() * A10.crc2.canvas.height;
             snow.dy = Math.random() * 3;
-            snow.color = "#5050ff";
+            snow.color = "#ffffff";
             snowflakes.push(snow);
         }
         update();
@@ -73,7 +61,7 @@ var A10;
             let tree = trees[i];
             tree.draw();
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 6; i++) {
             let child = childrenDown[i];
             child.move();
             child.draw();
@@ -85,6 +73,7 @@ var A10;
         }
         console.log("Update");
     }
+    //Hintergrund
     function drawSky() {
         A10.crc2.fillStyle = "#9fc1f9";
         A10.crc2.beginPath();
@@ -118,7 +107,7 @@ var A10;
         A10.crc2.arc(100, 75, 50, 0, 2 * Math.PI);
         A10.crc2.fill();
     }
-    function drawCloud() {
+    function drawClouds() {
         console.log("cloud1");
         A10.crc2.fillStyle = "#ffffff";
         A10.crc2.beginPath();
@@ -129,8 +118,6 @@ var A10;
         A10.crc2.quadraticCurveTo(30, 350, 150, 300);
         A10.crc2.closePath();
         A10.crc2.fill();
-    }
-    function drawCloud2() {
         console.log("cloud2");
         A10.crc2.fillStyle = "#ffffff";
         A10.crc2.beginPath();
@@ -141,45 +128,6 @@ var A10;
         A10.crc2.quadraticCurveTo(200, 270, 300, 200);
         A10.crc2.closePath();
         A10.crc2.fill();
-    }
-    function drawChild2() {
-        console.log("Julia");
-        A10.crc2.strokeStyle = "#8B4513";
-        A10.crc2.lineWidth = 2;
-        A10.crc2.beginPath();
-        A10.crc2.moveTo(200, 510);
-        A10.crc2.lineTo(230, 485);
-        A10.crc2.moveTo(210, 503);
-        A10.crc2.lineTo(200, 490);
-        A10.crc2.moveTo(220, 494);
-        A10.crc2.lineTo(211, 481);
-        A10.crc2.moveTo(190, 498);
-        A10.crc2.lineTo(220, 473);
-        A10.crc2.moveTo(230, 485);
-        A10.crc2.quadraticCurveTo(250, 470, 230, 470);
-        A10.crc2.stroke();
-        //console.log("hi");
-        A10.crc2.strokeStyle = "#000000";
-        A10.crc2.lineWidth = 2.25;
-        A10.crc2.beginPath();
-        A10.crc2.moveTo(250, 470);
-        A10.crc2.lineTo(252, 450);
-        A10.crc2.lineTo(262, 465);
-        A10.crc2.moveTo(252, 450);
-        A10.crc2.lineTo(252, 430);
-        A10.crc2.lineTo(247, 450);
-        A10.crc2.lineTo(230, 470);
-        A10.crc2.moveTo(252, 430);
-        A10.crc2.lineTo(260, 450);
-        A10.crc2.stroke();
-        A10.crc2.strokeStyle = "#000000";
-        A10.crc2.fillStyle = "#000000";
-        A10.crc2.lineWidth = 2;
-        A10.crc2.beginPath();
-        A10.crc2.moveTo(252, 430);
-        A10.crc2.arc(252, 422, 6, 0, 2 * Math.PI);
-        A10.crc2.fill();
-        A10.crc2.stroke();
     }
 })(A10 || (A10 = {}));
 //# sourceMappingURL=A10.js.map

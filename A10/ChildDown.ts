@@ -9,10 +9,11 @@ namespace A10 {
             this.x += this.dx;
             this.y += this.dy;
             
-            /*if (this.x > 700) {
-                this.x = 0;
+            if (this.x < 0 || this.y > 700) {
+                this.x = 360;
+                this.y = Math.random() * 370 + 330;
             }
-            this.draw();*/
+            this.draw();
         }
 
         draw(): void {
