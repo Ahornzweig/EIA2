@@ -8,6 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var A10;
 (function (A10) {
     window.addEventListener("load", init);
+    let image;
     let fps = 25;
     let trees = [];
     let snowflakes = [];
@@ -15,12 +16,12 @@ var A10;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         A10.crc2 = canvas.getContext("2d");
-        /*drawSky();
+        drawSky();
         drawHill();
         drawSun();
         drawCloud();
         drawCloud2();
-        drawChild2();*/
+        image = A10.crc2.getImageData(0, 0, 360, 700);
         for (let i = 0; i < 7; i++) {
             let tree = new A10.Tree();
             tree.x = Math.random() * A10.crc2.canvas.width;
@@ -40,8 +41,19 @@ var A10;
             child.x = Math.random() * A10.crc2.canvas.width;
             child.y = Math.random() * A10.crc2.canvas.height;
             child.dx = Math.random() * 3 - 5;
-            child.dy = Math.random() * 3;
-            childrenDown.push(child);
+            child.dy = Math.random() * 4;
+            A10.crc2.beginPath();
+            A10.crc2.moveTo(200, 600);
+            A10.crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
+            A10.crc2.lineTo(360, 600);
+            A10.crc2.lineTo(200, 600);
+            A10.crc2.closePath();
+            if (A10.crc2.isPointInPath(child.x, child.y)) {
+                childrenDown.push(child);
+            }
+            else {
+                i--;
+            }
         }
         for (let i = 0; i < 300; i++) {
             let snow = new A10.Snowflake();
@@ -56,7 +68,7 @@ var A10;
     }
     function update() {
         window.setTimeout(update, 1000 / fps);
-        A10.crc2.clearRect(0, 0, A10.crc2.canvas.width, A10.crc2.canvas.height);
+        A10.crc2.putImageData(image, 0, 0);
         for (let i = 0; i < 7; i++) {
             let tree = trees[i];
             tree.draw();

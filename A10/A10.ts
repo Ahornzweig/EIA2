@@ -8,6 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace A10 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
+    let image: ImageData;
     let fps: number = 25;
     let trees: Tree[] = [];
     let snowflakes: Snowflake[] = [];
@@ -18,12 +19,12 @@ namespace A10 {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
-        /*drawSky();
+        drawSky();
         drawHill();
         drawSun();
         drawCloud();
         drawCloud2();
-        drawChild2();*/
+        image= crc2.getImageData(0,0,360,700);
 
         for (let i: number = 0; i < 7; i++) {
             let tree: Tree = new Tree();
@@ -48,9 +49,21 @@ namespace A10 {
             child.x = Math.random() * crc2.canvas.width;
             child.y = Math.random() * crc2.canvas.height;
             child.dx = Math.random() * 3 - 5;
-            child.dy = Math.random() * 3;
-
-            childrenDown.push(child);
+            child.dy = Math.random() * 4;
+            
+            crc2.beginPath();
+            crc2.moveTo(200, 600);
+            crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
+            crc2.lineTo(360, 600);
+            crc2.lineTo(200, 600);
+            crc2.closePath();
+            
+            if (crc2.isPointInPath(child.x, child.y)) {
+                childrenDown.push(child);
+            }
+            else {
+                i--;
+            }
         }
 
         for (let i: number = 0; i < 300; i++) {
@@ -69,7 +82,7 @@ namespace A10 {
 
     function update(): void {
         window.setTimeout(update, 1000 / fps);
-        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(image, 0, 0);
 
         for (let i: number = 0; i < 7; i++) {
             let tree: Tree = trees[i];
