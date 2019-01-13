@@ -8,6 +8,11 @@ namespace A10 {
         move(): void {
             this.x += this.dx;
             this.y += this.dy;
+            
+            /*if (this.x > 700) {
+                this.x = 0;
+            }
+            this.draw();*/
         }
 
         draw(): void {
@@ -41,8 +46,8 @@ namespace A10 {
             crc2.fillStyle = "#000000";
             crc2.lineWidth = 2;
             crc2.beginPath();
-            crc2.moveTo(this.x + 5, this.y - 50);
-            crc2.arc(this.x, this.y + 60, 6, 0, 2 * Math.PI);
+            crc2.moveTo(this.x - 5, this.y - 50);
+            crc2.arc(this.x - 10, this.y - 60, 6, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
 

@@ -81,7 +81,7 @@ namespace A10 {
     }
 
     function update(): void {
-        //window.setTimeout(update, 1000 / fps);
+        window.setTimeout(update, 1000 / fps);
         crc2.putImageData(image, 0, 0);
 
         for (let i: number = 0; i < 7; i++) {
@@ -89,7 +89,7 @@ namespace A10 {
             tree.draw();
         }
 
-        for (let i: number = 0; i < 1; i++) {
+        for (let i: number = 0; i < 3; i++) {
             let child: ChildDown = childrenDown[i];
             
             child.move();
