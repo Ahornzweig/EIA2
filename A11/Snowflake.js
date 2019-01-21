@@ -9,7 +9,7 @@ var A11;
 (function (A11) {
     class Snowflake extends A11.Movement {
         move() {
-            this.y += this.dy;
+            super.move();
             if (this.y > 700) {
                 this.y = 0;
             }

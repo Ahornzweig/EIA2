@@ -71,6 +71,7 @@ namespace A11 {
             console.log("randomJan");
             snow.x = Math.random() * crc2.canvas.width;
             snow.y = Math.random() * crc2.canvas.height;
+            snow.dx = 0;
             snow.dy = Math.random() * 3;
             snow.color = "#ffffff";
 

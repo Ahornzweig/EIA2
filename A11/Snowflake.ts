@@ -11,7 +11,7 @@ namespace A11 {
         
 
         move(): void {
-            this.y += this.dy;
+            super.move();
             
             if (this.y > 700) {
                 this.y = 0;

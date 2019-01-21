@@ -57,6 +57,7 @@ var A11;
             console.log("randomJan");
             snow.x = Math.random() * A11.crc2.canvas.width;
             snow.y = Math.random() * A11.crc2.canvas.height;
+            snow.dx = 0;
             snow.dy = Math.random() * 3;
             snow.color = "#ffffff";
             snowflakes.push(snow);
