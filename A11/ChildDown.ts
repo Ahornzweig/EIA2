@@ -5,7 +5,7 @@ Datum: 13.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace A10 {
+namespace A11 {
     export class ChildDown {
         x: number;
         y: number;

@@ -5,9 +5,9 @@ Datum: 13.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var A10;
-(function (A10) {
-    class Snowflake {
+var A11;
+(function (A11) {
+    class Snowflake extends A11.Movement {
         move() {
             this.y += this.dy;
             if (this.y > 700) {
@@ -16,25 +16,25 @@ var A10;
             this.draw();
         }
         draw() {
-            A10.crc2.fillStyle = this.color;
-            A10.crc2.strokeStyle = this.color;
-            A10.crc2.lineWidth = 1;
-            A10.crc2.beginPath();
-            A10.crc2.moveTo(this.x - 2, this.y + 1);
-            A10.crc2.lineTo(this.x, this.y - 2);
-            A10.crc2.lineTo(this.x + 2, this.y + 1);
-            A10.crc2.closePath();
-            A10.crc2.fill();
-            A10.crc2.stroke();
-            A10.crc2.beginPath();
-            A10.crc2.moveTo(this.x - 2, this.y - 1);
-            A10.crc2.lineTo(this.x + 2, this.y - 1);
-            A10.crc2.lineTo(this.x, this.y + 2);
-            A10.crc2.closePath();
-            A10.crc2.fill();
-            A10.crc2.stroke();
+            A11.crc2.fillStyle = "#ffffff";
+            A11.crc2.strokeStyle = "#ffffff";
+            A11.crc2.lineWidth = 1;
+            A11.crc2.beginPath();
+            A11.crc2.moveTo(this.x - 2, this.y + 1);
+            A11.crc2.lineTo(this.x, this.y - 2);
+            A11.crc2.lineTo(this.x + 2, this.y + 1);
+            A11.crc2.closePath();
+            A11.crc2.fill();
+            A11.crc2.stroke();
+            A11.crc2.beginPath();
+            A11.crc2.moveTo(this.x - 2, this.y - 1);
+            A11.crc2.lineTo(this.x + 2, this.y - 1);
+            A11.crc2.lineTo(this.x, this.y + 2);
+            A11.crc2.closePath();
+            A11.crc2.fill();
+            A11.crc2.stroke();
         }
     }
-    A10.Snowflake = Snowflake;
-})(A10 || (A10 = {}));
+    A11.Snowflake = Snowflake;
+})(A11 || (A11 = {}));
 //# sourceMappingURL=Snowflake.js.map

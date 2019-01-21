@@ -5,13 +5,13 @@ Datum: 13.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace A10 {
+namespace A11 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let image: ImageData;
     let fps: number = 25;
-    let trees: Tree[] = [];
-    let snowflakes: Snowflake[] = [];
+    let trees: Origin[] = [];
+    let snowflakes: Origin[] = [];
     let childrenDown: ChildDown[] = [];
     let childrenUp: ChildUp[] = [];
 
@@ -104,9 +104,9 @@ namespace A10 {
         }
         
         for (let i: number = 0; i < 222; i++) {
-            let snowflake: Snowflake = snowflakes[i];
+            let snowflake: Origin = snowflakes[i];
             snowflake.move();
-            snowflake.draw();
+            snowflake.draw(); 
         }
 
         console.log("Update");

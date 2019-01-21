@@ -5,12 +5,10 @@ Datum: 13.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace A10 {
-    export class Snowflake {
-        x: number;
-        y: number;
-        dy: number;
-        color: string;
+namespace A11 {
+    export class Snowflake extends Movement {
+        
+        
 
         move(): void {
             this.y += this.dy;
@@ -23,8 +21,8 @@ namespace A10 {
 
         draw(): void {
 
-            crc2.fillStyle = this.color;
-            crc2.strokeStyle = this.color;
+            crc2.fillStyle = "#ffffff";
+            crc2.strokeStyle = "#ffffff";
             crc2.lineWidth = 1;
 
             crc2.beginPath();
