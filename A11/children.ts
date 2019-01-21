@@ -23,13 +23,9 @@ namespace A11 {
             if (this.state == "down") {
 
                 if (this.y > crc2.canvas.height) {
-                    this.x -= this.dx;
-                    this.y -= this.dy;
                     this.state = "up";
                 }
                 else if (this.x < 0) {
-                    this.x -= this.dx;
-                    this.y -= this.dy;
                     this.state = "up";
                 }
                 else {
@@ -40,8 +36,6 @@ namespace A11 {
 
             if (this.state == "up") {
                 if (this.x > crc2.canvas.width) {
-                    this.x += this.dx;
-                    this.y += this.dy;
                     this.state = "down";
                 }
                 else {

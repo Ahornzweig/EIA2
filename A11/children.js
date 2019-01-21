@@ -19,13 +19,9 @@ var A11;
         move() {
             if (this.state == "down") {
                 if (this.y > A11.crc2.canvas.height) {
-                    this.x -= this.dx;
-                    this.y -= this.dy;
                     this.state = "up";
                 }
                 else if (this.x < 0) {
-                    this.x -= this.dx;
-                    this.y -= this.dy;
                     this.state = "up";
                 }
                 else {
@@ -35,8 +31,6 @@ var A11;
             }
             if (this.state == "up") {
                 if (this.x > A11.crc2.canvas.width) {
-                    this.x += this.dx;
-                    this.y += this.dy;
                     this.state = "down";
                 }
                 else {
