@@ -1,21 +1,49 @@
 /*Aufgabe: Aufgabe 11
 Name: Sarah L�nnqvist
 Matrikel: 259116
-Datum: 13.01.2019
+Datum: 21.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 var A11;
 (function (A11) {
     class Children extends A11.Movement {
-        moveUp() {
-            this.x += this.dx;
-            this.y += this.dy;
-            if (this.x > 360) {
-                this.x = 0;
-                this.y = Math.random() * 100 + 750;
+        draw() {
+            if (this.state == "down") {
+                this.drawDown();
             }
-            this.draw();
+            if (this.state == "up") {
+                this.drawUp();
+            }
+        }
+        move() {
+            if (this.state == "down") {
+                if (this.y > A11.crc2.canvas.height) {
+                    this.x -= this.dx;
+                    this.y -= this.dy;
+                    this.state = "up";
+                }
+                else if (this.x < 0) {
+                    this.x -= this.dx;
+                    this.y -= this.dy;
+                    this.state = "up";
+                }
+                else {
+                    this.x += this.dx;
+                    this.y += this.dy;
+                }
+            }
+            if (this.state == "up") {
+                if (this.x > A11.crc2.canvas.width) {
+                    this.x += this.dx;
+                    this.y += this.dy;
+                    this.state = "down";
+                }
+                else {
+                    this.x -= this.dx;
+                    this.y -= this.dy;
+                }
+            }
         }
         drawUp() {
             A11.crc2.strokeStyle = "#8B4513";
@@ -53,15 +81,6 @@ var A11;
             A11.crc2.arc(this.x + 52, this.y - 88, 6, 0, 2 * Math.PI);
             A11.crc2.fill();
             A11.crc2.stroke();
-        }
-        moveDown() {
-            this.x += this.dx;
-            this.y += this.dy;
-            if (this.x < 0 || this.y > 700) {
-                this.x = 360;
-                this.y = Math.random() * 370 + 330;
-            }
-            this.draw();
         }
         drawDown() {
             A11.crc2.strokeStyle = "#8B4513";

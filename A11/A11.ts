@@ -1,7 +1,7 @@
-/*Aufgabe: Aufgabe 10
+/*Aufgabe: Aufgabe 11
 Name: Sarah Lönnqvist
 Matrikel: 259116
-Datum: 13.01.2019
+Datum: 21.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -10,10 +10,7 @@ namespace A11 {
     export let crc2: CanvasRenderingContext2D;
     let image: ImageData;
     let fps: number = 25;
-    let trees: Origin[] = [];
-    let snowflakes: Origin[] = [];
-    let childrenDown: ChildDown[] = [];
-    let childrenUp: ChildUp[] = [];
+    let allObjects: Origin[] = [];
 
     function init(_event: Event): void {
 
@@ -37,32 +34,21 @@ namespace A11 {
             crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
 
             if (crc2.isPointInPath(tree.x, tree.y)) {
-                trees.push(tree);
+                allObjects.push(tree);
             }
             else {
                 i--;
             }
         }
 
-        for (let i: number = 0; i < 6; i++) {
-            let child: ChildDown = new ChildDown();
+        for (let i: number = 0; i < 10; i++) {
+            let child: Children = new Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
             child.dx = Math.random() * 3 - 5;
             child.dy = - child.dx;
-
-            childrenDown.push(child);
-
-        }
-
-        for (let i: number = 0; i < 6; i++) {
-            let child: ChildUp = new ChildUp();
-            child.x = 0;
-            child.y = Math.random() * 100 + 750;
-            child.dx = Math.random() * 3 ;
-            child.dy = - child.dx;
-
-            childrenUp.push(child);
+            child.state = "down";
+            allObjects.push(child);
 
         }
 
@@ -75,7 +61,7 @@ namespace A11 {
             snow.dy = Math.random() * 3;
             snow.color = "#ffffff";
 
-            snowflakes.push(snow);
+            allObjects.push(snow);
         }
 
         update();
@@ -85,29 +71,9 @@ namespace A11 {
         window.setTimeout(update, 1000 / fps);
         crc2.putImageData(image, 0, 0);
 
-        for (let i: number = 0; i < 7; i++) {
-            let tree: Tree = trees[i];
-            tree.draw();
-        }
-
-        for (let i: number = 0; i < 6; i++) {
-            let child: ChildDown = childrenDown[i];
-
-            child.move();
-            child.draw();
-        }
-
-        for (let i: number = 0; i < 6; i++) {
-            let child: ChildUp = childrenUp[i];
-
-            child.move();
-            child.draw();
-        }
-        
-        for (let i: number = 0; i < 222; i++) {
-            let snowflake: Origin = snowflakes[i];
-            snowflake.move();
-            snowflake.draw(); 
+        for (let i: number = 0; i < allObjects.length; i++) {
+            allObjects[i].move();
+            allObjects[i].draw();
         }
 
         console.log("Update");

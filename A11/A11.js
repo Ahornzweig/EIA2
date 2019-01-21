@@ -1,7 +1,7 @@
-/*Aufgabe: Aufgabe 10
+/*Aufgabe: Aufgabe 11
 Name: Sarah L�nnqvist
 Matrikel: 259116
-Datum: 13.01.2019
+Datum: 21.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -10,10 +10,7 @@ var A11;
     window.addEventListener("load", init);
     let image;
     let fps = 25;
-    let trees = [];
-    let snowflakes = [];
-    let childrenDown = [];
-    let childrenUp = [];
+    let allObjects = [];
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         A11.crc2 = canvas.getContext("2d");
@@ -30,27 +27,20 @@ var A11;
             A11.crc2.moveTo(0, 600);
             A11.crc2.bezierCurveTo(110, 500, 220, 410, 360, 330);
             if (A11.crc2.isPointInPath(tree.x, tree.y)) {
-                trees.push(tree);
+                allObjects.push(tree);
             }
             else {
                 i--;
             }
         }
-        for (let i = 0; i < 6; i++) {
-            let child = new A11.ChildDown();
+        for (let i = 0; i < 10; i++) {
+            let child = new A11.Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
             child.dx = Math.random() * 3 - 5;
             child.dy = -child.dx;
-            childrenDown.push(child);
-        }
-        for (let i = 0; i < 6; i++) {
-            let child = new A11.ChildUp();
-            child.x = 0;
-            child.y = Math.random() * 100 + 750;
-            child.dx = Math.random() * 3;
-            child.dy = -child.dx;
-            childrenUp.push(child);
+            child.state = "down";
+            allObjects.push(child);
         }
         for (let i = 0; i < 222; i++) {
             let snow = new A11.Snowflake();
@@ -60,31 +50,16 @@ var A11;
             snow.dx = 0;
             snow.dy = Math.random() * 3;
             snow.color = "#ffffff";
-            snowflakes.push(snow);
+            allObjects.push(snow);
         }
         update();
     }
     function update() {
         window.setTimeout(update, 1000 / fps);
         A11.crc2.putImageData(image, 0, 0);
-        for (let i = 0; i < 7; i++) {
-            let tree = trees[i];
-            tree.draw();
-        }
-        for (let i = 0; i < 6; i++) {
-            let child = childrenDown[i];
-            child.move();
-            child.draw();
-        }
-        for (let i = 0; i < 6; i++) {
-            let child = childrenUp[i];
-            child.move();
-            child.draw();
-        }
-        for (let i = 0; i < 222; i++) {
-            let snowflake = snowflakes[i];
-            snowflake.move();
-            snowflake.draw();
+        for (let i = 0; i < allObjects.length; i++) {
+            allObjects[i].move();
+            allObjects[i].draw();
         }
         console.log("Update");
     }

@@ -1,22 +1,54 @@
 /*Aufgabe: Aufgabe 11
 Name: Sarah Lönnqvist
 Matrikel: 259116
-Datum: 13.01.2019
+Datum: 21.01.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 namespace A11 {
-    export class Children extends Movement { 
-    
-     moveUp(): void {
-            this.x += this.dx;
-            this.y += this.dy;
+    export class Children extends Movement {
 
-            if (this.x > 360) {
-                this.x = 0;
-                this.y = Math.random() *  100 + 750;
+        state: string;
+        
+        draw(): void {
+            if (this.state == "down") {
+                this.drawDown();
             }
-            this.draw();
+            if (this.state == "up") {
+                this.drawUp();
+            }
+        }
+
+        move(): void {
+            if (this.state == "down") {
+
+                if (this.y > crc2.canvas.height) {
+                    this.x -= this.dx;
+                    this.y -= this.dy;
+                    this.state = "up";
+                }
+                else if (this.x < 0) {
+                    this.x -= this.dx;
+                    this.y -= this.dy;
+                    this.state = "up";
+                }
+                else {
+                    this.x += this.dx;
+                    this.y += this.dy;
+                }
+            }
+
+            if (this.state == "up") {
+                if (this.x > crc2.canvas.width) {
+                    this.x += this.dx;
+                    this.y += this.dy;
+                    this.state = "down";
+                }
+                else {
+                    this.x -= this.dx;
+                    this.y -= this.dy;
+                }
+            }
         }
 
         drawUp(): void {
@@ -62,17 +94,6 @@ namespace A11 {
             crc2.stroke();
 
         }
-        
-        moveDown(): void {
-            this.x += this.dx;
-            this.y += this.dy;
-            
-            if (this.x < 0 || this.y > 700) {
-                this.x = 360;
-                this.y = Math.random() * 370 + 330;
-            }
-            this.draw();
-        }
 
         drawDown(): void {
 
@@ -96,9 +117,9 @@ namespace A11 {
             crc2.moveTo(this.x, this.y);
             crc2.lineTo(this.x, this.y - 25);
             crc2.lineTo(this.x - 5, this.y - 50);
-            crc2.lineTo( this.x - 25, this.y - 30);
+            crc2.lineTo(this.x - 25, this.y - 30);
             crc2.moveTo(this.x - 5, this.y - 50);
-            crc2.lineTo( this.x - 20, this.y - 25);
+            crc2.lineTo(this.x - 20, this.y - 25);
             crc2.stroke();
 
             crc2.strokeStyle = "#000000";
@@ -111,6 +132,6 @@ namespace A11 {
             crc2.stroke();
 
         }
-        
+
     }
 }
