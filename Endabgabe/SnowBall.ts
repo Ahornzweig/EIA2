@@ -14,9 +14,9 @@ namespace Finaly {
         }
 
         move(): void {
-            if (this.radius > 10) {
+            if (this.radius > 15) {
                 this.radius -= 1;
-            }
+            } else { this.radius = 0; }
         }
 
         throwSB(): void {

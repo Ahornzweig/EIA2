@@ -103,7 +103,6 @@ namespace Finaly {
             allObjects[i].draw();
         }
         for (let i: number = 0; i < 20; i++) {
-            console.log("hi");
             SB[i].move();
             SB[i].draw();
         }
