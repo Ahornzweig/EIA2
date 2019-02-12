@@ -1,5 +1,5 @@
 namespace Finaly {
-    export class SnowBall extends Movement {
+    export class SnowBalls extends Movement {
         radius: number;
         state: string;
 
@@ -7,8 +7,8 @@ namespace Finaly {
         draw(): void {
             if (this.state == "throw") {
                 this.throwSB();
-            }
-            
+            } 
+             
         }
 
         move(): void {
@@ -19,7 +19,7 @@ namespace Finaly {
 
         throwSB(): void {
             crc2.fillStyle = "#ffffff";
-            crc2.strokeStyle = "#000000";
+            crc2.strokeStyle = "#000000"; 
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             crc2.fill();
