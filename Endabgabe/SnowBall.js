@@ -10,7 +10,7 @@ var Finaly;
             }
         }
         move() {
-            if (this.radius > 15) {
+            if (this.radius > 14) {
                 this.radius -= 1;
             }
             else {

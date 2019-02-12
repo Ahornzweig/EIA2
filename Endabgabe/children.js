@@ -13,7 +13,7 @@ var Finaly;
                 this.drawDown();
             }
             if (this.state == "up") {
-                this.drawUp();
+                this.drawHit();
             }
         }
         move() {
@@ -39,41 +39,17 @@ var Finaly;
                 }
             }
         }
-        drawUp() {
+        drawHit() {
             Finaly.crc2.strokeStyle = "#8B4513";
             Finaly.crc2.lineWidth = 2;
             Finaly.crc2.beginPath();
             Finaly.crc2.moveTo(this.x, this.y);
-            Finaly.crc2.lineTo(this.x + 30, this.y - 25);
-            Finaly.crc2.moveTo(this.x + 10, this.y - 7);
-            Finaly.crc2.lineTo(this.x, this.y - 20);
-            Finaly.crc2.moveTo(this.x + 20, this.y - 16);
-            Finaly.crc2.lineTo(this.x + 11, this.y - 29);
-            Finaly.crc2.moveTo(this.x - 10, this.y - 12);
-            Finaly.crc2.lineTo(this.x + 20, this.y - 37);
-            Finaly.crc2.moveTo(this.x + 30, this.y - 25);
-            Finaly.crc2.quadraticCurveTo(this.x + 50, this.y - 40, this.x + 30, this.y - 40);
-            Finaly.crc2.stroke();
-            Finaly.crc2.strokeStyle = "#000000";
-            Finaly.crc2.lineWidth = 2.25;
-            Finaly.crc2.beginPath();
-            Finaly.crc2.moveTo(this.x + 50, this.y - 40);
-            Finaly.crc2.lineTo(this.x + 52, this.y - 60);
-            Finaly.crc2.lineTo(this.x + 62, this.y - 45);
-            Finaly.crc2.moveTo(this.x + 52, this.y - 60);
-            Finaly.crc2.lineTo(this.x + 52, this.y - 80);
-            Finaly.crc2.lineTo(this.x + 47, this.y - 60);
-            Finaly.crc2.lineTo(this.x + 30, this.y - 40);
-            Finaly.crc2.moveTo(this.x + 52, this.y - 80);
-            Finaly.crc2.lineTo(this.x + 60, this.y - 60);
-            Finaly.crc2.stroke();
-            Finaly.crc2.strokeStyle = "#000000";
-            Finaly.crc2.fillStyle = "#000000";
-            Finaly.crc2.lineWidth = 2;
-            Finaly.crc2.beginPath();
-            Finaly.crc2.moveTo(this.x + 52, this.y - 80);
-            Finaly.crc2.arc(this.x + 52, this.y - 88, 6, 0, 2 * Math.PI);
-            Finaly.crc2.fill();
+            Finaly.crc2.lineTo(this.x + 30, this.y - 30);
+            Finaly.crc2.lineTo(this.x + 19, this.y - 40);
+            Finaly.crc2.lineTo(this.x + 1, this.y - 20);
+            Finaly.crc2.lineTo(this.x + 7, this.y - 7);
+            Finaly.crc2.moveTo(this.x, this.y);
+            Finaly.crc2.quadraticCurveTo(this.x - 10, this.y + 15, this.x - 5, this.y - 10);
             Finaly.crc2.stroke();
         }
         drawDown() {

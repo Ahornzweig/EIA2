@@ -17,8 +17,11 @@ var Finaly;
     let fps = 25;
     let allObjects = [];
     let SB = [];
+    let children = [];
+    let score = 0;
     function main(_event) {
         document.getElementById("div").style.display = "none";
+        document.getElementById("score").style.display = "initial";
         let canvas = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", throwSB);
         Finaly.crc2 = canvas.getContext("2d");
@@ -41,14 +44,14 @@ var Finaly;
                 i--;
             }
         }
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             let child = new Finaly.Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
             child.dx = Math.random() * 3 - 5;
             child.dy = -child.dx;
             child.state = "down";
-            allObjects.push(child);
+            children.push(child);
         }
         for (let i = 0; i < 222; i++) {
             let snow = new Finaly.Snowflake();
@@ -79,11 +82,35 @@ var Finaly;
             allObjects[i].move();
             allObjects[i].draw();
         }
-        for (let i = 0; i < 20; i++) {
-            SB[i].move();
-            SB[i].draw();
+        for (let i = 0; i < children.length; i++) {
+            children[i].move();
+            children[i].draw();
         }
-        console.log("Update");
+        for (let i = 0; i < 20; i++) {
+            if (SB[i].radius > 15) {
+                SB[i].move();
+                SB[i].draw();
+            }
+            else {
+                if (SB[i].radius == 15) {
+                    SB[i].move();
+                    SB[i].draw();
+                    console.log("Radius:" + SB[i].radius);
+                    for (let i2 = 0; i2 < children.length; i2++) {
+                        if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
+                            children[i2].state = "up";
+                            score += (children[i2].dy * children[i2].dx);
+                            console.log("score:" + score);
+                            document.getElementById("score").innerHTML += score;
+                        }
+                        else {
+                            console.log("else");
+                        }
+                    }
+                }
+                console.log("Update");
+            }
+        }
     }
     //Hintergrund
     function drawSky() {
@@ -142,4 +169,4 @@ var Finaly;
         Finaly.crc2.fill();
     }
 })(Finaly || (Finaly = {}));
-//# sourceMappingURL=Main.js.map
+//# sourceMappingURL=main.js.map
