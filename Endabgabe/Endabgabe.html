@@ -20,24 +20,30 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 <title>Rodelhangterminator</title>
 </head>
 <body>
+
+	<!-- start -->
 	<div id="div">
 		<h2>DER RODELHANG TERMINATOR</h2>
 		<button>Start</button>
-		<button>Low-Score</button>
+		<button id="score1">Low-Score</button>
 	</div>
+
+	<!-- spiel -->
 	<canvas width=360 height=700></canvas>
 	<div id="hud">
 		<p id="score"></p>
 		<p id="throw"></p>
 	</div>
+
+	<!-- Ende -->
 	<div id="end">
-	<form action="">
-	<input type="text">
-	<p id="result">Your Score: </p>
-	<button type="submit">Send Low-Score</button>
-	<button>Low-Score</button>
-	<button id="new">Play Again</button>
-	</form>
+		<form action="">
+			<input type="text" placeholder="enter your name" required>
+			<p id="result">Your Score:</p>
+			<button type="submit">Send Low-Score</button>
+			<button>Low-Score</button>
+			<button id="new">Play Again</button>
+		</form>
 	</div>
 </body>
 </html>

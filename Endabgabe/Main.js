@@ -12,6 +12,8 @@ var Finaly;
         document.getElementById("div").style.display = "initial";
         let start = document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
+        document.getElementById("hud").style.display = "none";
+        document.getElementById("end").style.display = "none";
     }
     ;
     let image;
