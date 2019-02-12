@@ -131,14 +131,18 @@ namespace Finaly {
                             document.getElementById("score").innerHTML = score.toString();
                         }
                         else {
-                            console.log("else");
                         }
                     }
                 }
-
-                console.log("Update");
             }
         }
+    }
+    
+    function end(): void {
+        document.getElementById("score").style.display = "none";
+        document.getElementsByTagName("canvas")[0].style.display = "none";
+        document.getElementById("end").style.display = "initial";
+        document.getElementById("result").innerHTML += score.toString();
     }
 
 

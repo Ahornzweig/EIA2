@@ -79,7 +79,8 @@ var Finaly;
     function update() {
         window.setTimeout(update, 1000 / fps);
         Finaly.crc2.putImageData(image, 0, 0);
-        if (SB.length = 21) {
+        if (SB.length == 21) {
+            end();
         }
         for (let i = 0; i < allObjects.length; i++) {
             allObjects[i].move();
@@ -105,13 +106,17 @@ var Finaly;
                             document.getElementById("score").innerHTML = score.toString();
                         }
                         else {
-                            console.log("else");
                         }
                     }
                 }
-                console.log("Update");
             }
         }
+    }
+    function end() {
+        document.getElementById("score").style.display = "none";
+        document.getElementsByTagName("canvas")[0].style.display = "none";
+        document.getElementById("end").style.display = "initial";
+        document.getElementById("result").innerHTML += score.toString();
     }
     //Hintergrund
     function drawSky() {
