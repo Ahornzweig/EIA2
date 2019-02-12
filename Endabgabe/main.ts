@@ -28,6 +28,7 @@ namespace Finaly {
         document.getElementById("div").style.display = "none";
         document.getElementById("score").style.display = "initial";
         document.getElementById("end").style.display = "none";
+        document.getElementsByTagName("canvas")[0].style.display = "initial";
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 
@@ -99,9 +100,11 @@ namespace Finaly {
     };
 
     function update(): void {
-        window.setTimeout(update, 1000 / fps);
-        crc2.putImageData(image, 0, 0);
-        if (SB.length == 21) {
+        if (document.getElementsByTagName("canvas")[0].getAttribute("style") == "display: initial;") {
+            window.setTimeout(update, 1000 / fps);
+            crc2.putImageData(image, 0, 0);
+        }
+        if (SB.length > 20) {
             end();
         }
 
@@ -127,7 +130,7 @@ namespace Finaly {
                     for (let i2: number = 0; i2 < children.length; i2++) {
                         if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
                             children[i2].state = "up";
-                            score +=  Math.floor(children[i2].dy * children[i2].dx);
+                            score += Math.floor(children[i2].dy * children[i2].dx);
                             document.getElementById("score").innerHTML = score.toString();
                         }
                         else {
@@ -137,12 +140,12 @@ namespace Finaly {
             }
         }
     }
-    
+
     function end(): void {
         document.getElementById("score").style.display = "none";
         document.getElementsByTagName("canvas")[0].style.display = "none";
         document.getElementById("end").style.display = "initial";
-        document.getElementById("result").innerHTML += score.toString();
+        document.getElementById("result").innerHTML = score.toString();
     }
 
 

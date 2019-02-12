@@ -23,6 +23,7 @@ var Finaly;
         document.getElementById("div").style.display = "none";
         document.getElementById("score").style.display = "initial";
         document.getElementById("end").style.display = "none";
+        document.getElementsByTagName("canvas")[0].style.display = "initial";
         let canvas = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", throwSB);
         Finaly.crc2 = canvas.getContext("2d");
@@ -77,9 +78,11 @@ var Finaly;
     }
     ;
     function update() {
-        window.setTimeout(update, 1000 / fps);
-        Finaly.crc2.putImageData(image, 0, 0);
-        if (SB.length == 21) {
+        if (document.getElementsByTagName("canvas")[0].getAttribute("style") == "display: initial;") {
+            window.setTimeout(update, 1000 / fps);
+            Finaly.crc2.putImageData(image, 0, 0);
+        }
+        if (SB.length > 20) {
             end();
         }
         for (let i = 0; i < allObjects.length; i++) {
@@ -116,7 +119,7 @@ var Finaly;
         document.getElementById("score").style.display = "none";
         document.getElementsByTagName("canvas")[0].style.display = "none";
         document.getElementById("end").style.display = "initial";
-        document.getElementById("result").innerHTML += score.toString();
+        document.getElementById("result").innerHTML = score.toString();
     }
     //Hintergrund
     function drawSky() {
