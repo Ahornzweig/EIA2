@@ -105,8 +105,8 @@ namespace Finaly {
             crc2.putImageData(image, 0, 0);
         }
         if (SB.length > 20) {
-            window.setTimeout(end(), 10000 / fps);
-            //end();
+            //window.setTimeout(end(), 10000 / fps);
+            end();
         }
 
         for (let i: number = 0; i < allObjects.length; i++) {
