@@ -105,7 +105,8 @@ namespace Finaly {
             crc2.putImageData(image, 0, 0);
         }
         if (SB.length > 20) {
-            end();
+            window.setTimeout(end(), 10000 / fps);
+            //end();
         }
 
         for (let i: number = 0; i < allObjects.length; i++) {
@@ -131,9 +132,11 @@ namespace Finaly {
                         if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
                             children[i2].state = "up";
                             score += Math.floor(children[i2].dy * children[i2].dx);
-                            document.getElementById("score").innerHTML = score.toString();
+                            document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
+                            document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
                         else {
+                            document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
                     }
                 }
