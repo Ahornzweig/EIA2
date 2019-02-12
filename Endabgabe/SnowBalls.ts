@@ -51,7 +51,7 @@ namespace Finaly {
             
             console.log("lul");
             
-            if (crc2.isPointInStroke(this.x, this.y)) {
+            if (crc2.isPointInPath(this.x, this.y)) {
                 return true;
             }
             else {

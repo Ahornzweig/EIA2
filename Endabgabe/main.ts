@@ -58,7 +58,7 @@ namespace Finaly {
             }
         }
 
-        for (let i: number = 0; i < 200; i++) {
+        for (let i: number = 0; i < 20; i++) {
             let child: Children = new Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
