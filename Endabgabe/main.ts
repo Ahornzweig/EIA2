@@ -112,7 +112,7 @@ namespace Finaly {
         }
 
         if (SB.length > 19) {
-            window.setTimeout(end, 5000);
+            window.setTimeout(end, 4000);
         }
 
         for (let i: number = 0; i < allObjects.length; i++) {
