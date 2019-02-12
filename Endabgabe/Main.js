@@ -22,6 +22,7 @@ var Finaly;
     function main(_event) {
         document.getElementById("div").style.display = "none";
         document.getElementById("score").style.display = "initial";
+        document.getElementById("end").style.display = "none";
         let canvas = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", throwSB);
         Finaly.crc2 = canvas.getContext("2d");
@@ -44,7 +45,7 @@ var Finaly;
                 i--;
             }
         }
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 200; i++) {
             let child = new Finaly.Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -78,6 +79,8 @@ var Finaly;
     function update() {
         window.setTimeout(update, 1000 / fps);
         Finaly.crc2.putImageData(image, 0, 0);
+        if (SB.length = 21) {
+        }
         for (let i = 0; i < allObjects.length; i++) {
             allObjects[i].move();
             allObjects[i].draw();
@@ -95,13 +98,11 @@ var Finaly;
                 if (SB[i].radius == 15) {
                     SB[i].move();
                     SB[i].draw();
-                    console.log("Radius:" + SB[i].radius);
                     for (let i2 = 0; i2 < children.length; i2++) {
                         if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
                             children[i2].state = "up";
-                            score += (children[i2].dy * children[i2].dx);
-                            console.log("score:" + score);
-                            document.getElementById("score").innerHTML += score;
+                            score += Math.floor(children[i2].dy * children[i2].dx);
+                            document.getElementById("score").innerHTML = score.toString();
                         }
                         else {
                             console.log("else");

@@ -27,6 +27,7 @@ namespace Finaly {
 
         document.getElementById("div").style.display = "none";
         document.getElementById("score").style.display = "initial";
+        document.getElementById("end").style.display = "none";
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 
@@ -58,7 +59,7 @@ namespace Finaly {
             }
         }
 
-        for (let i: number = 0; i < 20; i++) {
+        for (let i: number = 0; i < 200; i++) {
             let child: Children = new Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -100,6 +101,9 @@ namespace Finaly {
     function update(): void {
         window.setTimeout(update, 1000 / fps);
         crc2.putImageData(image, 0, 0);
+        if (SB.length == 21) {
+            end();
+        }
 
         for (let i: number = 0; i < allObjects.length; i++) {
             allObjects[i].move();
@@ -120,13 +124,11 @@ namespace Finaly {
                 if (SB[i].radius == 15) {
                     SB[i].move();
                     SB[i].draw();
-                    console.log("Radius:" + SB[i].radius);
                     for (let i2: number = 0; i2 < children.length; i2++) {
                         if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
                             children[i2].state = "up";
-                            score += (children[i2].dy * children[i2].dx);
-                            console.log("score:" + score);
-                            document.getElementById("score").innerHTML += score;
+                            score +=  Math.floor(children[i2].dy * children[i2].dx);
+                            document.getElementById("score").innerHTML = score.toString();
                         }
                         else {
                             console.log("else");
