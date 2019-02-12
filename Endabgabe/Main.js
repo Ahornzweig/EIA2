@@ -9,6 +9,7 @@ var Finaly;
 (function (Finaly) {
     window.addEventListener("load", init);
     function init() {
+        document.getElementById("div").style.display = "initial";
         let start = document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
     }
@@ -119,9 +120,10 @@ var Finaly;
     }
     function end() {
         document.getElementsByTagName("canvas")[0].style.display = "none";
-        document.getElementById("score").style.display = "none";
+        document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "initial";
-        document.getElementById("result").innerHTML = score.toString();
+        document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
+        document.getElementById("new").addEventListener("click", init);
     }
     //Hintergrund
     function drawSky() {

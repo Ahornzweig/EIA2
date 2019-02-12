@@ -10,6 +10,7 @@ namespace Finaly {
     window.addEventListener("load", init);
 
     function init(): void {
+        document.getElementById("div").style.display = "initial";
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
 
@@ -146,9 +147,10 @@ namespace Finaly {
 
     function end(): void {
         document.getElementsByTagName("canvas")[0].style.display = "none";
-        document.getElementById("score").style.display = "none";
+        document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "initial";
-        document.getElementById("result").innerHTML = score.toString();
+        document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
+        document.getElementById("new").addEventListener("click", init);
     }
 
 
