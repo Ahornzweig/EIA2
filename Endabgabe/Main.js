@@ -65,7 +65,7 @@ var Finaly;
         update();
     }
     function throwSB(_event) {
-        let snowB = new Finaly.SnowBall();
+        let snowB = new Finaly.SnowBalls();
         snowB.x = _event.clientX;
         snowB.y = _event.clientY;
         snowB.radius = 50;

@@ -19,7 +19,7 @@ namespace Finaly {
     let image: ImageData;
     let fps: number = 25;
     let allObjects: Origin[] = [];
-    let SB: SnowBall[] = [];
+    let SB: SnowBalls[] = [];
     let children: Children[] = [];
     let score: number = 0;
 
@@ -84,7 +84,7 @@ namespace Finaly {
     }
 
     function throwSB(_event: MouseEvent): void {
-        let snowB: SnowBall = new SnowBall();
+        let snowB: SnowBalls = new SnowBalls();
 
         snowB.x = _event.clientX;
         snowB.y = _event.clientY;
