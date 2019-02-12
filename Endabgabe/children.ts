@@ -6,10 +6,10 @@ Datum: 21.01.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 namespace Finaly {
-    export class Children extends Movement { 
+    export class Children extends Movement {
 
         state: string;
-        
+
         draw(): void {
             if (this.state == "down") {
                 this.drawDown();
@@ -23,10 +23,12 @@ namespace Finaly {
             if (this.state == "down") {
 
                 if (this.y > crc2.canvas.height) {
-                    this.state = "up";
+                    this.x = 360;
+                    this.y = Math.random() * 370 + 330;
                 }
                 else if (this.x < 0) {
-                    this.state = "up";
+                    this.x = 360;
+                    this.y = Math.random() * 370 + 330;
                 }
                 else {
                     this.x += this.dx;
@@ -35,18 +37,15 @@ namespace Finaly {
             }
 
             if (this.state == "up") {
-                if (this.x > crc2.canvas.width) {
-                    this.state = "down";
-                }
-                else {
-                    this.x -= this.dx;
-                    this.y -= this.dy;
-                }
+
+                this.x += this.dx;
+                this.y += this.dy;
+
             }
         }
 
         drawHit(): void {
-            
+
             crc2.strokeStyle = "#8B4513";
             crc2.lineWidth = 2;
 
@@ -58,7 +57,7 @@ namespace Finaly {
             crc2.lineTo(this.x + 7, this.y - 7);
             crc2.moveTo(this.x, this.y);
             crc2.quadraticCurveTo(this.x - 10, this.y + 15, this.x - 5, this.y - 10);
-            crc2.stroke();      
+            crc2.stroke();
 
         }
 

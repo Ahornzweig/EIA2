@@ -19,10 +19,12 @@ var Finaly;
         move() {
             if (this.state == "down") {
                 if (this.y > Finaly.crc2.canvas.height) {
-                    this.state = "up";
+                    this.x = 360;
+                    this.y = Math.random() * 370 + 330;
                 }
                 else if (this.x < 0) {
-                    this.state = "up";
+                    this.x = 360;
+                    this.y = Math.random() * 370 + 330;
                 }
                 else {
                     this.x += this.dx;
@@ -30,13 +32,8 @@ var Finaly;
                 }
             }
             if (this.state == "up") {
-                if (this.x > Finaly.crc2.canvas.width) {
-                    this.state = "down";
-                }
-                else {
-                    this.x -= this.dx;
-                    this.y -= this.dy;
-                }
+                this.x += this.dx;
+                this.y += this.dy;
             }
         }
         drawHit() {
