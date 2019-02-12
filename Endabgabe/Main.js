@@ -70,23 +70,24 @@ var Finaly;
         update();
     }
     function throwSB(_event) {
-        let snowB = new Finaly.SnowBalls();
-        snowB.x = _event.clientX;
-        snowB.y = _event.clientY;
-        snowB.radius = 50;
-        snowB.state = "throw";
-        SB.push(snowB);
-        let canvas = document.getElementsByTagName("canvas")[0];
-        canvas.addEventListener("click", throwSB);
+        if (SB.length < 20) {
+            let snowB = new Finaly.SnowBalls();
+            snowB.x = _event.clientX;
+            snowB.y = _event.clientY;
+            snowB.radius = 50;
+            snowB.state = "throw";
+            SB.push(snowB);
+            let canvas = document.getElementsByTagName("canvas")[0];
+            canvas.addEventListener("click", throwSB);
+        }
     }
     function update() {
         if (document.getElementsByTagName("canvas")[0].getAttribute("style") == "display: initial;") {
             window.setTimeout(update, 1000 / fps);
             Finaly.crc2.putImageData(image, 0, 0);
         }
-        if (SB.length > 20) {
-            //window.setTimeout(end(), 10000 / fps);
-            end();
+        if (SB.length > 19) {
+            window.setTimeout(end, 5000);
         }
         for (let i = 0; i < allObjects.length; i++) {
             allObjects[i].move();

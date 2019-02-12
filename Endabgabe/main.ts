@@ -13,7 +13,7 @@ namespace Finaly {
         document.getElementById("div").style.display = "initial";
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
-        
+
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "none";
 
@@ -90,16 +90,18 @@ namespace Finaly {
     }
 
     function throwSB(_event: MouseEvent): void {
-        let snowB: SnowBalls = new SnowBalls();
+        if (SB.length < 20) {
+            let snowB: SnowBalls = new SnowBalls();
 
-        snowB.x = _event.clientX;
-        snowB.y = _event.clientY;
-        snowB.radius = 50;
-        snowB.state = "throw";
-        SB.push(snowB);
+            snowB.x = _event.clientX;
+            snowB.y = _event.clientY;
+            snowB.radius = 50;
+            snowB.state = "throw";
+            SB.push(snowB);
 
-        let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-        canvas.addEventListener("click", throwSB);
+            let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+            canvas.addEventListener("click", throwSB);
+        }
 
     }
 
@@ -108,9 +110,9 @@ namespace Finaly {
             window.setTimeout(update, 1000 / fps);
             crc2.putImageData(image, 0, 0);
         }
-        if (SB.length > 20) {
-            //window.setTimeout(end(), 10000 / fps);
-            end();
+
+        if (SB.length > 19) {
+            window.setTimeout(end, 5000);
         }
 
         for (let i: number = 0; i < allObjects.length; i++) {
