@@ -44,7 +44,7 @@ var Finaly;
                 i--;
             }
         }
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 200; i++) {
             let child = new Finaly.Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -86,7 +86,7 @@ var Finaly;
             children[i].move();
             children[i].draw();
         }
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < SB.length; i++) {
             if (SB[i].radius > 15) {
                 SB[i].move();
                 SB[i].draw();

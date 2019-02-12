@@ -58,7 +58,7 @@ namespace Finaly {
             }
         }
 
-        for (let i: number = 0; i < 20; i++) {
+        for (let i: number = 0; i < 200; i++) {
             let child: Children = new Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -111,7 +111,7 @@ namespace Finaly {
             children[i].draw();
         }
 
-        for (let i: number = 0; i < 20; i++) {
+        for (let i: number = 0; i < SB.length; i++) {
             if (SB[i].radius > 15) {
                 SB[i].move();
                 SB[i].draw();
