@@ -24,7 +24,7 @@ var Finaly;
     let score = 0;
     function main(_event) {
         document.getElementById("div").style.display = "none";
-        document.getElementById("score").style.display = "initial";
+        document.getElementById("hud").style.display = "initial";
         document.getElementById("end").style.display = "none";
         document.getElementsByTagName("canvas")[0].style.display = "initial";
         let canvas = document.getElementsByTagName("canvas")[0];

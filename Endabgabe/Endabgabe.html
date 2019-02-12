@@ -25,7 +25,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 	<div id="div">
 		<h2>DER RODELHANG TERMINATOR</h2>
 		<button>Start</button>
-		<button id="score1">Low-Score</button>
+		<button id="score1">Low-Score list</button>
+		<p id="regeln">
+			Regeln: Du hast 20 Schneebälle um soviele Kinder wie möglich zu
+			treffen. Am Ende kannst du dein <strong>LOW-SCORE</strong> in eine
+			Liste eintragen und nachschauen, auf welchem rang du bist.
+		</p>
 	</div>
 
 	<!-- spiel -->
@@ -38,10 +43,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 	<!-- Ende -->
 	<div id="end">
 		<form action="">
+			<h2>Game Over</h2>
+			<p>Name</p>
 			<input type="text" placeholder="enter your name" required>
-			<p id="result">Your Score:</p>
-			<button type="submit">Send Low-Score</button>
-			<button>Low-Score</button>
+			<p id="result"></p>
+			<button type="submit">Send your Low-Score</button>
+			<button>Low-Score list</button>
 			<button id="new">Play Again</button>
 		</form>
 	</div>

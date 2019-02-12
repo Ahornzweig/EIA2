@@ -13,6 +13,7 @@ h2 {
 
 button {
 	display: block;
+	font-size: 1.1em;
 	margin: 5px;
 	padding: 0.5em;
 	width: 360px;
@@ -22,22 +23,40 @@ button {
 	border-radius: 4px;
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
+	margin-top: 1em;
 }
 
+p{
+	font-weight: bold;
+	font-size: 1.2em;
+	width: 360px;
+	font-family: 'Raleway', sans-serif;
+}
 
+input{
+	width: 360px;
+	border: 1px solid black;
+}
+
+#regeln{
+	margin-top: 1.6em;
+	font-weight: normal;
+}
 
 #div {
 	position: absolute;
 	left: 35%;
 	top:10%;
 	witdh: 20%;
-	padding: 1em 3em 2em 3em;
+	padding: 1em 3em 1em 3em;
 	border: 2px solid #b30000;
 	border-radius: 4px;
 }
 
-#score1 {
-	display: inline;
+#hud{
+	position: absolute;
+	left: 35%;
+	top:10%;
 }
 
 #end {

@@ -30,7 +30,7 @@ namespace Finaly {
     function main(_event: Event): void {
 
         document.getElementById("div").style.display = "none";
-        document.getElementById("score").style.display = "initial";
+        document.getElementById("hud").style.display = "initial";
         document.getElementById("end").style.display = "none";
         document.getElementsByTagName("canvas")[0].style.display = "initial";
 
