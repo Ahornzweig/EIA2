@@ -46,7 +46,7 @@ var Finaly;
                 i--;
             }
         }
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 20; i++) {
             let child = new Finaly.Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -76,7 +76,6 @@ var Finaly;
         let canvas = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", throwSB);
     }
-    ;
     function update() {
         if (document.getElementsByTagName("canvas")[0].getAttribute("style") == "display: initial;") {
             window.setTimeout(update, 1000 / fps);
@@ -116,8 +115,8 @@ var Finaly;
         }
     }
     function end() {
-        document.getElementById("score").style.display = "none";
         document.getElementsByTagName("canvas")[0].style.display = "none";
+        document.getElementById("score").style.display = "none";
         document.getElementById("end").style.display = "initial";
         document.getElementById("result").innerHTML = score.toString();
     }

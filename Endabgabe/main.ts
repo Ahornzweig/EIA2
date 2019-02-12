@@ -60,7 +60,7 @@ namespace Finaly {
             }
         }
 
-        for (let i: number = 0; i < 200; i++) {
+        for (let i: number = 0; i < 20; i++) {
             let child: Children = new Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -97,7 +97,7 @@ namespace Finaly {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", throwSB);
 
-    };
+    }
 
     function update(): void {
         if (document.getElementsByTagName("canvas")[0].getAttribute("style") == "display: initial;") {
@@ -142,8 +142,8 @@ namespace Finaly {
     }
 
     function end(): void {
-        document.getElementById("score").style.display = "none";
         document.getElementsByTagName("canvas")[0].style.display = "none";
+        document.getElementById("score").style.display = "none";
         document.getElementById("end").style.display = "initial";
         document.getElementById("result").innerHTML = score.toString();
     }

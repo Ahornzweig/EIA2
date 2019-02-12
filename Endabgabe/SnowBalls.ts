@@ -49,8 +49,6 @@ namespace Finaly {
             crc2.arc(_x - 10, _y - 60, 6, 0, 2 * Math.PI);
             crc2.stroke();
             
-            console.log("lul");
-            
             if (crc2.isPointInPath(this.x, this.y)) {
                 return true;
             }
