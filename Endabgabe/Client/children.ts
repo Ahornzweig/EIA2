@@ -1,7 +1,7 @@
-/*Aufgabe: Aufgabe 11
+/*Aufgabe: Endabgabe
 Name: Sarah Lönnqvist
 Matrikel: 259116
-Datum: 21.01.2019
+Datum: 13.02.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */

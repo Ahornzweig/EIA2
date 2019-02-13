@@ -1,13 +1,14 @@
-/*Aufgabe: Aufgabe 11
+/*Aufgabe: Endabgabe
 Name: Sarah L�nnqvist
 Matrikel: 259116
-Datum: 21.01.2019
+Datum: 13.02.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 var Finaly;
 (function (Finaly) {
     window.addEventListener("load", init);
+    let score = 0;
     function init() {
         document.getElementById("div").style.display = "initial";
         let start = document.getElementsByTagName("button")[0];
@@ -19,17 +20,11 @@ var Finaly;
         document.getElementById("refresh1").addEventListener("click", showScore1);
     }
     ;
-    function showScore1() {
-        document.getElementById("DB").style.display = "initial";
-        document.getElementById("div").style.display = "none";
-        document.getElementById("start").addEventListener("click", init);
-    }
     let image;
     let fps = 25;
     let allObjects = [];
     let SB = [];
     let children = [];
-    let score = 0;
     function main(_event) {
         document.getElementById("div").style.display = "none";
         document.getElementById("hud").style.display = "initial";
@@ -143,11 +138,18 @@ var Finaly;
         document.getElementById("end").style.display = "initial";
         document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
         document.getElementById("result").setAttribute("value", score.toString());
-        document.getElementById("new").addEventListener("click", init);
-        document.getElementById("refresh").addEventListener("click", showScore);
-        //document.getElementById("db").style.display = "initial";
+        document.getElementById("new").addEventListener("click", reloade);
+        document.getElementById("refresh").addEventListener("click", showScore2);
     }
-    function showScore() {
+    function reloade() {
+        window.location.reload();
+    }
+    function showScore1() {
+        document.getElementById("DB").style.display = "initial";
+        document.getElementById("div").style.display = "none";
+        document.getElementById("start").addEventListener("click", init);
+    }
+    function showScore2() {
         document.getElementById("db").style.display = "initial";
         document.getElementById("end").style.display = "none";
         document.getElementById("back").addEventListener("click", end);
@@ -166,7 +168,6 @@ var Finaly;
         Finaly.crc2.fill();
     }
     function drawHill() {
-        console.log("curve");
         Finaly.crc2.fillStyle = "#ffffff";
         Finaly.crc2.strokeStyle = "#9999ff";
         Finaly.crc2.beginPath();
@@ -180,14 +181,12 @@ var Finaly;
         Finaly.crc2.fill();
     }
     function drawSun() {
-        console.log("sun");
         Finaly.crc2.fillStyle = "#f46542";
         Finaly.crc2.beginPath();
         Finaly.crc2.arc(100, 75, 50, 0, 2 * Math.PI);
         Finaly.crc2.fill();
     }
     function drawClouds() {
-        console.log("cloud1");
         Finaly.crc2.fillStyle = "#ffffff";
         Finaly.crc2.beginPath();
         Finaly.crc2.moveTo(150, 300);
@@ -197,7 +196,6 @@ var Finaly;
         Finaly.crc2.quadraticCurveTo(30, 350, 150, 300);
         Finaly.crc2.closePath();
         Finaly.crc2.fill();
-        console.log("cloud2");
         Finaly.crc2.fillStyle = "#ffffff";
         Finaly.crc2.beginPath();
         Finaly.crc2.moveTo(300, 200);

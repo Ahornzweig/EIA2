@@ -1,13 +1,15 @@
-/*Aufgabe: Aufgabe 11
+/*Aufgabe: Endabgabe
 Name: Sarah Lönnqvist
 Matrikel: 259116
-Datum: 21.01.2019
+Datum: 13.02.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 namespace Finaly {
 
     window.addEventListener("load", init);
+
+    let score: number = 0;
 
     function init(): void {
         document.getElementById("div").style.display = "initial";
@@ -20,12 +22,6 @@ namespace Finaly {
         document.getElementById("refresh1").addEventListener("click", showScore1);
 
     };
-    
-      function showScore1(): void {
-        document.getElementById("DB").style.display = "initial";
-        document.getElementById("div").style.display = "none";
-        document.getElementById("start").addEventListener("click", init);
-    }
 
     export let crc2: CanvasRenderingContext2D;
     let image: ImageData;
@@ -33,9 +29,9 @@ namespace Finaly {
     let allObjects: Origin[] = [];
     let SB: SnowBalls[] = [];
     let children: Children[] = [];
-    let score: number = 0;
 
     function main(_event: Event): void {
+
 
         document.getElementById("div").style.display = "none";
         document.getElementById("hud").style.display = "initial";
@@ -118,7 +114,7 @@ namespace Finaly {
             window.setTimeout(update, 1000 / fps);
             crc2.putImageData(image, 0, 0);
         }
-        
+
 
         if (SB.length > 19) {
             window.setTimeout(end, 4000);
@@ -157,11 +153,11 @@ namespace Finaly {
                             document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
                             document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
-                        
+
                         else {
                             document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
-                        
+
                     }
                 }
             }
@@ -175,13 +171,21 @@ namespace Finaly {
         document.getElementById("end").style.display = "initial";
         document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
         document.getElementById("result").setAttribute("value", score.toString());
-        document.getElementById("new").addEventListener("click", init);
-        document.getElementById("refresh").addEventListener("click", showScore);
-        //document.getElementById("db").style.display = "initial";
-        
+        document.getElementById("new").addEventListener("click", reloade);
+        document.getElementById("refresh").addEventListener("click", showScore2);
     }
 
-    function showScore(): void {
+    function reloade(): void {
+        window.location.reload();
+    }
+
+    function showScore1(): void {
+        document.getElementById("DB").style.display = "initial";
+        document.getElementById("div").style.display = "none";
+        document.getElementById("start").addEventListener("click", init);
+    }
+
+    function showScore2(): void {
         document.getElementById("db").style.display = "initial";
         document.getElementById("end").style.display = "none";
         document.getElementById("back").addEventListener("click", end);
@@ -204,7 +208,6 @@ namespace Finaly {
     }
 
     function drawHill(): void {
-        console.log("curve");
 
         crc2.fillStyle = "#ffffff";
         crc2.strokeStyle = "#9999ff";
@@ -220,7 +223,6 @@ namespace Finaly {
     }
 
     function drawSun(): void {
-        console.log("sun");
         crc2.fillStyle = "#f46542";
         crc2.beginPath();
         crc2.arc(100, 75, 50, 0, 2 * Math.PI);
@@ -228,7 +230,6 @@ namespace Finaly {
     }
 
     function drawClouds(): void {
-        console.log("cloud1");
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
         crc2.moveTo(150, 300);
@@ -239,7 +240,6 @@ namespace Finaly {
         crc2.closePath();
         crc2.fill();
 
-        console.log("cloud2");
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
         crc2.moveTo(300, 200);
