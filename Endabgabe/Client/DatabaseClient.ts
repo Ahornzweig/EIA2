@@ -15,7 +15,7 @@ namespace DatabaseClient {
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=insert";
         query += "&name=" + inputs[0].value;
-        query += "&matrikel=" + document.getElementById("result").getAttribute("value");
+        query += "&lowScore=" + document.getElementById("result").getAttribute("value");
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
@@ -52,18 +52,20 @@ namespace DatabaseClient {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            let responseAsJson: StudentData[] = JSON.parse(xhr.response);
+            for (let i: number = 0; i < responseAsJson.length; i++) {
+                console.log(responseAsJson[i].lowScore);
+            }
         }
     }
-    
-       function handleSearchResponse(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
-            output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
-        }
-    }
+
+    /*function handleSearchResponse(_event: ProgressEvent): void {
+     let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+     if (xhr.readyState == XMLHttpRequest.DONE) {
+         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
+         output.value = xhr.response;
+         let responseAsJson: JSON = JSON.parse(xhr.response);
+         console.log(responseAsJson);
+     }
+ }*/
 }

@@ -33,7 +33,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "insert":
             let student: StudentData = {
                 name: query["name"],
-                matrikel: parseInt(query["matrikel"])
+                lowScore: parseInt(query["lowScore"])
             };
             Database.insert(student);
             respond(_response, "storing data");

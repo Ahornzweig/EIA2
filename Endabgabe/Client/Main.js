@@ -14,6 +14,7 @@ var Finaly;
         start.addEventListener("click", main);
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "none";
+        document.getElementById("db").style.display = "none";
     }
     ;
     let image;
@@ -128,6 +129,12 @@ var Finaly;
         document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
         document.getElementById("result").setAttribute("value", score.toString());
         document.getElementById("new").addEventListener("click", init);
+        document.getElementById("refresh").addEventListener("click", showScore);
+        //document.getElementById("db").style.display = "initial";
+    }
+    function showScore() {
+        document.getElementById("db").style.display = "initial";
+        document.getElementById("end").style.display = "none";
     }
     //Hintergrund
     function drawSky() {

@@ -14,7 +14,7 @@ var DatabaseClient;
         let inputs = document.getElementsByTagName("input");
         let query = "command=insert";
         query += "&name=" + inputs[0].value;
-        query += "&matrikel=" + document.getElementById("result").getAttribute("value");
+        query += "&lowScore=" + document.getElementById("result").getAttribute("value");
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
@@ -47,16 +47,9 @@ var DatabaseClient;
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
             let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
-        }
-    }
-    function handleSearchResponse(_event) {
-        let xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[1];
-            output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            for (let i = 0; i < responseAsJson.length; i++) {
+                console.log(responseAsJson[i].lowScore);
+            }
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));
