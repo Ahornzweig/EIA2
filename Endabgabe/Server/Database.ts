@@ -62,7 +62,7 @@ export function findAll(_callback: Function): void {
  
 }
 
-export function searchMatrikelnumber(_matNumber: number, _callback: Function): void {
+/*export function searchMatrikelnumber(_matNumber: number, _callback: Function): void {
     var cursor: Mongo.Cursor = students.find({matrikel: _matNumber});
     cursor.toArray(prepareAnswer);
 
@@ -72,4 +72,4 @@ export function searchMatrikelnumber(_matNumber: number, _callback: Function): v
         else
             _callback(JSON.stringify(studentArray));
     }
-}
+}*/

@@ -155,6 +155,7 @@ namespace Finaly {
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "initial";
         document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
+        document.getElementById("result").setAttribute("value", score.toString());
         document.getElementById("new").addEventListener("click", init);
     }
 
