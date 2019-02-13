@@ -9,6 +9,8 @@ namespace DatabaseClient {
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        let refreshButton1: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh1");
+        refreshButton1.addEventListener("click", refresh1);
     }
 
     function insert(_event: Event): void {
@@ -23,6 +25,10 @@ namespace DatabaseClient {
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
+    }
+    function refresh1(_event: Event): void {
+        let query: string = "command=refresh";
+        sendRequest(query, handleFindResponse1);
     }
     /*function search(_event: Event): void {
         let commandSearch: string = "command=search";
@@ -67,7 +73,7 @@ namespace DatabaseClient {
             let output: HTMLElement = document.getElementById("scores");
             let responseAsJson: GameData[] = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
-            output.innerHTML="";
+            output.innerHTML = "";
             for (let i: number = 0; i < responseAsJson.length; i++) {
                 output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }
@@ -75,6 +81,18 @@ namespace DatabaseClient {
     }
     
 
+    function handleFindResponse1(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output: HTMLElement = document.getElementById("scores1");
+            let responseAsJson: GameData[] = JSON.parse(xhr.response);
+            responseAsJson.sort(playerDataSort);
+            output.innerHTML = "";
+            for (let i: number = 0; i < responseAsJson.length; i++) {
+                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
+            }
+        }
+    }
 
 
     /*function handleSearchResponse(_event: ProgressEvent): void {

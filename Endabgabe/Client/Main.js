@@ -12,11 +12,18 @@ var Finaly;
         document.getElementById("div").style.display = "initial";
         let start = document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
+        document.getElementById("DB").style.display = "none";
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "none";
         document.getElementById("db").style.display = "none";
+        document.getElementById("refresh1").addEventListener("click", showScore1);
     }
     ;
+    function showScore1() {
+        document.getElementById("DB").style.display = "initial";
+        document.getElementById("div").style.display = "none";
+        document.getElementById("start").addEventListener("click", init);
+    }
     let image;
     let fps = 25;
     let allObjects = [];
@@ -109,7 +116,7 @@ var Finaly;
                     SB[i].draw();
                     for (let i2 = 0; i2 < children.length; i2++) {
                         if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
-                            children[i2].state = "up";
+                            children[i2].state = "hit";
                             score += Math.floor(children[i2].dy * children[i2].dx);
                             document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
                             document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();

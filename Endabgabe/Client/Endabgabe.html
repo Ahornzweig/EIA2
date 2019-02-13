@@ -28,7 +28,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 	<div id="div">
 		<h2>DER RODELHANG TERMINATOR</h2>
 		<button>Start</button>
-		<button id="score1">Low-Score list</button>
+		<button id="refresh1">Low-Score list</button>
 		<p id="regeln">
 			Regeln: Du hast 20 Schneebälle um soviele Kinder wie möglich zu
 			treffen. Am Ende kannst du dein <strong>LOW-SCORE</strong> in eine
@@ -36,7 +36,14 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 			Je schneller ein Kind ist, desto mehr punkte bekommst du.
 		</p>
 	</div>
-	
+	<div id="DB">
+	<fieldset id="output">
+		<legend> LOW-SCORE </legend>
+		<div id="scores1"> </div>
+	</fieldset>
+	<button id="start">zurück</button>
+	</div>
+
 	<!-- spiel -->
 	<canvas width=360 height=700></canvas>
 	<div id="hud">

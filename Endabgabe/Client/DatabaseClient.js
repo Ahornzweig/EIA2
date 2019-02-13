@@ -9,6 +9,8 @@ var DatabaseClient;
         let refreshButton = document.getElementById("refresh");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        let refreshButton1 = document.getElementById("refresh1");
+        refreshButton1.addEventListener("click", refresh1);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -21,6 +23,10 @@ var DatabaseClient;
     function refresh(_event) {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
+    }
+    function refresh1(_event) {
+        let query = "command=refresh";
+        sendRequest(query, handleFindResponse1);
     }
     /*function search(_event: Event): void {
         let commandSearch: string = "command=search";
@@ -58,6 +64,18 @@ var DatabaseClient;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementById("scores");
+            let responseAsJson = JSON.parse(xhr.response);
+            responseAsJson.sort(playerDataSort);
+            output.innerHTML = "";
+            for (let i = 0; i < responseAsJson.length; i++) {
+                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
+            }
+        }
+    }
+    function handleFindResponse1(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output = document.getElementById("scores1");
             let responseAsJson = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             output.innerHTML = "";
