@@ -57,7 +57,7 @@ namespace DatabaseClient {
         if (_a.lowScore > _b.lowScore) {
             returnNumber = 1;
         }
-        else if (_a.lowScore< _b.lowScore) {
+        else if (_a.lowScore < _b.lowScore) {
             returnNumber = -1;
         }
         else {
