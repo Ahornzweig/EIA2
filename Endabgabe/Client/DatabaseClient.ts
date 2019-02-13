@@ -47,15 +47,37 @@ namespace DatabaseClient {
         }
     }
 
+function playerDataSort(_a: GameData, _b: GameData): number {
+        let returnNumber: number;
+        if (_a.lowScore > _b.lowScore) {
+            returnNumber = -1;
+        }
+        else if (_a.lowScore < _b.lowScore) {
+            returnNumber = 1;
+        }
+        else {
+            returnNumber = 0;
+        }
+        return returnNumber;
+
+    }
+
     function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
+            let output: HTMLElement = document.getElementById("scores");
+            let scores: number[] = [];
             let responseAsJson: GameData[] = JSON.parse(xhr.response);
+            responseAsJson.sort(playerDataSort);
             for (let i: number = 0; i < responseAsJson.length; i++) {
-                console.log(responseAsJson[i].lowScore);
+                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>"; 
+                /* if (responseAsJson[i].score > maxNumber) {
+                     maxNumber = responseAsJson[i].score;
+                 } 
+                 scores.push(responseAsJson[i].score);*/
             }
+            console.log(Math.max(...scores));
+
         }
     }
 
