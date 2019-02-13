@@ -47,12 +47,12 @@ namespace DatabaseClient {
         }
     }
 
-function playerDataSort(_a: GameData, _b: GameData): number {
+    function playerDataSort(_a: GameData, _b: GameData): number {
         let returnNumber: number;
         if (_a.lowScore > _b.lowScore) {
             returnNumber = -1;
         }
-        else if (_a.lowScore < _b.lowScore) {
+        else if (_a.lowScore< _b.lowScore) {
             returnNumber = 1;
         }
         else {
@@ -70,7 +70,7 @@ function playerDataSort(_a: GameData, _b: GameData): number {
             let responseAsJson: GameData[] = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             for (let i: number = 0; i < responseAsJson.length; i++) {
-                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>"; 
+                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
                 /* if (responseAsJson[i].score > maxNumber) {
                      maxNumber = responseAsJson[i].score;
                  } 
