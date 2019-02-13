@@ -166,6 +166,7 @@ namespace Finaly {
     function showScore(): void {
         document.getElementById("db").style.display = "initial";
         document.getElementById("end").style.display = "none";
+        document.getElementById("back").addEventListener("click", end);
     }
 
     //Hintergrund

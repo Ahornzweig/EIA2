@@ -71,10 +71,6 @@ namespace DatabaseClient {
             responseAsJson.sort(playerDataSort);
             for (let i: number = 0; i < responseAsJson.length; i++) {
                 output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
-                /* if (responseAsJson[i].score > maxNumber) {
-                     maxNumber = responseAsJson[i].score;
-                 } 
-                 scores.push(responseAsJson[i].score);*/
             }
             console.log(Math.max(...scores));
 
