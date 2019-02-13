@@ -7,8 +7,10 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let refreshButton2: HTMLButtonElement = <HTMLButtonElement>document.getElementById("score1");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        refreshButton2.addEventListener("click", refresh);
     }
 
     function insert(_event: Event): void {
@@ -66,14 +68,11 @@ namespace DatabaseClient {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLElement = document.getElementById("scores");
-            let scores: number[] = [];
             let responseAsJson: GameData[] = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             for (let i: number = 0; i < responseAsJson.length; i++) {
                 output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }
-            console.log(Math.max(...scores));
-
         }
     }
 

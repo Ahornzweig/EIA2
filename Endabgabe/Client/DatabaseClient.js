@@ -7,8 +7,10 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
+        let refreshButton2 = document.getElementById("score1");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        refreshButton2.addEventListener("click", refresh);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -58,13 +60,11 @@ var DatabaseClient;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementById("scores");
-            let scores = [];
             let responseAsJson = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             for (let i = 0; i < responseAsJson.length; i++) {
                 output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }
-            console.log(Math.max(...scores));
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));

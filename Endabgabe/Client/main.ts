@@ -13,12 +13,19 @@ namespace Finaly {
         document.getElementById("div").style.display = "initial";
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
-
+        document.getElementById("score1").addEventListener("click", showScore1);
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "none";
         document.getElementById("db").style.display = "none";
+        document.getElementById("DB").style.display = "none";
 
     };
+
+    function showScore1(): void {
+        document.getElementById("DB").style.display = "initial";
+        document.getElementById("div").style.display = "none";
+        document.getElementById("start").addEventListener("click", init);
+    }
 
     export let crc2: CanvasRenderingContext2D;
     let image: ImageData;
@@ -153,6 +160,7 @@ namespace Finaly {
 
     function end(): void {
         document.getElementsByTagName("canvas")[0].style.display = "none";
+        document.getElementById("db").style.display = "none";
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "initial";
         document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
@@ -160,7 +168,7 @@ namespace Finaly {
         document.getElementById("new").addEventListener("click", init);
         document.getElementById("refresh").addEventListener("click", showScore);
         //document.getElementById("db").style.display = "initial";
-        
+
     }
 
     function showScore(): void {
