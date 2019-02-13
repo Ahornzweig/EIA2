@@ -12,18 +12,11 @@ var Finaly;
         document.getElementById("div").style.display = "initial";
         let start = document.getElementsByTagName("button")[0];
         start.addEventListener("click", main);
-        document.getElementById("score1").addEventListener("click", showScore1);
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "none";
         document.getElementById("db").style.display = "none";
-        document.getElementById("DB").style.display = "none";
     }
     ;
-    function showScore1() {
-        document.getElementById("DB").style.display = "initial";
-        document.getElementById("div").style.display = "none";
-        document.getElementById("start").addEventListener("click", init);
-    }
     let image;
     let fps = 25;
     let allObjects = [];
