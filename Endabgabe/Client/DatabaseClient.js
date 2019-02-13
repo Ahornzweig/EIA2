@@ -7,10 +7,8 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let refreshButton2 = document.getElementById("score1");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        refreshButton2.addEventListener("click", refresh2);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -23,10 +21,6 @@ var DatabaseClient;
     function refresh(_event) {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
-    }
-    function refresh2(_event) {
-        let query = "command=refresh";
-        sendRequest(query, handleFindResponse2);
     }
     /*function search(_event: Event): void {
         let commandSearch: string = "command=search";
@@ -64,30 +58,6 @@ var DatabaseClient;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementById("scores");
-            let responseAsJson = JSON.parse(xhr.response);
-            responseAsJson.sort(playerDataSort);
-            for (let i = 0; i < responseAsJson.length; i++) {
-                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
-            }
-        }
-    }
-    function playerDataSort2(_a, _b) {
-        let returnNumber;
-        if (_a.lowScore > _b.lowScore) {
-            returnNumber = 1;
-        }
-        else if (_a.lowScore < _b.lowScore) {
-            returnNumber = -1;
-        }
-        else {
-            returnNumber = 0;
-        }
-        return returnNumber;
-    }
-    function handleFindResponse2(_event) {
-        let xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementById("score2");
             let responseAsJson = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             for (let i = 0; i < responseAsJson.length; i++) {
