@@ -87,7 +87,7 @@ var DatabaseClient;
     function handleFindResponse2(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementById("scores");
+            let output = document.getElementById("score1");
             let responseAsJson = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             for (let i = 0; i < responseAsJson.length; i++) {
