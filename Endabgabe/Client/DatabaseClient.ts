@@ -10,7 +10,7 @@ namespace DatabaseClient {
         let refreshButton2: HTMLButtonElement = <HTMLButtonElement>document.getElementById("score1");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        refreshButton2.addEventListener("click", refresh);
+        refreshButton2.addEventListener("click", refresh2);
     }
 
     function insert(_event: Event): void {
@@ -26,7 +26,10 @@ namespace DatabaseClient {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
-
+    function refresh2(_event: Event): void {
+        let query: string = "command=refresh";
+        sendRequest(query, handleFindResponse2);
+    }
     /*function search(_event: Event): void {
         let commandSearch: string = "command=search";
         console.log("test1");
@@ -75,6 +78,34 @@ namespace DatabaseClient {
             }
         }
     }
+    
+    function playerDataSort2(_a: GameData, _b: GameData): number {
+        let returnNumber: number;
+        if (_a.lowScore > _b.lowScore) {
+            returnNumber = 1;
+        }
+        else if (_a.lowScore< _b.lowScore) {
+            returnNumber = -1;
+        }
+        else {
+            returnNumber = 0;
+        }
+        return returnNumber;
+
+    }
+
+    function handleFindResponse2(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output: HTMLElement = document.getElementById("scores");
+            let responseAsJson: GameData[] = JSON.parse(xhr.response);
+            responseAsJson.sort(playerDataSort);
+            for (let i: number = 0; i < responseAsJson.length; i++) {
+                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
+            }
+        }
+    }
+
 
     /*function handleSearchResponse(_event: ProgressEvent): void {
      let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
