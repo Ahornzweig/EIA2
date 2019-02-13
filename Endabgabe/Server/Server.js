@@ -23,11 +23,11 @@ function handleRequest(_request, _response) {
     var command = query["command"];
     switch (command) {
         case "insert":
-            let student = {
+            let player = {
                 name: query["name"],
                 lowScore: parseInt(query["lowScore"])
             };
-            Database.insert(student);
+            Database.insert(player);
             respond(_response, "storing data");
             break;
         case "refresh":

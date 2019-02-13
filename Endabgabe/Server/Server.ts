@@ -31,11 +31,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     switch (command) {
         case "insert":
-            let student: GameData = {
+            let player: GameData = {
                 name: query["name"],
                 lowScore: parseInt(query["lowScore"])
             };
-            Database.insert(student);
+            Database.insert(player);
             respond(_response, "storing data");
             break;
         case "refresh":
