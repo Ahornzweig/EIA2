@@ -25,7 +25,6 @@ function handleRequest(_request, _response) {
         case "insert":
             let student = {
                 name: query["name"],
-                firstname: query["firstname"],
                 matrikel: parseInt(query["matrikel"])
             };
             Database.insert(student);
@@ -34,10 +33,10 @@ function handleRequest(_request, _response) {
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search":
-            let martrikelNumber = parseInt(query["Matrikelnummer"]);
+        /*case "search":
+            let martrikelNumber: number = parseInt(query["Matrikelnummer"]);
             Database.searchMatrikelnumber(martrikelNumber, findCallback);
-            break;
+            break;*/
         default:
             respond(_response, "unknown command: " + command);
             break;

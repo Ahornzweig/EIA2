@@ -7,18 +7,15 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
     }
 
     function insert(_event: Event): void {
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=insert";
         query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        query += "&matrikel=" + document.getElementById("result");
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
@@ -28,13 +25,13 @@ namespace DatabaseClient {
         sendRequest(query, handleFindResponse);
     }
 
-    function search(_event: Event): void {
+    /*function search(_event: Event): void {
         let commandSearch: string = "command=search";
         console.log("test1");
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
         commandSearch += "&Matrikelnummer=" + input.value;
         sendRequest(commandSearch, handleSearchResponse);
-    }
+    }*/
 
     function sendRequest(_query: string, _callback: EventListener): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();

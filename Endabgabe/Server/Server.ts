@@ -33,7 +33,6 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "insert":
             let student: StudentData = {
                 name: query["name"],
-                firstname: query["firstname"],
                 matrikel: parseInt(query["matrikel"])
             };
             Database.insert(student);
@@ -42,10 +41,10 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search":
+        /*case "search":
             let martrikelNumber: number = parseInt(query["Matrikelnummer"]);
             Database.searchMatrikelnumber(martrikelNumber, findCallback);
-            break;
+            break;*/
         default:
             respond(_response, "unknown command: " + command);
             break;

@@ -7,17 +7,14 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
         let query = "command=insert";
         query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        query += "&matrikel=" + document.getElementById("result");
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
@@ -25,13 +22,13 @@ var DatabaseClient;
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
-    function search(_event) {
-        let commandSearch = "command=search";
+    /*function search(_event: Event): void {
+        let commandSearch: string = "command=search";
         console.log("test1");
-        let input = document.getElementById("matrikelnummer");
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
         commandSearch += "&Matrikelnummer=" + input.value;
         sendRequest(commandSearch, handleSearchResponse);
-    }
+    }*/
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
