@@ -60,6 +60,7 @@ var DatabaseClient;
             let output = document.getElementById("scores");
             let responseAsJson = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
+            output.innerHTML = "";
             for (let i = 0; i < responseAsJson.length; i++) {
                 output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }

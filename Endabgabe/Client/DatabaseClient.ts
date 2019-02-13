@@ -67,6 +67,7 @@ namespace DatabaseClient {
             let output: HTMLElement = document.getElementById("scores");
             let responseAsJson: GameData[] = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
+            output.innerHTML="";
             for (let i: number = 0; i < responseAsJson.length; i++) {
                 output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }
