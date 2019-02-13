@@ -5,11 +5,11 @@ Datum: 13.02.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace Finaly {
+namespace Finaly { 
 
     window.addEventListener("load", init);
 
-    let score: number = 0;
+    let scores: number = 0; 
 
     function init(): void {
         document.getElementById("div").style.display = "initial";
@@ -142,15 +142,15 @@ namespace Finaly {
                     for (let i2: number = 0; i2 < children.length; i2++) {
                         if (SB[i].hitDown(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
                             children[i2].state = "hit";
-                            score += Math.floor(children[i2].dy * children[i2].dx);
-                            document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
+                            scores += Math.floor(children[i2].dy * children[i2].dx);
+                            document.getElementById("score").innerHTML = "Curent Score: " + scores.toString();
                             document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
                         else if (SB[i].hitUp(children[i2].x, children[i2].y) == true && children[i2].state == "up") {
                             console.log("lul");
                             children[i2].state = "hit";
-                            score += Math.floor((children[i2].dy * children[i2].dx) / 2);
-                            document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
+                            scores += Math.floor((children[i2].dy * children[i2].dx) / 2);
+                            document.getElementById("score").innerHTML = "Curent Score: " + scores.toString();
                             document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
 
@@ -169,8 +169,8 @@ namespace Finaly {
         document.getElementById("db").style.display = "none";
         document.getElementById("hud").style.display = "none";
         document.getElementById("end").style.display = "initial";
-        document.getElementById("result").innerHTML = "Your Low-Score: " + score.toString();
-        document.getElementById("result").setAttribute("value", score.toString());
+        document.getElementById("result").innerHTML = "Your Low-Score: " + scores.toString();
+        document.getElementById("result").setAttribute("value", scores.toString());
         document.getElementById("new").addEventListener("click", reloade);
         document.getElementById("refresh").addEventListener("click", showScore2);
     }
