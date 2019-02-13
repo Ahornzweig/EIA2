@@ -97,7 +97,7 @@ namespace DatabaseClient {
     function handleFindResponse2(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLElement = document.getElementById("score1");
+            let output: HTMLElement = document.getElementById("score2");
             let responseAsJson: GameData[] = JSON.parse(xhr.response);
             responseAsJson.sort(playerDataSort);
             for (let i: number = 0; i < responseAsJson.length; i++) {
