@@ -44,10 +44,10 @@ var DatabaseClient;
     function playerDataSort(_a, _b) {
         let returnNumber;
         if (_a.lowScore > _b.lowScore) {
-            returnNumber = -1;
+            returnNumber = 1;
         }
         else if (_a.lowScore < _b.lowScore) {
-            returnNumber = 1;
+            returnNumber = -1;
         }
         else {
             returnNumber = 0;

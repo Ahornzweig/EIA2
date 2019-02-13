@@ -50,10 +50,10 @@ namespace DatabaseClient {
     function playerDataSort(_a: GameData, _b: GameData): number {
         let returnNumber: number;
         if (_a.lowScore > _b.lowScore) {
-            returnNumber = -1;
+            returnNumber = 1;
         }
         else if (_a.lowScore< _b.lowScore) {
-            returnNumber = 1;
+            returnNumber = -1;
         }
         else {
             returnNumber = 0;
