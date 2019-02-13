@@ -68,7 +68,7 @@ var DatabaseClient;
             responseAsJson.sort(playerDataSort);
             output.innerHTML = "";
             for (let i = 0; i < responseAsJson.length; i++) {
-                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
+                output.innerHTML += "<p>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }
         }
     }
@@ -80,7 +80,7 @@ var DatabaseClient;
             responseAsJson.sort(playerDataSort);
             output.innerHTML = "";
             for (let i = 0; i < responseAsJson.length; i++) {
-                output.innerHTML += "<h3>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
+                output.innerHTML += "<p>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
             }
         }
     }

@@ -38,6 +38,17 @@ input{
 	border: 1px solid black;
 }
 
+legend{
+	margin-top: 1.5em;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+fieldset{
+	border:none;
+}
+
 #regeln{
 	margin-top: 1.6em;
 	font-weight: normal;
@@ -60,6 +71,26 @@ input{
 }
 
 #end {
+	position: absolute;
+	left: 35%;
+	top:10%;
+	witdh: 20%;
+	padding: 1em 3em 2em 3em;
+	border: 2px solid #b30000;
+	border-radius: 4px;
+}
+
+#db{
+	position: absolute;
+	left: 35%;
+	top:10%;
+	witdh: 20%;
+	padding: 1em 3em 2em 3em;
+	border: 2px solid #b30000;
+	border-radius: 4px;
+}
+
+#DB{
 	position: absolute;
 	left: 35%;
 	top:10%;
