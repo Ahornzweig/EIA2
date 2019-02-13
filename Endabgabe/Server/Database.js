@@ -24,7 +24,7 @@ function handleConnect(_e, _db) {
     else {
         console.log("Connected to database!");
         db = _db.db(databaseName);
-        students = db.collection("students");
+        students = db.collection("RH");
     }
 }
 function insert(_doc) {
