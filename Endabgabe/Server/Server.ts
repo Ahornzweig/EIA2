@@ -31,7 +31,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     switch (command) {
         case "insert":
-            let student: StudentData = {
+            let student: GameData = {
                 name: query["name"],
                 lowScore: parseInt(query["lowScore"])
             };

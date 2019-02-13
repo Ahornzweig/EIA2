@@ -52,7 +52,7 @@ namespace DatabaseClient {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson: StudentData[] = JSON.parse(xhr.response);
+            let responseAsJson: GameData[] = JSON.parse(xhr.response);
             for (let i: number = 0; i < responseAsJson.length; i++) {
                 console.log(responseAsJson[i].lowScore);
             }
