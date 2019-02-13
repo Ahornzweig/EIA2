@@ -48,9 +48,20 @@ namespace Finaly {
             }
 
             if (this.state == "hit") {
-
-                this.x += this.dx;
-                this.y += this.dy;
+                if (this.y > crc2.canvas.height) {
+                    this.x = 360;
+                    this.y = Math.random() * 370 + 330;
+                    this.state = "down";
+                }
+                else if (this.x < 0) {
+                    this.x = 360;
+                    this.y = Math.random() * 370 + 330;
+                    this.state = "down";
+                }
+                else {
+                    this.x += this.dx;
+                    this.y += this.dy;
+                }
 
             }
         }

@@ -57,7 +57,7 @@ var Finaly;
                 i--;
             }
         }
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 10; i++) {
             let child = new Finaly.Children();
             child.x = 360;
             child.y = Math.random() * 370 + 330;
@@ -115,9 +115,16 @@ var Finaly;
                     SB[i].move();
                     SB[i].draw();
                     for (let i2 = 0; i2 < children.length; i2++) {
-                        if (SB[i].hit(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
+                        if (SB[i].hitDown(children[i2].x, children[i2].y) == true && children[i2].state == "down") {
                             children[i2].state = "hit";
                             score += Math.floor(children[i2].dy * children[i2].dx);
+                            document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
+                            document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
+                        }
+                        else if (SB[i].hitUp(children[i2].x, children[i2].y) == true && children[i2].state == "up") {
+                            console.log("lul");
+                            children[i2].state = "hit";
+                            score += Math.floor((children[i2].dy * children[i2].dx) / 2);
                             document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
                             document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
                         }
