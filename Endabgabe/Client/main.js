@@ -114,17 +114,17 @@ var Finaly;
                             children[i2].state = "hit";
                             score += Math.floor(children[i2].dy * children[i2].dx);
                             document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
-                            document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
+                            document.getElementById("throw").innerHTML = "SnowBalls you have thrown: " + SB.length.toString();
                         }
                         else if (SB[i].hitUp(children[i2].x, children[i2].y) == true && children[i2].state == "up") {
                             console.log("lul");
                             children[i2].state = "hit";
                             score += Math.floor((children[i2].dy * children[i2].dx) / 2);
                             document.getElementById("score").innerHTML = "Curent Score: " + score.toString();
-                            document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
+                            document.getElementById("throw").innerHTML = "SnowBalls you have thrown: " + SB.length.toString();
                         }
                         else {
-                            document.getElementById("throw").innerHTML = "SnowBalls you have throwen: " + SB.length.toString();
+                            document.getElementById("throw").innerHTML = "SnowBalls you have thrown: " + SB.length.toString();
                         }
                     }
                 }
