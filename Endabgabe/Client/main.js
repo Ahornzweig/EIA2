@@ -90,7 +90,7 @@ var Finaly;
             Finaly.crc2.putImageData(image, 0, 0);
         }
         if (SB.length > 19) {
-            window.setTimeout(end, 4000);
+            window.setTimeout(end, 3000);
         }
         for (let i = 0; i < allObjects.length; i++) {
             allObjects[i].move();
