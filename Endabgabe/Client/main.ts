@@ -71,7 +71,7 @@ namespace Finaly {
         for (let i: number = 0; i < 10; i++) {
             let child: Children = new Children();
             child.x = 360;
-            child.y = Math.random() * 370 + 330;
+            child.y = Math.random() * 300 + 330;
             child.dx = Math.random() * 3 - 5;
             child.dy = - child.dx;
             child.state = "down";

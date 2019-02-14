@@ -80,7 +80,7 @@ var DatabaseClient;
             responseAsJson.sort(playerDataSort);
             output.innerHTML = "";
             for (let i = 0; i < responseAsJson.length; i++) {
-                output.innerHTML += "<p>" + responseAsJson[i].name + " | Score:" + responseAsJson[i].lowScore + "<br>";
+                output.innerHTML += "<p>" + "Name: " + responseAsJson[i].name + "<br>" + "Score: " + responseAsJson[i].lowScore + "<br>";
             }
         }
     }

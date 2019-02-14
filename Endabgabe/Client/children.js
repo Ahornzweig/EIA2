@@ -44,12 +44,12 @@ var Finaly;
             if (this.state == "hit") {
                 if (this.y > Finaly.crc2.canvas.height) {
                     this.x = 360;
-                    this.y = Math.random() * 370 + 330;
+                    this.y = Math.random() * 300 + 330;
                     this.state = "down";
                 }
                 else if (this.x < 0) {
                     this.x = 360;
-                    this.y = Math.random() * 370 + 330;
+                    this.y = Math.random() * 300 + 330;
                     this.state = "down";
                 }
                 else {
